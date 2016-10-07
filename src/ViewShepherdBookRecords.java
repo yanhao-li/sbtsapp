@@ -48,7 +48,9 @@ try{
         
 	// save this list of books in the bean
         
-        }
+        } 
+}
+
 catch(Exception e){
     e.printStackTrace();
     bean.setError("Servlet Exception error" +e);
@@ -58,7 +60,5 @@ finally{
       dbi.close();//Close connection to database
 }
 }
-
-
 }//End of Class
  

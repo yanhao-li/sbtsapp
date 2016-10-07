@@ -1,3 +1,10 @@
+/*
+The purpose of this is to enable the functionalities of the shared bean for SBTS. It is an important file
+that holds the set, and get methods for the bean. Without it, the functionalities of the SBTS
+website would not be available.
+
+*/
+
 //local
 package SBTS;
 
@@ -21,30 +28,30 @@ public class Shared implements Serializable {
     private String commissionrate;   // commission rate if a salesman
     private String shepherd;         // if the employee is shepherd capable (Y/N)
     private String skill;         // employee's skill
-    private String [][] newContracts;
-    private String [][] selectedContract;
-    private String [][] selectedBook;
-    private String [][] selectedTask;
-    private String [][] shepherds;
-    private String [][] designers;
-    private String [][] editors;
+    private String [][] newContracts; //a matrix of a new contract
+    private String [][] selectedContract; //a matrix that holds the selected Contract that is displayed/edited 
+    private String [][] selectedBook; //A matrix of the selected book and its details
+    private String [][] selectedTask; //a matrix of the selected task
+    private String [][] shepherds;  //Employees of SBTS from line 28 - 31
+    private String [][] designers;  
+    private String [][] editors; 
     private String [][] admins;
-    private String [][] books;
-    private String [][] confirmbook;
+    private String [][] books; //Books that are currently in SBTS
+    private String [][] confirmbook; //Lines 40 - 42 are matrix variables used for confirmation
     private String [][] confirmshepherd;
     private String [][] confirmtask;
-    private String [][] shepherdcount;
-    private String [][] shepherdbooklist;
-     private String [][] techtasklist;
-    private String [][] taskdetails;
-    private String ChooseTaskStatus;
-    private String ContractID;
+    private String [][] shepherdcount; //Displays the number of shepherds.
+    private String [][] shepherdbooklist; //The list of books a shepherd is in charge of
+     private String [][] techtasklist; //List of tasks that a tech is responsible for
+    private String [][] taskdetails; //Details of a specific task
+    private String ChooseTaskStatus; //Choose the status of a task
+    private String ContractID; //Lines 48 - 53 are variables for IDs
     private String ShepherdID;
     private String TechID;
     private String TaskID;
     private String BookID;
     private String AuthorID;
-    private String authorlastname;
+    private String authorlastname; //Lines 54 - 55 are variables for an author's last name, and first name
     private String authorfirstname;
 
 
@@ -135,7 +142,7 @@ public class Shared implements Serializable {
           	this.ChooseTaskStatus = value;
         }
         
-		
+		//getError displays the error aquired from setError... (see lines 150 - 152, they relate)
 
         public String getError() {
         	return(this.error);

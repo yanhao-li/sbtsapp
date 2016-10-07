@@ -8,6 +8,8 @@ then the user will be immediately redirected to the login page for your web app.
    
 ******************************************************************************************/
 
+//Import statements are located on top, which is standard.
+
 package SBTS;
  
 import java.io.IOException;
@@ -23,8 +25,14 @@ import javax.servlet.http.HttpServletResponse;
 public class AppFilter implements Filter
 {
    //The path to access your files on eve
-   public static String contextPath = "maxapp"; // ********CHANGE THIS VALUE TO YOUR CONTEXT NAME********
+   public static String contextPath = "SBTS"; // ********MAKE SURE TO CHANGE THIS TO MAXAPP, WHICH IS OUR SERVER NAME*******
 
+
+   /* doFilter() is the main driver of this java program. 
+   It examines the request, and its parameters.
+   It then checks if the session already exists from where the request is coming from, it constinues doing what it's supposed to do.
+   Else, the user is redirected to the login page.
+   */
    public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException
    {
       HttpServletRequest request = (HttpServletRequest) req;
