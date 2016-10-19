@@ -5,7 +5,7 @@ ConfirmTech.java
 The purpose of this servlet is to process the confirm the tech
 
 
-   + This servlet is invoked by
+   + This servlet is invoked by 
    + This servlet dispatches to
 ******************************************************************************************/
 

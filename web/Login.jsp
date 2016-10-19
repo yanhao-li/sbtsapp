@@ -3,7 +3,7 @@
 <html>
 <head>
     <!-- The jsp:useBean action tag is used to locate or instantiate a bean class. If bean object of the Bean class is already created, it doesn't create the bean depending on the scope. But if object of bean is not created, it instantiates the bean. -->
-<jsp:useBean id="shared" scope="session" class="SBTS.Shared" />
+<jsp:useBean id="shared" scope="session" class="maxapp.Shared" />
      <!-- Insert SBTS Logo-->
     <h1 align = "center"><img  align = "center" src= "images/booklogo.png" alt = "Book Logo" style= "width: 270px; height: 150px"></h1>
 

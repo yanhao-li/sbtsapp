@@ -5,28 +5,28 @@ SelectTech.java
 The purpose of this servlet is to process the selected book from the list
 and generate a list of technicians and their task counts.
 
-   + This servlet is invoked by ??
-   + This servlet dispatches to ??
+   + This servlet is invoked by ViewTaskDetails.jsp
+   + This servlet dispatches to SelectTech.jsp
 
 ******************************************************************************************/
 
-package SBTS;
+package maxapp;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
 import javax.sql.*;
-import SBTS.DBI;
-import SBTS.Control;
-import SBTS.Shared;
+import maxapp.DBI;
+import maxapp.Control;
+import maxapp.Shared;
 
-public class SelectTech extends SBTS.Control{
+public class SelectTech extends maxapp.Control{
     protected DBI dbi;
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
     //Get the current HTTP session from Tomcat
     HttpSession session = request.getSession(true);
     //Gets the shared bean from session
-    SBTS.Shared bean = (SBTS.Shared)session.getAttribute("shared");
+    maxapp.Shared bean = (maxapp.Shared)session.getAttribute("shared");
     //get the taskstatus from request and the book ID
     String taskstatus = request.getParameter("Status");
     String setbookID = bean.getBookID();
@@ -56,11 +56,11 @@ public class SelectTech extends SBTS.Control{
     }
 
     //method to get all deisgner from the database
-    private void getDesigners(SBTS.Shared bean) throws ServletException, IOException{
+    private void getDesigners(maxapp.Shared bean) throws ServletException, IOException{
         String[][] designers;
-        SBTS.DBI dbi = null;
+        maxapp.DBI dbi = null;
 try{
-    dbi = new SBTS.DBI();
+    dbi = new maxapp.DBI();
         // Check if there is a database connection to Tomcat
         if(dbi.connect()){
         // if connected, get the designers
@@ -80,11 +80,11 @@ finally{
 }
 
 //Method to
-private void getEditors(SBTS.Shared bean) throws ServletException, IOException{
+private void getEditors(maxapp.Shared bean) throws ServletException, IOException{
         String[][] editors;
-        SBTS.DBI dbi = null;
+        maxapp.DBI dbi = null;
 try{
-    dbi = new SBTS.DBI();
+    dbi = new maxapp.DBI();
         //Check if there is a database connection to Tomcat
         if(dbi.connect()){
         //if yes, get the editors from database
@@ -104,11 +104,11 @@ finally{
 }
 
 //Method
-private void getAdmins(SBTS.Shared bean) throws ServletException, IOException{
+private void getAdmins(maxapp.Shared bean) throws ServletException, IOException{
         String[][] admins;
-        SBTS.DBI dbi = null;
+        maxapp.DBI dbi = null;
 try{
-    dbi = new SBTS.DBI();
+    dbi = new maxapp.DBI();
         //Check if there is a database connection to Tomcat
         if(dbi.connect()){
         //if connected, get the admins from database
