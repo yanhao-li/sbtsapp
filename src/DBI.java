@@ -18,7 +18,7 @@ import java.util.Vector;
 
 public class DBI{
     Connection conn = null;
-   /* The arrays below hold string values that are used by the getString method to retirve information from ResultSet objects */    
+   /* The arrays below hold string values that are used by the getString method to retirve information from ResultSet objects */
     String [] emp = {"EmpID", "EmpLastName", "EmpFirstName", "emailAddress", "JobTitle", "SocSec", "DateOfBirth", "Department", "Manager", "CommissionRate", "Shepherd", "Skill", "Password"};
     String [] author = {"AuthorID, AuthorLastName, AuthorFirstName, PenName, emailAddress, Author_Lead_Status, SalesmanID"};
     String [] book = {"BookID", "Title", "StartDate", "BookFormat"};
@@ -30,7 +30,7 @@ public class DBI{
     String [] Task = {"TaskID", "StartDate", "EndDate", "BookID","TaskType", "TaskNotes", "TaskStatus", "TechnicianID", "EmpFirstName", "EmpLastName"};
     String [] selecttask = {"TaskID","Title", "TaskType", "TaskStatus", "TaskNotes", "StartDate", "FileName"};
     public void DBI() throws NamingException, SQLException{}
-    
+
     public boolean connect() throws NamingException, SQLException{
       //Connect to the pinnacle database
       //Using the Tomcat Server.xml Context to locate the data
@@ -49,28 +49,28 @@ public class DBI{
       }
       return false;
    }// end of connect method
-   
-   // Turn on/off autocommit 
+
+   // Turn on/off autocommit
    public boolean autocommit(boolean tf) throws SQLException
-   {     
+   {
       if(conn != null)
    	{	conn.setAutoCommit(tf); // true =autocommit on, false = off
    		return true;
    	}
    	else return false;
    } // end autocommit
-   
-   // commit or rollback this transaction 
+
+   // commit or rollback this transaction
    public boolean commitTrans() throws SQLException
    {
       if(conn != null)
-      {  
+      {
          conn.commit();
    		return true; // committ succeded
    	}
    	else return false;
    } // end commit
-   
+
    public boolean rollbackTrans() throws SQLException
    {
       if(conn != null)
@@ -80,7 +80,7 @@ public class DBI{
    	}
    	else return false;
    } // end rollback
-   
+
    public void close()
    {
       // give the connection back to Tomcat pool
@@ -88,32 +88,32 @@ public class DBI{
       {
          if(conn != null)
             conn.close();
-      } 
+      }
       catch (Exception ex)
       {
          ex.printStackTrace();
       }
    }//end of close method
-   
+
 //Build a jdbc statement shell for an SQL query string using the conn connection
    public ResultSet execQuery(String query) throws SQLException{
     //Execute the query and retreive the result from the database
     Statement stmt = conn.createStatement();
     ResultSet rst = stmt.executeQuery(query);
-    return rst;  
+    return rst;
    }
-   
+
    //Method to check the database and confirm login information
    public boolean checkEmpLogin(String email, String password) throws SQLException{
     // Resultset is a datatype that allows  to handle a range of data (grid). This  datatype is part of java.sql
     ResultSet rst = this.execQuery("Select EmpID FROM Employees WHERE emailAddress ='"+email+"' && Password = '"+password+"'");
-// Go to first row of the ResultSet; if there are no rows, userid and password do not match the database    
+// Go to first row of the ResultSet; if there are no rows, userid and password do not match the database
     boolean result = (rst.first());
-// if the record exists, the userid and password match, so return true, else return false 
+// if the record exists, the userid and password match, so return true, else return false
     return result;
    }//End of method
-   
- //Method to get the information of the employee who logs in  
+
+ //Method to get the information of the employee who logs in
     public String[] getEmpInfo(String email) throws SQLException{
     // get employee information
     String[] result = new String[13];
@@ -122,12 +122,12 @@ public class DBI{
       for (int i=0; i<13; i++) {
         result[i] = rst.getString(emp[i]); // result array is employee fields for this user
       }
-    } 
-    return result; 
+    }
+    return result;
   }//end of getEmpInfo method
-   
-//Method to retrieve a list of the contracts that need a book record   
-   public String[][] getNewContracts() throws SQLException{ 
+
+//Method to retrieve a list of the contracts that need a book record
+   public String[][] getNewContracts() throws SQLException{
     ResultSet rst = this.execQuery("SELECT c.ContractID, c.AuthorID, a.AuthorFirstName, a.AuthorLastName, c.EmpID, e.EmpFirstName, e.EmpLastName, c.InitialTitle, c.ContractStatus from Contract c, Author a, Employees e WHERE c.AuthorID = a.AuthorID && c.EmpID = e.EmpID && c.ContractStatus != 'Complete'");
     int columns = 9;
     int records = RecordNum(rst);
@@ -147,9 +147,9 @@ public class DBI{
     }
     return result;
    }
- 
-//Method to get the information of the selected contract   
-      public String[][] getSelectedContract(String conid) throws SQLException{ 
+
+//Method to get the information of the selected contract
+      public String[][] getSelectedContract(String conid) throws SQLException{
     ResultSet rst = this.execQuery("SELECT c.ContractID, c.AuthorID, c.EmpID, a.AuthorFirstName, a.AuthorLastName, e.EmpFirstName, e.EmpLastName, c.InitialTitle, c.PricePublish, c.RoyaltyRate, c.BookDoctor, c.PromotionWeeks, c.DateContract, c.ContractStatus from Contract c, Author a, Employees e WHERE c.ContractID = '"+conid+"' && c.EmpID = e.EmpID && c.AuthorID = a.AuthorID");
     int columns = 14;
     int records = 1;
@@ -169,9 +169,9 @@ public class DBI{
     }
     return result;
    }
-   
-    //Method to get the information of the selected book   
-    public String[][] getSelectedBook(String bookid) throws SQLException{ 
+
+    //Method to get the information of the selected book
+    public String[][] getSelectedBook(String bookid) throws SQLException{
     ResultSet rst = this.execQuery("SELECT BookID, Title, StartDate, ISBN, BookFormat From Book WHERE BookID = '"+bookid+"'");
     int columns = 5;
     int records = RecordNum(rst);
@@ -192,8 +192,8 @@ public class DBI{
     return result;
    }
 
-    //Method to get the details of every task assigned to a book   
-    public String[][] getTaskDetails(String bookid) throws SQLException{ 
+    //Method to get the details of every task assigned to a book
+    public String[][] getTaskDetails(String bookid) throws SQLException{
     ResultSet rst = this.execQuery("SELECT t.TaskID, t.StartDate, t.EndDate, t.BookID, t.TaskType, t.TaskNotes, t.TaskStatus, t.TechnicianID, e.EmpFirstName, e.EmpLastName From Task t, Employees e WHERE BookID = '"+bookid+"' && t.TechnicianID = e.EmpID");
     int columns = 10;
     int records = RecordNum(rst);
@@ -213,9 +213,9 @@ public class DBI{
     }
     return result;
    }
-   
-    //Method to get the list and book count of the shepherds    
-    public String[][] getShepherds() throws SQLException{ 
+
+    //Method to get the list and book count of the shepherds
+    public String[][] getShepherds() throws SQLException{
     ResultSet rst = this.execQuery("SELECT e.EmpID, e.EmpFirstName, e.EmpLastName, count(b.ShepherdID) From Employees e Left Join Book b ON b.ShepherdID = e.EmpID Where e.Shepherd = 'Yes' OR b.BookStatus != 'Published' Group by b.ShepherdID order by e.EmpID asc");
     int columns = 4;
     int records = RecordNum(rst);
@@ -235,9 +235,9 @@ public class DBI{
     }
     return result;
    }
-   
+
    //Method to get the list of designers
-    public String[][] getDesigners() throws SQLException{ 
+    public String[][] getDesigners() throws SQLException{
     ResultSet rst = this.execQuery("SELECT e.EmpID, e.EmpFirstName, e.EmpLastName, count(t.TaskID) From Employees e Left Join Task t ON t.TechnicianID = e.EmpID Where (e.Skill = 'Designer' && t.TaskStatus NOT LIKE '%Finished%') OR (e.Skill ='Designer') Group by t.TechnicianID order by e.EmpID asc");
     int columns = 4;
     int records = RecordNum(rst);
@@ -257,9 +257,9 @@ public class DBI{
     }
     return result;
    }
-   
+
       //Method to get the list of editors
-    public String[][] getEditors() throws SQLException{ 
+    public String[][] getEditors() throws SQLException{
     ResultSet rst = this.execQuery("SELECT e.EmpID, e.EmpFirstName, e.EmpLastName, count(t.TaskID) From Employees e Left Join Task t ON t.TechnicianID = e.EmpID Where (e.Skill = 'Editor' && t.TaskStatus NOT LIKE '%Finished%') OR (e.Skill ='Editor') Group by t.TechnicianID order by e.EmpID asc");
     int columns = 4;
     int records = RecordNum(rst);
@@ -279,9 +279,9 @@ public class DBI{
     }
     return result;
    }
-   
+
     //Method to get the list of admins
-    public String[][] getAdmins() throws SQLException{ 
+    public String[][] getAdmins() throws SQLException{
     ResultSet rst = this.execQuery("SELECT e.EmpID, e.EmpFirstName, e.EmpLastName, count(t.TaskID) From Employees e Left Join Task t ON t.TechnicianID = e.EmpID Where (e.Skill = 'Admin' && t.TaskStatus NOT LIKE '%Finished%') OR (e.Skill ='Admin') Group by t.TechnicianID order by e.EmpID asc");
     int columns = 4;
     int records = RecordNum(rst);
@@ -301,9 +301,9 @@ public class DBI{
     }
     return result;
    }
-   
-    //Method to get the list of books that still need a shepherd  
-    public String[][] getBooks() throws SQLException{ 
+
+    //Method to get the list of books that still need a shepherd
+    public String[][] getBooks() throws SQLException{
     ResultSet rst = this.execQuery("SELECT BookID, Title, StartDate, BookFormat From Book WHERE BookStatus != 'Published' && ShepherdID = 0");
     int columns = 4;
     int records = RecordNum(rst);
@@ -323,9 +323,9 @@ public class DBI{
     }
     return result;
    }
-    
-    //Method to get information of the book that was just created   
-    public String[][] getConfirmBook() throws SQLException{ 
+
+    //Method to get information of the book that was just created
+    public String[][] getConfirmBook() throws SQLException{
     ResultSet rst = this.execQuery("SELECT BookID, Title, StartDate From Book WHERE BookID = (SELECT MAX(LAST_INSERT_ID(BookID)) From Book)");
     int columns = 3;
     int records = RecordNum(rst);
@@ -345,9 +345,9 @@ public class DBI{
     }
     return result;
    }
-   
+
     //Method to get list of books that belong to this shepherd, and Book Status is not Task Assigned or Published
-    public String[][] getShepherdBookList(int empid) throws SQLException{ 
+    public String[][] getShepherdBookList(int empid) throws SQLException{
     ResultSet rst = this.execQuery();
     int columns = 4;
     int records = RecordNum(rst);
@@ -367,24 +367,24 @@ public class DBI{
         }
     }
     // return book list
-        
+
     }
-        
-        
+
+
             //Method to get list of tasks that belong to a tech
-    public String[][] getTechTaskList(int empid) throws SQLException{ 
-   
+    public String[][] getTechTaskList(int empid) throws SQLException{
+
         }
-        
-        
+
+
     //Method to get a selected task
-    public String[][] getSelectedTask(String taskid) throws SQLException{ 
-    
+    public String[][] getSelectedTask(String taskid) throws SQLException{
+
         }
-   
+
 
     //Method to get information of a shepherd that was just assigned
-    public String[][] getConfirmShepherd(String shepherdid) throws SQLException{ 
+    public String[][] getConfirmShepherd(String shepherdid) throws SQLException{
     ResultSet rst = this.execQuery("SELECT e.EmpID, e.EmpFirstName, e.EmpLastName From Employees e Where e.EmpID = '"+shepherdid+"'");
     int columns = 3;
     int records = RecordNum(rst);
@@ -404,9 +404,9 @@ public class DBI{
     }
     return result;
    }
-    
+
     //Method to get the information of the task that was just created
-    public String[][] getConfirmTask() throws SQLException{ 
+    public String[][] getConfirmTask() throws SQLException{
     ResultSet rst = this.execQuery("SELECT t.TaskID, t.StartDate, t.EndDate, t.BookID, t.TaskType, t.TaskNotes, t.TaskStatus, t.TechnicianID, e.EmpFirstName, e.EmpLastName From Task t, Employees e WHERE TaskID = (SELECT MAX(LAST_INSERT_ID(TaskID)) FROM Task) && t.TechnicianID = e.EmpID");
     int columns = 10;
     int records = RecordNum(rst);
@@ -426,99 +426,99 @@ public class DBI{
     }
     return result;
    }
-     
-    //Method to create a new book record   
-    public void CreateBook(String title, String date, String bookformat) throws SQLException{ 
+
+    //Method to create a new book record
+    public void CreateBook(String title, String date, String bookformat) throws SQLException{
      Statement stmt = conn.createStatement();
     String rst = "INSERT INTO Book(Title, StartDate, BookStatus, BookFormat) VALUES('"+title+"', '"+date+"', 'New', '"+bookformat+"');";
     stmt.executeUpdate(rst);
    }
-    
-    //Method to assign a shepherd to a book 
-    public void AssignShepherd(String shepherdID, String bookID) throws SQLException{ 
+
+    //Method to assign a shepherd to a book
+    public void AssignShepherd(String shepherdID, String bookID) throws SQLException{
      Statement stmt = conn.createStatement();
     String rst = "UPDATE Book SET ShepherdID = '"+shepherdID+"' WHERE BookID = '"+bookID+"';";
     stmt.executeUpdate(rst);
    }
-    
+
     //Method to insert a newly created book to a selected contract
-    public void InsertBook(String conID) throws SQLException{ 
+    public void InsertBook(String conID) throws SQLException{
      Statement stmt = conn.createStatement();
     String rst = "UPDATE Contract SET BookID = (SELECT MAX(LAST_INSERT_ID(BookID)) FROM Book) WHERE ContractID = '"+conID+"';";
     stmt.executeUpdate(rst);
-   } 
-    
+   }
+
     //Method to create a new record in Book-Author table in database
-    public void BookAuthor(String conid) throws SQLException{ 
+    public void BookAuthor(String conid) throws SQLException{
      Statement stmt = conn.createStatement();
     String rst = "INSERT INTO Book_Author(BookID, AuthorID, ContractID) Values((Select Max(LAST_INSERT_ID(BookID)) from Book), (Select AuthorID From Contract where ContractID = '"+conid+"'), '"+conid+"');";
     stmt.executeUpdate(rst);
-   }  
-    
+   }
+
     //Method to change the status of a contract when a book record is created
-    public void ChangeContractStatus(String conID) throws SQLException{ 
+    public void ChangeContractStatus(String conID) throws SQLException{
      Statement stmt = conn.createStatement();
     String rst = "UPDATE Contract SET ContractStatus = 'Complete' WHERE ContractID = '"+conID+"';";
     stmt.executeUpdate(rst);
-   }  
-   
+   }
+
     //Method to change the status of a book when a shepherd is assigned to it
-    public void ChangeBookStatus(String bookID) throws SQLException{ 
+    public void ChangeBookStatus(String bookID) throws SQLException{
      Statement stmt = conn.createStatement();
     String rst = "UPDATE Book SET BookStatus = 'Shepherd Assigned' WHERE BookID = '"+bookID+"';";
     stmt.executeUpdate(rst);
-   }  
-   
+   }
+
     //Method to create a new task
-    public void AssignTask(String bookid, String tasktype, String taskstatus, String empid) throws SQLException{ 
+    public void AssignTask(String bookid, String tasktype, String taskstatus, String empid) throws SQLException{
      Statement stmt = conn.createStatement();
     String rst = "INSERT INTO Task(StartDate, BookID, TaskType, TaskStatus, TechnicianID) VALUES(NOW(), '"+bookid+"', '"+tasktype+"', '"+taskstatus+"', '"+empid+"');";
     stmt.executeUpdate(rst);
    }
-   
+
     //Method to change the status of a book when a task is assigned
-    public void TaskAssigned(String bookid) throws SQLException{ 
+    public void TaskAssigned(String bookid) throws SQLException{
      Statement stmt = conn.createStatement();
     String rst = "UPDATE Book SET BookStatus = 'Task Assigned' WHERE BookID = '"+bookid+"';";
-    stmt.executeUpdate(rst); 
+    stmt.executeUpdate(rst);
    }
-   
+
     //Method to change the status of a book when a shepherd gives it up
-    public void EscalateBook(String bookID) throws SQLException{ 
+    public void EscalateBook(String bookID) throws SQLException{
      Statement stmt = conn.createStatement();
     String rst = "UPDATE Book SET BookStatus = 'Escalated' WHERE BookID = '"+bookID+"';";
     stmt.executeUpdate(rst);
-   }  
-   
+   }
+
     //Method to remove the id of the shepherd from a book when it is given up
-    public void SendBookBack(String bookID) throws SQLException{ 
+    public void SendBookBack(String bookID) throws SQLException{
      Statement stmt = conn.createStatement();
     String rst = "UPDATE Book SET ShepherdID = 0 WHERE BookID = '"+bookID+"';";
     stmt.executeUpdate(rst);
    }
-   
+
        //Method to change the status of a book when a task is complete
-    public void BookTaskComplete(String taskid, String filename) throws SQLException{ 
-    
+    public void BookTaskComplete(String taskid, String filename) throws SQLException{
+
    }
-   
-        
+
+
           //Method to change the status of a book when a task is complete
-    public void BookTaskProblem(String taskid, String filename) throws SQLException{ 
-      
+    public void BookTaskProblem(String taskid, String filename) throws SQLException{
+
    }
-   
+
           //Method to change the status of a task
-     public void TaskChangeStatus(String taskid, String taskStatus) throws SQLException{ 
-    
+     public void TaskChangeStatus(String taskid, String taskStatus) throws SQLException{
+
    }
-   
-   
+
+
             //Method to edit the notes of a task
-    public void EditTask(String taskid, String tasknotes) throws SQLException{ 
-    
+    public void EditTask(String taskid, String tasknotes) throws SQLException{
+
    }
-   
+
    //Method gets the number of records from query
    public int RecordNum(ResultSet rst) throws SQLException{
     int counter = 0;
@@ -530,5 +530,5 @@ public class DBI{
       }
       return counter;
    }//End of method
-   
+
 }//End of Class

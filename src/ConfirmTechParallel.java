@@ -2,29 +2,29 @@
 
 ConfirmTechParallel.java
 
-The purpose of
+The purpose of this java file is to process the situation that the user try to assign multiple tasks to a tech.
 
-   + This servlet is invoked by
-   + This servlet dispatches to
+   + This servlet is invoked by SelectTechParallel.jsp
+   + This servlet dispatches to ViewTaskDetailsParallel.java
 
 ******************************************************************************************/
 
-package SBTS;
+package maxapp;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
 import javax.sql.*;
-import SBTS.DBI;
-import SBTS.Control;
-import SBTS.Shared;
+import maxapp.DBI;
+import maxapp.Control;
+import maxapp.Shared;
 
-public class ConfirmTechParallel extends SBTS.Control{
+public class ConfirmTechParallel extends maxapp.Control{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
     //Get the current HTTP session from Tomcat
     HttpSession session = request.getSession(true);
     //Gets the bean from session and retrieves shared data
-    SBTS.Shared bean = (SBTS.Shared)session.getAttribute("shared");
+    maxapp.Shared bean = (maxapp.Shared)session.getAttribute("shared");
       //get all roles from bean
      String [][] designers = bean.getDesigners();
      String [][] editors = bean.getEditors();
@@ -70,10 +70,10 @@ public class ConfirmTechParallel extends SBTS.Control{
     }
 
    //Method to assign task to a selected tech
-   private void AssignTask(SBTS.Shared bean, String BookID, String TaskType, String TaskStatus, String TechID) throws ServletException, IOException{
-        SBTS.DBI dbi = null;
+   private void AssignTask(maxapp.Shared bean, String BookID, String TaskType, String TaskStatus, String TechID) throws ServletException, IOException{
+        maxapp.DBI dbi = null;
 try{
-    dbi = new SBTS.DBI();
+    dbi = new maxapp.DBI();
         //Check if there is a database connection to Tomcat
         if(dbi.connect()){
 	//link the tech with the task in database
@@ -92,10 +92,10 @@ finally{
 }
 
   //Method to
-private void TaskAssigned(SBTS.Shared bean, String BookID) throws ServletException, IOException{
-        SBTS.DBI dbi = null;
+private void TaskAssigned(maxapp.Shared bean, String BookID) throws ServletException, IOException{
+        maxapp.DBI dbi = null;
 try{
-    dbi = new SBTS.DBI();
+    dbi = new maxapp.DBI();
         //Check if there is a database connection to Tomcat
         if(dbi.connect()){
 	//

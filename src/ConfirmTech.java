@@ -2,29 +2,29 @@
 
 ConfirmTech.java
 
-The purpose of this servlet is to process the confirm the tech
+The purpose of this servlet is to show the confirmation page of Task just assigned
 
 
-   + This servlet is invoked by 
-   + This servlet dispatches to
+   + This servlet is invoked by SelectTech.jsp
+   + This servlet dispatches to ConfirmTech.jsp
 ******************************************************************************************/
 
-package SBTS;
+package maxapp;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
 import javax.sql.*;
-import SBTS.DBI;
-import SBTS.Control;
-import SBTS.Shared;
+import maxapp.DBI;
+import maxapp.Control;
+import maxapp.Shared;
 
-public class ConfirmTech extends SBTS.Control{
+public class ConfirmTech extends maxapp.Control{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
     //Get the current HTTP session from Tomcat
     HttpSession session = request.getSession(true);
     //Gets the shared bean from session
-    SBTS.Shared bean = (SBTS.Shared)session.getAttribute("shared");
+    maxapp.Shared bean = (maxapp.Shared)session.getAttribute("shared");
      //Get the roles from bean
      String [][] designers = bean.getDesigners();
      String [][] editors = bean.getEditors();
@@ -78,10 +78,10 @@ public class ConfirmTech extends SBTS.Control{
     }
 
    //Method AssignTask
-private void AssignTask(SBTS.Shared bean, String BookID, String TaskType, String TaskStatus, String TechID) throws ServletException, IOException{
-        SBTS.DBI dbi = null;
+private void AssignTask(maxapp.Shared bean, String BookID, String TaskType, String TaskStatus, String TechID) throws ServletException, IOException{
+        maxapp.DBI dbi = null;
 try{
-    dbi = new SBTS.DBI();
+    dbi = new maxapp.DBI();
         //Check if there is a database connection to Tomcat
         if(dbi.connect()){
         //if connection exist, Assign the task to the select tech
@@ -100,10 +100,10 @@ finally{
 }
 
     //Method to change the status of book
-private void TaskAssigned(SBTS.Shared bean, String BookID) throws ServletException, IOException{
-        SBTS.DBI dbi = null;
+private void TaskAssigned(maxapp.Shared bean, String BookID) throws ServletException, IOException{
+        maxapp.DBI dbi = null;
 try{
-    dbi = new SBTS.DBI();
+    dbi = new maxapp.DBI();
         //Check if there is a database connection to Tomcat
         if(dbi.connect()){
 	//if yes, set the book status to "Task Assigned"
@@ -121,12 +121,12 @@ finally{
 }
 }
 
-    //Method to
-private void getConfirmTask(SBTS.Shared bean) throws ServletException, IOException{
+    //Method to get the information of the task that was just created
+private void getConfirmTask(maxapp.Shared bean) throws ServletException, IOException{
         String[][] confirmtask;
-        SBTS.DBI dbi = null;
+        maxapp.DBI dbi = null;
 try{
-    dbi = new SBTS.DBI();
+    dbi = new maxapp.DBI();
         //Check if there is a database connection to Tomcat
         if(dbi.connect()){
         //if yes, get the array of confirmtask, and pass it to the confirmtask variable

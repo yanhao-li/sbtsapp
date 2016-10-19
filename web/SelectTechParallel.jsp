@@ -1,10 +1,10 @@
-<!-- ??  dispatches to this jsp -->
-<!-- This file -->
+<!-- SelectTech.java  dispatches to this jsp -->
+<!-- This file used in the case when shepherd need to assign multiple task once, same to SelectTech.jsp -->
 <!DOCTYPE HTML>
 <html>
 <head>
-<jsp:useBean id="shared" scope="session" class="SBTS.Shared" />
-     <!-- Insert SBTS Logo-->
+<jsp:useBean id="shared" scope="session" class="maxapp.Shared" />
+     <!-- Insert maxapp Logo-->
     <h1 align = "center"><img  align = "center" src= "images/booklogo.png" alt = "Book Logo" style= "width: 270px; height: 150px"></h1>
 </head>
 <body bgcolor = "#00BFFF">
