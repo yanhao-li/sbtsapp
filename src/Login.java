@@ -13,7 +13,7 @@ javax.servlet :  Defines an object that receives requests from the client and se
                      Defines a set of methods that a servlet uses to communicate with its servlet container, for example,
                      to get the MIME type of a file, dispatch requests, or write to a log file
                      Defines an object to provide client request information to a servlet.
-                     Def	ines an object to assist a servlet in sending a response to the client
+                     Defines an object to assist a servlet in sending a response to the client
 
 
 javax.servlet.http: Provides an abstract class to be subclassed to create an HTTP servlet suitable for a Web site.
@@ -27,17 +27,17 @@ javax.servlet.http: Provides an abstract class to be subclassed to create an HTT
 
 *****************************************************************************/
 
-package SBTS;
+package maxapp;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
 import javax.sql.*;
-import SBTS.DBI;
-import SBTS.Control;
-import SBTS.Shared;
+import maxapp.DBI;
+import maxapp.Control;
+import maxapp.Shared;
 
-public class Login extends SBTS.Control{
+public class Login extends maxapp.Control{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
     //Get the email and password that was inputted by the user
     String emailnew = request.getParameter("Email");
@@ -45,31 +45,31 @@ public class Login extends SBTS.Control{
     String password = request.getParameter("Password");
     //Get the current HTTP session from Tomcat
     HttpSession session = request.getSession(true);
-    //Gets the bean from session and retrieves shared data 
-    SBTS.Shared bean = (SBTS.Shared)session.getAttribute("shared");
-    
+    //Gets the bean from session and retrieves shared data
+    maxapp.Shared bean = (maxapp.Shared)session.getAttribute("shared");
+
     //Check if the entered information is in the database
     boolean confirm = this.login(email, password, bean);
     //If it is a match, go to the main page
     if(confirm){
         bean.setMessage("");
-        
+
         gotoPage("/MainPage.jsp", request, response);
     }
     //If there is no match, go back to login page
     else
-    {   
+    {
      //   bean.setError("Invalid email or password");
         gotoPage("/Login.jsp", request, response);
     }
 }
 
 //Method to enter the information to check for match
-private boolean login(String email, String password, SBTS.Shared bean){
+private boolean login(String email, String password, maxapp.Shared bean){
 
     boolean check = false;
         //DBI object to access database
-        SBTS.DBI dbi = new SBTS.DBI();
+        maxapp.DBI dbi = new maxapp.DBI();
     try{
 
         //Check if there is a database connection to Tomcat
@@ -89,18 +89,18 @@ private boolean login(String email, String password, SBTS.Shared bean){
                 bean.setCommissionRate(empinfo[9]);
                 bean.setShepherd(empinfo[10]);
                 bean.setSkill(empinfo[11]);
-                
+
             }
-        else
-        {
-            bean.setError("The email address or password does not match");
+            else
+            {
+                bean.setError("The email address or password does not match");
+                check = false;
+            }
+        }
+        else{
+            bean.setError("Could not connect to database");
             check = false;
         }
-    }
-    else{
-        bean.setError("Could not connect to database");
-        check = false;
-    }    
 }
 
 catch(Exception e){

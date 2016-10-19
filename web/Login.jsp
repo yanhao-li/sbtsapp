@@ -2,19 +2,21 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<jsp:useBean id="shared" scope="session" class="SBTS.Shared" /> 
+    <!-- The jsp:useBean action tag is used to locate or instantiate a bean class. If bean object of the Bean class is already created, it doesn't create the bean depending on the scope. But if object of bean is not created, it instantiates the bean. -->
+<jsp:useBean id="shared" scope="session" class="SBTS.Shared" />
      <!-- Insert SBTS Logo-->
-    <h1 align = "center"><img  align = "center" src= "images/booklogo.png" alt = "Book Logo" style= "width: 270px; height: 150px"></h1> 
+    <h1 align = "center"><img  align = "center" src= "images/booklogo.png" alt = "Book Logo" style= "width: 270px; height: 150px"></h1>
 
 <!-- Javascript form to check for invalid characters-->
-<script> 
+<script>
+    //create a function to validate the username and password, avoid the injected script.
     function ValidateForm(form) {
-    
-    //Get the values from the user input
+
+    //Get the values from the user input, login is the name of the form
     var Email = document.login.email.value;
     var Password = document.login.password.value;
-    
-    //Checks that alphanumerics are entered for email and password 
+
+    //Checks that alphanumerics are entered for email and password
     var enumeric = Email.search(/\w+/);
     var pnumeric = Password.search(/\w/);
     if (enumeric != 0) {
@@ -22,7 +24,7 @@
         document.login.email.focus();
         return false;
     }
-    
+
     if (pnumeric != 0) {
         alert('You have entered an invalid character for password');
         document.login.password.focus();
@@ -42,7 +44,7 @@
 
 <h3 align = "center">Login</h3>
 
-<!-- Form to retrieve user input and send it to the Login servlet -->
+<!-- Form to retrieve user input and send it to the Login servlet, by set action = "Login" -->
 <form  Method="POST" name = "login" onSubmit= "return ValidateForm(this);" action= "Login">
          <table align="center">
          <tr>
@@ -58,14 +60,14 @@
         <tr>
         <td align="center" colspan="100"><img  align = "center" src= "images/logo.png" alt = "Kean Logo" style= "width: 65px; height: 65px"></td>
         </tr>
-        </table> 
-        
+        </table>
+
 </form>
 
 <t align = 'center'> MaxApp: A project collaboration with Max and Kyle. </t>
 
 </body>
- 
+
 <p>
     Kean University <br>
     Department of Computer Science<br>

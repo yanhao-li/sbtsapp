@@ -1,5 +1,4 @@
-<!-- -->
-<!-- This is the jsp file for confirm the tasks of tech -->
+<!-- This is the jsp file for confirm the tasks which has been assigned to a tech -->
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -24,7 +23,7 @@
 <p>Task has been assigned!</p>
 
 <%
-//
+//retrieves the task confirmed array from the shared bean
 String [][] confirmtask = shared.getConfirmTask();
 if(confirmtask != null && confirmtask.length != 0){
 %>
@@ -41,7 +40,7 @@ if(confirmtask != null && confirmtask.length != 0){
 </tr>
 <%
 int count = 0;
-//create the table row for all tasks confirmed
+//create the table row for all tasks
 for(String[] details : confirmtask){
 %>
 <tr>
