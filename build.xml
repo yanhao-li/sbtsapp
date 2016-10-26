@@ -222,6 +222,8 @@ value="/usr/local/Cellar/tomcat/8.5.6/libexec"/> <!-- UPDATE THIS! -->
 
   <taskdef resource="org/apache/catalina/ant/catalina.tasks"
            classpathref="compile.classpath"/>
+    <taskdef name="start"  classname="org.apache.catalina.ant.StartTask"/>
+  <taskdef name="stop"  classname="org.apache.catalina.ant.StopTask"/>
 
 
 <!--  ==================== Compilation Control Options ==================== -->

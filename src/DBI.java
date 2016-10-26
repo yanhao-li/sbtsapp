@@ -18,7 +18,7 @@ import java.util.Vector;
 
 public class DBI{
     Connection conn = null;
-   /* The arrays below hold string values that are used by the getString method to retirve information from ResultSet objects */    
+   /* The arrays below hold string values that are used by the getString method to retirve information from ResultSet objects */
     String [] emp = {"EmpID", "EmpLastName", "EmpFirstName", "emailAddress", "JobTitle", "SocSec", "DateOfBirth", "Department", "Manager", "CommissionRate", "Shepherd", "Skill", "Password"};
     String [] author = {"AuthorID, AuthorLastName, AuthorFirstName, PenName, emailAddress, Author_Lead_Status, SalesmanID"};
     String [] book = {"BookID", "Title", "StartDate", "BookFormat"};
@@ -38,7 +38,7 @@ public class DBI{
       Context envCtx = (Context)initCtx.lookup("java:comp/env");
       if(envCtx == null ) throw new NamingException("Boom - No Context");
          //Use jdbc to connect with sql statements
-         DataSource ds = (DataSource)envCtx.lookup("jdbc/TestDB");
+         DataSource ds = (DataSource)envCtx.lookup("jdbc/SBTS");
       //if DataSource ds is not null, the datasource was established (using Tomcat connection pool open with database)
       if(ds!=null)
       {
