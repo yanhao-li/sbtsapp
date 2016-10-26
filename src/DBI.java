@@ -38,7 +38,7 @@ public class DBI{
       Context envCtx = (Context)initCtx.lookup("java:comp/env");
       if(envCtx == null ) throw new NamingException("Boom - No Context");
          //Use jdbc to connect with sql statements
-         DataSource ds = (DataSource)envCtx.lookup("jdbc/SBTS");
+         DataSource ds = (DataSource)envCtx.lookup("jdbc/TestDB");
       //if DataSource ds is not null, the datasource was established (using Tomcat connection pool open with database)
       if(ds!=null)
       {
