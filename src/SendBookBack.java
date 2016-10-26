@@ -6,43 +6,43 @@ The purpose of this servlet is to enable the shepherd to send a book back to the
 
    + This servlet is invoked by ViewTaskDetails.jsp
    + This servlet dispatches to MainPage.jsp
-   
+
 ******************************************************************************************/
 
-package SBTS;
+package sbtsapp;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
 import javax.sql.*;
-import SBTS.DBI;
-import SBTS.Control;
-import SBTS.Shared;
+import sbtsapp.DBI;
+import sbtsapp.Control;
+import sbtsapp.Shared;
 
-public class SendBookBack extends SBTS.Control{
+public class SendBookBack extends sbtsapp.Control{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
     //Get the current HTTP session from Tomcat
     HttpSession session = request.getSession(true);
-    //Gets the bean from session and retrieves shared data 
-    SBTS.Shared bean = (SBTS.Shared)session.getAttribute("shared");
+    //Gets the bean from session and retrieves shared data
+    sbtsapp.Shared bean = (sbtsapp.Shared)session.getAttribute("shared");
     //Get the ID of the book that was selected from the bean
     String bookID = bean.getBookID();
     //Call the methods to change the book status and reset the shepherd ID
     EscalateBook(bean, bookID);
     SendBookBack(bean, bookID);
     gotoPage("/MainPage.jsp", request, response);
-    
+
     }
-   
+
    //Method to change the status of the book to 'Escalated'
-private void EscalateBook(SBTS.Shared bean, String BookID) throws ServletException, IOException{
-        SBTS.DBI dbi = null;
+private void EscalateBook(sbtsapp.Shared bean, String BookID) throws ServletException, IOException{
+        sbtsapp.DBI dbi = null;
 try{
-    dbi = new SBTS.DBI();
+    dbi = new sbtsapp.DBI();
         //Check if there is a database connection to Tomcat
         if(dbi.connect()){
         dbi.EscalateBook(BookID);
-        } 
+        }
 }
 
 catch(Exception e){
@@ -56,14 +56,14 @@ finally{
 }
 
 //Method to reset the ShepherdID of the Book selected
-private void SendBookBack(SBTS.Shared bean, String BookID) throws ServletException, IOException{
-        SBTS.DBI dbi = null;
+private void SendBookBack(sbtsapp.Shared bean, String BookID) throws ServletException, IOException{
+        sbtsapp.DBI dbi = null;
 try{
-    dbi = new SBTS.DBI();
+    dbi = new sbtsapp.DBI();
         //Check if there is a database connection to Tomcat
         if(dbi.connect()){
         dbi.SendBookBack(BookID);
-        } 
+        }
 }
 
 catch(Exception e){
@@ -75,5 +75,4 @@ finally{
       dbi.close();//Close connection to database
 }
 }
-}//End of Class 
- 
+}//End of Class

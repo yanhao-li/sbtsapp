@@ -3,9 +3,9 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<jsp:useBean id="shared" scope="session" class="SBTS.Shared" /> 
-     <!-- Insert SBTS Logo-->
-    <h1 align = "center"><img  align = "center" src= "images/booklogo.png" alt = "Book Logo" style= "width: 270px; height: 150px"></h1> 
+<jsp:useBean id="shared" scope="session" class="sbtsapp.Shared" />
+     <!-- Insert sbtsapp Logo-->
+    <h1 align = "center"><img  align = "center" src= "images/booklogo.png" alt = "Book Logo" style= "width: 270px; height: 150px"></h1>
 </head>
 <body bgcolor = "#00BFFF">
                         <jsp:getProperty name="shared" property="message"/>  <!--retrieves the error message from the shared bean -->
@@ -50,7 +50,7 @@ for(String[] con : newContracts){
 <td name="salesmanlastname" align="center"><%=con[6]%></td>
 <td name="initialtitle" align="center"><%=con[7]%></td>
 <td name="contractstatus" align="center"><%=con[8]%></td>
-<td name = "ContractID" align="center"> 
+<td name = "ContractID" align="center">
 					<form id="selectContract<%=count%>" method="POST" action="SelectContract"> <!-- each contract has its own form -->
 					       <input type="submit" name="Submit" value="Select"/> <!-- submit contract selected to Select Contract servlet-->
 					       <input type="hidden" name="ContractID" value="<%=count%>" /> <!-- send row index of the selected contract -->

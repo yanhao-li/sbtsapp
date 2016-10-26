@@ -3,9 +3,9 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<jsp:useBean id="shared" scope="session" class="SBTS.Shared" /> 
-     <!-- Insert SBTS Logo-->
-    <h1 align = "center"><img  align = "center" src= "images/booklogo.png" alt = "Book Logo" style= "width: 270px; height: 150px"></h1> 
+<jsp:useBean id="shared" scope="session" class="sbtsapp.Shared" />
+     <!-- Insert sbtsapp Logo-->
+    <h1 align = "center"><img  align = "center" src= "images/booklogo.png" alt = "Book Logo" style= "width: 270px; height: 150px"></h1>
 </head>
 <body bgcolor = "#00BFFF">
                         <jsp:getProperty name="shared" property="message"/>  <!--retrieves the error message from the shared bean -->
@@ -55,7 +55,7 @@ int count =0;
 for(String[] con : selectedContract){
 %>
 <tr>
-<!-- Display information from array that correlates to the columns used in the query -->						
+<!-- Display information from array that correlates to the columns used in the query -->
 <td name="authorfirstname" align="center"><%=con[3]%></td>
 <td name="authorlastname" align="center"><%=con[4]%></td>
 <td name="empfirstname" align="center"><%=con[5]%></td>
@@ -109,6 +109,6 @@ else
 %>
 
 
-</body> 
+</body>
 
 </html>

@@ -9,27 +9,27 @@ The purpose of this book is to provide information of the tasks and its details.
 
 ******************************************************************************************/
 
-package maxapp;
+package sbtsapp;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
 import javax.sql.*;
-import maxapp.DBI;
-import maxapp.Control;
-import maxapp.Shared;
+import sbtsapp.DBI;
+import sbtsapp.Control;
+import sbtsapp.Shared;
 
 
-//ViewTaskDetailsParralel inherits methods from maxapp.Control through extends
+//ViewTaskDetailsParralel inherits methods from sbtsapp.Control through extends
 
-public class ViewTaskDetailsParallel extends maxapp.Control{
+public class ViewTaskDetailsParallel extends sbtsapp.Control{
 
     //information is posted via the doPost method
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
     //Get the current HTTP session from Tomcat
     HttpSession session = request.getSession(true);
     //Gets the bean from session and retrieves shared data
-    maxapp.Shared bean = (maxapp.Shared)session.getAttribute("shared");
+    sbtsapp.Shared bean = (sbtsapp.Shared)session.getAttribute("shared");
     //variable SelectedBook is assigned via the getShepherdBookList method in Shared.java
     //The same applies to BookId
     String [][] SelectedBook = bean.getShepherdBookList();
@@ -44,11 +44,11 @@ public class ViewTaskDetailsParallel extends maxapp.Control{
     }
 
     //Method: getTaskDetails
-private void getTaskDetails(maxapp.Shared bean, String BookID) throws ServletException, IOException{
+private void getTaskDetails(sbtsapp.Shared bean, String BookID) throws ServletException, IOException{
         String[][] taskdetails;
-        maxapp.DBI dbi = null;
+        sbtsapp.DBI dbi = null;
 try{
-    dbi = new maxapp.DBI();
+    dbi = new sbtsapp.DBI();
         //Check if there is a database connection to Tomcat
         if(dbi.connect()){
 	// acquire the new task details with the bookID that is passed, and set the variable taskdetails to the bean.

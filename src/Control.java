@@ -54,13 +54,13 @@ java.util.Vector  :  The Vector class implements a growable array of objects. Li
 
 *****************************************************************************************/
 
-package maxapp;
+package sbtsapp;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
-import maxapp.DBI;
-import maxapp.Shared;
+import sbtsapp.DBI;
+import sbtsapp.Shared;
 
 //Method begins the application, every servlet extends this
 public class Control extends HttpServlet{
@@ -69,7 +69,7 @@ public class Control extends HttpServlet{
             //create a new session
             HttpSession session = request.getSession(true);
             //create a new bean
-            maxapp.Shared bean = new maxapp.Shared();
+            sbtsapp.Shared bean = new sbtsapp.Shared();
             bean.setError(""); //Method to clear old errors
             session.setAttribute("shared", bean);//set the Shared servlet as part of Tomcat session
             gotoPage("/Login.jsp", request, response); //Switch between servlets and send request and response to Login servlet

@@ -3,9 +3,9 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<jsp:useBean id="shared" scope="session" class="SBTS.Shared" /> 
-     <!-- Insert SBTS Logo-->
-    <h1 align = "center"><img  align = "center" src= "images/booklogo.png" alt = "Book Logo" style= "width: 270px; height: 150px"></h1> 
+<jsp:useBean id="shared" scope="session" class="sbtsapp.Shared" />
+     <!-- Insert sbtsapp Logo-->
+    <h1 align = "center"><img  align = "center" src= "images/booklogo.png" alt = "Book Logo" style= "width: 270px; height: 150px"></h1>
 </head>
 <p>Hello <jsp:getProperty name="shared" property="empFirstName"/>!</p> <!--Get the firstname of the employee that is logged in and display it-->
 <body bgcolor = "#00BFFF">
@@ -21,7 +21,7 @@ if(position[1] == null && position[2] == null && position[0].equals("Yes")){
 %>
 <jsp:include page="Manager.html" flush = "true"/>
 <%
- 
+
 }//End of if
 
 //If the Manager and Technician are null and the Shepherd= "Yes", load the shepherd links
@@ -36,7 +36,7 @@ else {
 %>
 <jsp:include page="Technician.html" flush = "true"/>
 <%
-} //End of else 
+} //End of else
 %>
 </body>
 

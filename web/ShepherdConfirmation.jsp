@@ -3,9 +3,9 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<jsp:useBean id="shared" scope="session" class="SBTS.Shared" /> 
-     <!-- Insert SBTS Logo-->
-    <h1 align = "center"><img  align = "center" src= "images/booklogo.png" alt = "Book Logo" style= "width: 270px; height: 150px"></h1> 
+<jsp:useBean id="shared" scope="session" class="sbtsapp.Shared" />
+     <!-- Insert sbtsapp Logo-->
+    <h1 align = "center"><img  align = "center" src= "images/booklogo.png" alt = "Book Logo" style= "width: 270px; height: 150px"></h1>
 </head>
 <body bgcolor = "#00BFFF">
 
@@ -42,7 +42,7 @@ for(String[] shep : confirmshepherd){
 <td name="shepherdID" align="center"><%=shep[0]%></td>
 <td name="shepherdfirstname" align="center"><%=shep[1]%></td>
 <td name="shepherdlastname" align="center"><%=shep[2]%></td>
-</tr> 
+</tr>
 <%
 count++;
 }//end of for loop

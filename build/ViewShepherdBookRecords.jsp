@@ -3,9 +3,9 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<jsp:useBean id="shared" scope="session" class="SBTS.Shared" /> 
-     <!-- Insert SBTS Logo-->
-    <h1 align = "center"><img  align = "center" src= "images/booklogo.png" alt = "Book Logo" style= "width: 270px; height: 150px"></h1> 
+<jsp:useBean id="shared" scope="session" class="sbtsapp.Shared" />
+     <!-- Insert sbtsapp Logo-->
+    <h1 align = "center"><img  align = "center" src= "images/booklogo.png" alt = "Book Logo" style= "width: 270px; height: 150px"></h1>
 </head>
 <body bgcolor = "#00BFFF">
                         <jsp:getProperty name="shared" property="message"/>  <!--retrieves the error message from the shared bean -->
@@ -46,7 +46,7 @@ for(String[] book : books){
 <td
 <td
 <td
-<td name = "BookID" align="center"> 
+<td name = "BookID" align="center">
 				<form id="selectBook<%=count%>" method="POST" action="ViewTaskDetails"> <!-- each book has its own form -->
 				<input type="submit" name="Submit" value="Select"/> <!-- submit book selected to ViewTaskDetails servlet-->
 				<input type="hidden" name="BookID" value="<%=count%>" /> <!-- send row index of the selected book -->

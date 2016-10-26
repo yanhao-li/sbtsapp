@@ -1,11 +1,10 @@
-<!-- -->
-<!-- This -->
+<!-- This is the jsp file for confirm the tasks which has been assigned to a tech -->
 <!DOCTYPE HTML>
 <html>
 <head>
-<jsp:useBean id="shared" scope="session" class="SBTS.Shared" /> 
-     <!-- Insert SBTS Logo-->
-    <h1 align = "center"><img  align = "center" src= "images/booklogo.png" alt = "Book Logo" style= "width: 270px; height: 150px"></h1> 
+<jsp:useBean id="shared" scope="session" class="sbtsapp.Shared" />
+     <!-- Insert sbtsapp Logo-->
+    <h1 align = "center"><img  align = "center" src= "images/booklogo.png" alt = "Book Logo" style= "width: 270px; height: 150px"></h1>
 </head>
 <body bgcolor = "#00BFFF">
                         <jsp:getProperty name="shared" property="message"/>  <!--retrieves the error message from the shared bean -->
@@ -15,7 +14,7 @@
 
 
 
-<p>Hello <jsp:getProperty name="shared" property="empFirstName"/>!</p> <!-- -->
+<p>Hello <jsp:getProperty name="shared" property="empFirstName"/>!</p> <!--shows the welcome block with user name -->
 
 <!-- Display options to the user -->
 
@@ -24,14 +23,14 @@
 <p>Task has been assigned!</p>
 
 <%
-// 
+//retrieves the task confirmed array from the shared bean
 String [][] confirmtask = shared.getConfirmTask();
 if(confirmtask != null && confirmtask.length != 0){
 %>
-<!--  -->
+<!-- this is the table of detail of all tasks and the tech assigned -->
 <table align = "center" border = "2"  bgcolor="#F0F8FF" >
 <tr>
-<!--  -->
+<!-- header cell of the table -->
      <th>Task ID</th>
      <th>Task Type</th>
 	 <th>Task Status</th>
@@ -41,17 +40,17 @@ if(confirmtask != null && confirmtask.length != 0){
 </tr>
 <%
 int count = 0;
-// 
+//create the table row for all tasks
 for(String[] details : confirmtask){
 %>
 <tr>
-<!--   -->
+<!-- The table content  -->
 <td name="taskID" align="center"><%=details[0]%></td>
 <td name="tasktype" align="center"><%=details[4]%></td>
 <td name="taskstatus" align="center"><%=details[6]%></td>
 <td name="startdate" align="center"><%=details[1]%></td>
 <td name="Techfirstname" align="center"><%=details[8]%></td>
-<td name="Techlastname" align="center"><%=details[9]%></td> 
+<td name="Techlastname" align="center"><%=details[9]%></td>
 </tr>
 <%
 count++;

@@ -3,8 +3,8 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<jsp:useBean id="shared" scope="session" class="maxapp.Shared" />
-     <!-- The maxapp logo is displayed.-->
+<jsp:useBean id="shared" scope="session" class="sbtsapp.Shared" />
+     <!-- The sbtsapp logo is displayed.-->
     <h1 align = "center"><img  align = "center" src= "images/booklogo.png" alt = "Book Logo" style= "width: 270px; height: 150px"></h1>
 </head>
 <body bgcolor = "#00BFFF">

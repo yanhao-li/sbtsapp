@@ -3,9 +3,9 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<jsp:useBean id="shared" scope="session" class="SBTS.Shared" /> 
-     <!-- Insert SBTS Logo-->
-    <h1 align = "center"><img  align = "center" src= "images/booklogo.png" alt = "Book Logo" style= "width: 270px; height: 150px"></h1> 
+<jsp:useBean id="shared" scope="session" class="sbtsapp.Shared" />
+     <!-- Insert sbtsapp Logo-->
+    <h1 align = "center"><img  align = "center" src= "images/booklogo.png" alt = "Book Logo" style= "width: 270px; height: 150px"></h1>
 </head>
 <body bgcolor = "#00BFFF">
                         <jsp:getProperty name="shared" property="message"/>  <!--retrieves the error message from the shared bean -->
@@ -49,13 +49,13 @@ for(String[] shep : shepherds){
 <td name="shepherdfirstname" align="center"><%=shep[1]%></td>
 <td name="shepherdlastname" align="center"><%=shep[2]%></td>
 <td name="shepherdcount" align="center"><%=shep[3]%></td>
-<td name = "ShepherdID" align="center"> 
+<td name = "ShepherdID" align="center">
 					<form id="ShepherdID<%=count%>" method="POST" action="ShepherdConfirmation"> <!-- each shepherd has its own form -->
 					       <input type="submit" name="Submit" value="Select"/> <!-- submit shepherd selected to Shepherd Confirmation servlet-->
 					       <input type="hidden" name="ShepherdID" value="<%=count%>" /> <!-- send row index of the selected shepherd -->
 						   </form>
 </td>
-</tr> 
+</tr>
 <%
 count++;
 }//end of for loop

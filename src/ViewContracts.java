@@ -9,23 +9,23 @@ The purpose of this servlet is to get the list of contracts that still need a bo
 
 ******************************************************************************************/
 
-package maxapp;
+package sbtsapp;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
 import javax.sql.*;
-import maxapp.DBI;
-import maxapp.Control;
-import maxapp.Shared;
+import sbtsapp.DBI;
+import sbtsapp.Control;
+import sbtsapp.Shared;
 
-public class ViewContracts extends maxapp.Control{
+public class ViewContracts extends sbtsapp.Control{
     protected DBI dbi;
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
     //Get the current HTTP session from Tomcat
     HttpSession session = request.getSession(true);
     //Gets the bean from session and retrieves shared data
-    maxapp.Shared bean = (maxapp.Shared)session.getAttribute("shared");
+    sbtsapp.Shared bean = (sbtsapp.Shared)session.getAttribute("shared");
     //Call the method to get the list of contracts from the bean
     getNewContracts(bean);
     gotoPage("/ViewContracts.jsp", request, response);
@@ -33,11 +33,11 @@ public class ViewContracts extends maxapp.Control{
     }
 
     //Method to get the list of contracts
-private void getNewContracts(maxapp.Shared bean) throws ServletException, IOException{
+private void getNewContracts(sbtsapp.Shared bean) throws ServletException, IOException{
         String[][] newContracts;
-        maxapp.DBI dbi = null;
+        sbtsapp.DBI dbi = null;
 try{
-    dbi = new maxapp.DBI();
+    dbi = new sbtsapp.DBI();
         //Check if there is a database connection to Tomcat
         if(dbi.connect()){
 

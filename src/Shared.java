@@ -1,12 +1,12 @@
 /*
-The purpose of this is to enable the functionalities of the shared bean for SBTS. It is an important file
-that holds the set, and get methods for the bean. Without it, the functionalities of the SBTS
+The purpose of this is to enable the functionalities of the shared bean for sbtsapp. It is an important file
+that holds the set, and get methods for the bean. Without it, the functionalities of the sbtsapp
 website would not be available.
 
 */
 
 //local
-package SBTS;
+package sbtsapp;
 
 import java.util.*;
 import java.io.Serializable;
@@ -32,11 +32,11 @@ public class Shared implements Serializable {
     private String [][] selectedContract; //a matrix that holds the selected Contract that is displayed/edited
     private String [][] selectedBook; //A matrix of the selected book and its details
     private String [][] selectedTask; //a matrix of the selected task
-    private String [][] shepherds;  //Employees of SBTS from line 28 - 31
+    private String [][] shepherds;  //Employees of sbtsapp from line 28 - 31
     private String [][] designers;
     private String [][] editors;
     private String [][] admins;
-    private String [][] books; //Books that are currently in SBTS
+    private String [][] books; //Books that are currently in sbtsapp
     private String [][] confirmbook; //Lines 40 - 42 are matrix variables used for confirmation
     private String [][] confirmshepherd;
     private String [][] confirmtask;
@@ -282,7 +282,7 @@ public class Shared implements Serializable {
    }
 
 
-	public String [][] getShepherdBookList() 
+	public String [][] getShepherdBookList()
    {
       return(this.shepherdbooklist);
    }
