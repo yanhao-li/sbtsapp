@@ -1,5 +1,5 @@
 <!-- ViewContracts dispatches to this jsp -->
-<!-- This file displays the list of contracts that do not have a book record->
+<!-- This file displays the list of contracts that do not have a book record-->
 <!DOCTYPE HTML>
 <html>
 <head>
