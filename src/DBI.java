@@ -348,24 +348,24 @@ public class DBI{
 
     //Method to get list of books that belong to this shepherd, and Book Status is not Task Assigned or Published
     public String[][] getShepherdBookList(int empid) throws SQLException{
-    ResultSet rst = this.execQuery("SELECT BookID, Title, StartDate, BookFormat FROM Book WHERE ShepherdID = '" + empid + "'"); // needs more detailed select
+    ResultSet rst = this.execQuery("SELECT BookID, Title, StartDate, BookFormat FROM Book WHERE BookStatus != 'Task Assigned' AND BookStatus != 'Published' AND ShepherdID = '" + empid + "'"); // needs more detailed select
     String temp;
     int records = RecordNum(rst);
-    int columns = 2;
+    int columns = 4;
     String [][] result = new String[records][columns]; // matrix to hold book list of data
-    //if(rst.first())
-    //{
-    //  { for every row
-    //    { for every column
-    //        // get next data field in this row by field name
-    //         if(temp==null)
-    //            temp ="";
-    //             store details of book list into matrix
-    //}
-    //         // get next record
-    //}
-    //}
-    // return book list
+    if(rst.first())
+    {
+        for (int k = 0; k < records; k++){
+            for (int i = 0; i < columns; i++){
+                temp = rst.getString(book[i]);
+               // get next data field in this row by field name
+                if(temp==null)
+                temp ="";
+                result[k][i] = temp;
+            }
+                rst.next();// get next record
+        }
+    }
         return result;
     }
 

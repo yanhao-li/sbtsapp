@@ -3,7 +3,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<jsp:useBean id="shared" scope="session" class="maxapp.Shared" />
+<jsp:useBean id="shared" scope="session" class="sbtsapp.Shared" />
      <!-- Insert maxapp Logo-->
     <h1 align = "center"><img  align = "center" src= "images/booklogo.png" alt = "Book Logo" style= "width: 270px; height: 150px"></h1>
 </head>

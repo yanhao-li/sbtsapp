@@ -27,9 +27,9 @@ public class ViewShepherdBookRecords extends sbtsapp.Control{
     //Gets the bean from session and retrieves shared data
     sbtsapp.Shared bean = (sbtsapp.Shared)session.getAttribute("shared");
     //Get the id of the employee who is logged in
-
+    int thisshepherdid = bean.getEmpId();
    //Call the method that gets the lists of the books belonging to the shepherd
-
+   getShepherdBookList(bean, thisshepherdid);
     gotoPage("/ViewShepherdBookRecords.jsp", request, response); //Dispatch to ViewShepherdBookRecords.jsp to show the book list
 
     }
@@ -39,7 +39,7 @@ private void getShepherdBookList(sbtsapp.Shared bean, int empid) throws ServletE
 	// create a DBI shell
         sbtsapp.DBI dbi = null;
 	// make a matrix to hold the book list of data
-    String [][] shepherdBookList;
+    String[][] shepherdBookList;
 try{
     // create an instance of the DBI
     dbi = new sbtsapp.DBI();

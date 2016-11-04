@@ -26,6 +26,7 @@ String [][] books = shared.getShepherdBookList();
 // if the books list is not empty
 if(  books != null && books.length != 0 ){
 %>
+
 <!-- Table labels used to display the book information-->
 <table align = "center" border = "2"  bgcolor="#F0F8FF" >
 <tr>
