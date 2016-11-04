@@ -348,7 +348,7 @@ public class DBI{
 
     //Method to get list of books that belong to this shepherd, and Book Status is not Task Assigned or Published
     public String[][] getShepherdBookList(int empid) throws SQLException{
-    ResultSet rst = this.execQuery("SELECT BookID, Title, StartDate, BookFormat FROM Book WHERE (BookStatus != 'Published' OR 'Task Assigned') AND ShepherdID = '" + empid + "'"); // needs more detailed select
+    ResultSet rst = this.execQuery("SELECT BookID, Title, StartDate, BookFormat FROM Book WHERE ShepherdID = '" + empid + "'"); // needs more detailed select
     String temp;
     int records = RecordNum(rst);
     int columns = 2;

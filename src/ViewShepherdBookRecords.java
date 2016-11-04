@@ -39,6 +39,7 @@ private void getShepherdBookList(sbtsapp.Shared bean, int empid) throws ServletE
 	// create a DBI shell
         sbtsapp.DBI dbi = null;
 	// make a matrix to hold the book list of data
+    String [][] shepherdBookList;
 try{
     // create an instance of the DBI
     dbi = new sbtsapp.DBI();

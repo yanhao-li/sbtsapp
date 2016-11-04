@@ -18,12 +18,13 @@
 <!-- Display options to continue from this screen to the user -->
 
 <a href="MainPage.jsp"><button type="button" style="float:left;">Main Page</button></a>
+<a href="ViewTaskDetails.jsp"><button type="button" style="float:left;">ViewTaskDetails</button></a>
 <br><h2 align ="center">Assign a Task to a Book</h2>
 <%
 //Get the list of books that were set in the bean
 String [][] books = shared.getShepherdBookList();
 // if the books list is not empty
-if(   ){
+if(  books != null && books.length != 0 ){
 %>
 <!-- Table labels used to display the book information-->
 <table align = "center" border = "2"  bgcolor="#F0F8FF" >
@@ -43,9 +44,9 @@ for(String[] book : books){
 <tr>
 <!-- Display data fields from book array that correlates to the columns used in the query -->
 <td name="BookID" align="center"><%=book[0]%></td>
-<td
-<td
-<td
+<td name="Title" align="center"><%=book[1]%></td>
+<td name="StartDate" align="center"><%=book[2]%></td>
+<td name="BookFormat" align="center"><%=book[3]%></td>
 <td name = "BookID" align="center">
 				<form id="selectBook<%=count%>" method="POST" action="ViewTaskDetails"> <!-- each book has its own form -->
 				<input type="submit" name="Submit" value="Select"/> <!-- submit book selected to ViewTaskDetails servlet-->
