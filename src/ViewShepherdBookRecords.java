@@ -41,13 +41,16 @@ private void getShepherdBookList(sbtsapp.Shared bean, int empid) throws ServletE
 	// make a matrix to hold the book list of data
 try{
     // create an instance of the DBI
+    dbi = new sbtsapp.DBI();
+    //Check if there is a database connection to Tomcat
+    if(dbi.connect()){
+        shepherdBookList = dbi.getShepherdBookList(empid);
+        bean.setShepherdBookList(shepherdBookList);
 
-        //Check if there is a database connection to Tomcat
-
-        // Get the list of books from the DB for this shepherd that needs the shepherd and hold them in a matrix
+    // Get the list of books from the DB for this shepherd that needs the shepherd and hold them in a matrix
 
 	// save this list of books in the bean
-
+    }
         }
 catch(Exception e){
     e.printStackTrace();
