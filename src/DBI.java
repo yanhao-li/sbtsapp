@@ -238,7 +238,7 @@ public class DBI{
 
    //Method to get the list of designers
     public String[][] getDesigners() throws SQLException{
-    ResultSet rst = this.execQuery("SELECT e.EmpID, e.EmpFirstName, e.EmpLastName, count(t.TaskID) From Employees e Left Join Task t ON t.TechnicianID = e.EmpID Where (e.Skill = 'Designer' && t.TaskStatus NOT LIKE '%Finished%') OR (e.Skill ='Designer') Group by t.TechnicianID order by e.EmpID asc");
+    ResultSet rst = this.execQuery("SELECT e.EmpID, e.EmpFirstName, e.EmpLastName, count(t.TaskID) From Employees e Left Join Task t ON t.TechnicianID = e.EmpID Where (e.Skill = 'Designer' && t.TaskStatus NOT LIKE '%Finished%') OR (e.Skill ='Designer') Group by e.EmpID, t.TechnicianID order by e.EmpID asc");
     int columns = 4;
     int records = RecordNum(rst);
     String temp;
@@ -260,7 +260,7 @@ public class DBI{
 
       //Method to get the list of editors
     public String[][] getEditors() throws SQLException{
-    ResultSet rst = this.execQuery("SELECT e.EmpID, e.EmpFirstName, e.EmpLastName, count(t.TaskID) From Employees e Left Join Task t ON t.TechnicianID = e.EmpID Where (e.Skill = 'Editor' && t.TaskStatus NOT LIKE '%Finished%') OR (e.Skill ='Editor') Group by t.TechnicianID order by e.EmpID asc");
+    ResultSet rst = this.execQuery("SELECT e.EmpID, e.EmpFirstName, e.EmpLastName, count(t.TaskID) From Employees e Left Join Task t ON t.TechnicianID = e.EmpID Where (e.Skill = 'Editor' && t.TaskStatus NOT LIKE '%Finished%') OR (e.Skill ='Editor') Group by e.EmpID, t.TechnicianID order by e.EmpID asc");
     int columns = 4;
     int records = RecordNum(rst);
     String temp;
@@ -282,7 +282,7 @@ public class DBI{
 
     //Method to get the list of admins
     public String[][] getAdmins() throws SQLException{
-    ResultSet rst = this.execQuery("SELECT e.EmpID, e.EmpFirstName, e.EmpLastName, count(t.TaskID) From Employees e Left Join Task t ON t.TechnicianID = e.EmpID Where (e.Skill = 'Admin' && t.TaskStatus NOT LIKE '%Finished%') OR (e.Skill ='Admin') Group by t.TechnicianID order by e.EmpID asc");
+    ResultSet rst = this.execQuery("SELECT e.EmpID, e.EmpFirstName, e.EmpLastName, count(t.TaskID) From Employees e Left Join Task t ON t.TechnicianID = e.EmpID Where (e.Skill = 'Admin' && t.TaskStatus NOT LIKE '%Finished%') OR (e.Skill ='Admin') Group by e.EmpID, t.TechnicianID order by e.EmpID asc");
     int columns = 4;
     int records = RecordNum(rst);
     String temp;
@@ -414,11 +414,15 @@ public class DBI{
     if(rst.first())
     {
         for (int k = 0; k < records; k++){ //every row
-            for(int i = 0; i < columns; i++){ //every column
-             temp =rst.getString(Task[i]);
-             if(temp==null)
+            for(int i = 0; i < 8; i++){ //every column
+                    temp = rst.getString(Task[i]);
+
+             if(temp == null)
              temp ="";
              result[k][i] = temp; //store details of task
+             result[k][8] = emp[2];
+             result[k][9] = emp[1];
+
             }
             rst.next();
         }
