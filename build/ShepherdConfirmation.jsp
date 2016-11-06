@@ -6,59 +6,81 @@
 <jsp:useBean id="shared" scope="session" class="sbtsapp.Shared" />
     <link rel="stylesheet" href="resource/css/bootstrap.min.css">
     <link rel="stylesheet" href="resource/css/main.css">
-     <!-- Insert sbtsapp Logo-->
-    <h1 align = "center"><img  align = "center" src= "images/booklogo.png" alt = "Book Logo" style= "width: 270px; height: 150px"></h1>
 </head>
-<body bgcolor = "#00BFFF">
+<body>
+    <div class="container">
 
-<p>Hello <jsp:getProperty name="shared" property="empFirstName"/>!</p><!--Get the firstname of the employee that is logged in and display it-->
+        <div class="text-xs-center logo">
+            <img  align = "center" class = "rounded" src= "resource/images/booklogo.png" alt = "Book Logo" style= "width: 270px; height: 150px">
+        </div>
+        <div class="message-panel">
+            <% if(shared.getMessage() != ""){ %>
+            <div class="alert alert-success" role="alert">
+              <jsp:getProperty name="shared" property="message"/>
+            </div>
+            <%}%>
 
-<!-- Display options to the user -->
+            <% if(shared.getError() != ""){ %>
+            <div class="alert alert-warning" role="alert">
+              <jsp:getProperty name="shared" property="error"/>
+            </div>
+            <%}%>
 
-<a href="BookList"><button type="button" style="float:right;">Back to List of Books</button></a>
-<a href="MainPage.jsp"><button type="button" style="float:left;">Main Page</button></a>
+            <jsp:setProperty name="shared" property="message" value=""/><!-- empty error message from the shared bean -->
+            <jsp:setProperty name="shared" property="error" value=""/> <!-- empty error data from the shared bean -->
+        </div>
 
-<p align = "center">Shepherd has been assigned!</p>
+        <p class="lead">Hello <jsp:getProperty name="shared" property="empFirstName"/>!</p> <!--Get the firstname of the employee that is logged in and display it-->
+        <!-- Buttons redirect user to other pages -->
+        <div class="btn-group" role="group" aria-label="Basic example" style="float: right;">
+          <a class="btn btn-secondary btn-sm" href="BookList">Back to List of Books</a>
+          <a class="btn btn-secondary btn-sm" href="MainPage.jsp">Main Page</a>
+        </div>
+        <div class="alert alert-success" role="alert" style="clear: both; margin: 80px 0 30px 0;">
+          Shepherd has been assigned!
+        </div>
 
-<%
-//Get the shepherd that was just assigned to a book
-String [][] confirmshepherd = shared.getConfirmShepherd();
-if(confirmshepherd != null && confirmshepherd.length != 0){
-%>
-<!-- Table used to display the information-->
-<table align = "center" border = "2"  bgcolor="#F0F8FF" >
-<tr>
-<!-- Table headers-->
-     <th>Employee ID</th>
-     <th>Shepherd First Name</th>
-     <th>Shepherd Last Name</th>
-</tr>
-<%
-int count =0;
-//Create an array for the shepherd
-for(String[] shep : confirmshepherd){
 
-%>
-<tr>
-<!-- Display information from array that correlates to the columns used in the query -->
-<td name="shepherdID" align="center"><%=shep[0]%></td>
-<td name="shepherdfirstname" align="center"><%=shep[1]%></td>
-<td name="shepherdlastname" align="center"><%=shep[2]%></td>
-</tr>
-<%
-count++;
-}//end of for loop
-%>
-</table>
-<%
-}//end of if
-else
-{
-%>
-<p>There are no new shepherds available.</p>
-<%
-}//end of else
-%>
+        <%
+        //Get the shepherd that was just assigned to a book
+        String [][] confirmshepherd = shared.getConfirmShepherd();
+        if(confirmshepherd != null && confirmshepherd.length != 0){
+        %>
+        <!-- Table used to display the information-->
+        <table class="table table-hover" >
+        <tr>
+        <!-- Table headers-->
+             <th>Employee ID</th>
+             <th>Shepherd First Name</th>
+             <th>Shepherd Last Name</th>
+        </tr>
+        <%
+        int count =0;
+        //Create an array for the shepherd
+        for(String[] shep : confirmshepherd){
+
+        %>
+        <tr>
+            <!-- Display information from array that correlates to the columns used in the query -->
+            <td name="shepherdID"><%=shep[0]%></td>
+            <td name="shepherdfirstname"><%=shep[1]%></td>
+            <td name="shepherdlastname"><%=shep[2]%></td>
+        </tr>
+        <%
+        count++;
+        }//end of for loop
+        %>
+        </table>
+        <%
+        }//end of if
+        else
+        {
+        %>
+        <p>There are no new shepherds available.</p>
+        <%
+        }//end of else
+        %>
+    </div>
 </body>
 
 
