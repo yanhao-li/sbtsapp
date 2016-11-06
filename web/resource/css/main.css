@@ -1,0 +1,49 @@
+*{
+    padding: 0;
+    border: none;
+    margin: 0;
+}
+
+html, body{
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    background-color: #FAFAFA;
+    font-size: 14px;
+    color: black;
+}
+
+div{
+    position: relative;
+}
+
+img{
+    text-align: center;
+}
+
+.login-panel{
+    color: #80CBC4;
+    padding: 30px;
+    height: auto;
+    width: 30%;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+.btn-primary{
+    background-color: ##3E9ECF;
+}
+
+.header{
+    max-height: 25%;
+}
+
+.main{
+    max-height: 50%;
+}
+
+.footer{
+    max-height: 25%;
+}

@@ -2,10 +2,10 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+    <link rel="stylesheet" href="resource/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resource/css/main.css">
     <!-- The jsp:useBean action tag is used to locate or instantiate a bean class. If bean object of the Bean class is already created, it doesn't create the bean depending on the scope. But if object of bean is not created, it instantiates the bean. -->
-<jsp:useBean id="shared" scope="session" class="sbtsapp.Shared" />
-     <!-- Insert SBTS Logo-->
-    <h1 align = "center"><img  align = "center" src= "images/booklogo.png" alt = "Book Logo" style= "width: 270px; height: 150px"></h1>
+    <jsp:useBean id="shared" scope="session" class="sbtsapp.Shared" />
 
 <!-- Javascript form to check for invalid characters-->
 <script>
@@ -40,38 +40,34 @@
                             <jsp:setProperty name="shared" property="error" value=""/> <!-- empty error data from the shared bean -->
 
  <!-- Change Background color-->
-<body bgcolor = "#00BFFF">
-
-<h3 align = "center">Login</h3>
-
-<!-- Form to retrieve user input and send it to the Login servlet, by set action = "Login" -->
-<form  Method="POST" name = "login" onSubmit= "return ValidateForm(this);" action= "Login">
-         <table align="center">
-         <tr>
-         <td>Email:</td>
-         <td><input type="text" id= "Email" name="Email" required="required">@kean.edu</td><!-- Send email as a parameter-->
-         </tr>
-         <tr>
-        <td>Password:</td>
-        <td><input type="password" id= "Password" name="Password" required="required"></td>  <!-- Send password as a parameter-->
-        </tr>
-        <td align="center"><td><input type="submit" value="Submit" name= "Submit"></td> </td>
-                 <!-- Insert Kean Logo-->
-        <tr>
-        <td align="center" colspan="100"><img  align = "center" src= "images/logo.png" alt = "Kean Logo" style= "width: 65px; height: 65px"></td>
-        </tr>
-        </table>
-
-</form>
-
-<t align = 'center'> sbtsapp: A project collaboration with Max and Kyle. </t>
-
+<body>
+    <div class="container-fluid">
+        <div class="header">
+            <!-- Insert SBTS Logo-->
+            <h1 align = "center"><img src= "resource/images/booklogo.png" alt = "Book Logo" width="200px"></h1>
+            <h3 align = "center">Login</h3>
+        </div>
+        <div class="main">
+            <!-- Form to retrieve user input and send it to the Login servlet, by set action = "Login" -->
+            <form  Method="POST" name = "login" onSubmit= "return ValidateForm(this);" action= "Login" class="login-panel">
+                <div class="form-group">
+                    <input type="text" id= "Email" name="Email" required="required" class="form-control" placeholder="Email (withought @kean.edu)">
+                </div>
+                <div class="form-group">
+                    <input type="password" id= "Password" name="Password" required="required" class="form-control" placeholder="Password">
+                </div>
+                <input type="submit" value="Submit" name= "Submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">
+            </form>
+        </div>
+        <div class="footer">
+            <img  align = "center" src= "resource/images/logo.png" alt = "Kean Logo" width="100px">
+            <p>
+                Kean University <br>
+                Department of Computer Science<br>
+                CPS 4931: Distributed Systems <br>
+                Prof. Stewart-Gardiner
+            </p>
+        </div>
+    </div>
 </body>
-
-<p>
-    Kean University <br>
-    Department of Computer Science<br>
-    CPS 4931: Distributed Systems <br>
-    Prof. Stewart-Gardiner
-</p>
 </html>
