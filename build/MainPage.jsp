@@ -17,7 +17,7 @@
           <hr class="my-2">
           <p class="lead" style="padding-bottom: 50px;">Wish you have a wonderful day!</p>
           <p class="lead">
-            <a class="btn btn btn-outline-danger" href= Logout role="button">Logout</a>
+            <a class="btn btn-outline-primary" href= Logout role="button">Logout</a>
           </p>
         </div>
         <%
