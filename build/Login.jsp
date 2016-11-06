@@ -40,14 +40,10 @@
                             <jsp:setProperty name="shared" property="error" value=""/> <!-- empty error data from the shared bean -->
 
  <!-- Change Background color-->
-<body>
+<body class="login-page">
     <div class="container-fluid">
-        <div class="header">
-            <!-- Insert SBTS Logo-->
-            <h1 align = "center"><img src= "resource/images/booklogo.png" alt = "Book Logo" width="200px"></h1>
-            <h3 align = "center">Login</h3>
-        </div>
         <div class="main">
+            <h1 align = "center" style="color: #fff; padding-bottom: 20px;">SBTS</h1>
             <!-- Form to retrieve user input and send it to the Login servlet, by set action = "Login" -->
             <form  Method="POST" name = "login" onSubmit= "return ValidateForm(this);" action= "Login" class="login-panel">
                 <div class="form-group">
@@ -60,8 +56,8 @@
             </form>
         </div>
         <div class="footer">
-            <img  align = "center" src= "resource/images/logo.png" alt = "Kean Logo" width="100px">
-            <p>
+            <img  align = "center" src= "resource/images/logo.png" alt = "Kean Logo" width="50px" style="float: right; margin-top: 5px;">
+            <p style="float: left; margin: 0;">
                 Kean University <br>
                 Department of Computer Science<br>
                 CPS 4931: Distributed Systems <br>
