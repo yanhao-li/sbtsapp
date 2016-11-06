@@ -32,9 +32,9 @@
 
         <p class="lead">Hello <jsp:getProperty name="shared" property="empFirstName"/>!</p> <!--Get the firstname of the employee that is logged in and display it-->
 
-        <!-- Button to redirect to other pages -->
-        <div class="btn-group" role="group" aria-label="Basic example">
-          <a class="btn btn-secondary" href="MainPage.jsp">Main Page</a>
+        <!-- Buttons to redirect to other pages -->
+        <div class="btn-group" role="group" aria-label="Basic example" style="float: right">
+          <a class="btn btn-secondary btn-sm" href="MainPage.jsp">Main Page</a>
         </div>
 
         <h4 align="center" style="color: #9E9E9E; padding-bottom: 30px;">Select a Contract to Assign a Book Record to</h4>
@@ -71,10 +71,10 @@
             <td name="initialtitle" align="center"><%=con[7]%></td>
             <td name="contractstatus" align="center"><%=con[8]%></td>
             <td name = "ContractID" align="center">
-                <form id="selectContract<%=count%>" method="POST" action="SelectContract"> <!-- each contract has its own form -->
-                       <input type="submit" name="Submit" class="btn btn-outline-primary btn-sm" value="Select"/> <!-- submit contract selected to Select Contract servlet-->
-                       <input type="hidden" name="ContractID" value="<%=count%>" /> <!-- send row index of the selected contract -->
-                       </form>
+            <form id="selectContract<%=count%>" method="POST" action="SelectContract"> <!-- each contract has its own form -->
+               <input type="submit" name="Submit" class="btn btn-outline-primary btn-sm" value="Select"/> <!-- submit contract selected to Select Contract servlet-->
+               <input type="hidden" name="ContractID" value="<%=count%>" /> <!-- send row index of the selected contract -->
+            </form>
             </td>
             </tr>
             <%
