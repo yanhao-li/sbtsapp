@@ -8,10 +8,18 @@
     <link rel="stylesheet" href="resource/css/bootstrap.min.css">
     <link rel="stylesheet" href="resource/css/main.css">
 </head>
-<h1 align = "center"><img  align = "center" src= "resource/images/booklogo.png" alt = "Book Logo"></h1>
-<p>Hello <jsp:getProperty name="shared" property="empFirstName"/>!</p> <!--Get the firstname of the employee that is logged in and display it-->
 <body>
     <div class="container">
+        <div class="jumbotron" id="mainpage-jumbotron">
+          <img src= "resource/images/booklogo.png" alt = "Book Logo" style="float: right; width: 200px;">
+          <h1 class="display-3">Hello, <jsp:getProperty name="shared" property="empFirstName"/>!</h1>
+          <%-- <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p> --%>
+          <hr class="my-2">
+          <p class="lead" style="padding-bottom: 50px;">Wish you have a wonderful day!</p>
+          <p class="lead">
+            <a class="btn btn btn-outline-danger" href= Logout role="button">Logout</a>
+          </p>
+        </div>
         <%
         //Get the Manager, Shepherd, and Technician values that were set in the bean from the Login
         String Manager = shared.getManager();

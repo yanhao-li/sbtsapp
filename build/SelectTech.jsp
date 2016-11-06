@@ -4,6 +4,8 @@
 <html>
 <head>
 <jsp:useBean id="shared" scope="session" class="sbtsapp.Shared" />
+    <link rel="stylesheet" href="resource/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resource/css/main.css">
      <!-- Insert maxapp Logo-->
     <h1 align = "center"><img  align = "center" src= "images/booklogo.png" alt = "Book Logo" style= "width: 270px; height: 150px"></h1>
 </head>

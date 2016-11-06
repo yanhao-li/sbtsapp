@@ -63,3 +63,31 @@ img{
     bottom: 0;
     color: #fff;
 }
+
+.message-panel{
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+#mainpage-jumbotron{
+    margin-top: 150px;
+    padding-bottom: 2rem;
+}
+
+.nav-link{
+    font-size: 1.2rem;
+    color: rgba(0,0,0,.7) !important;
+}
+
+.nav-link:hover{
+    color: rgba(0,0,0,1) !important;
+}
+
+.nav-item{
+    padding-left: 20px;
+}
+
+.navbar-light{
+    background-color: #eceeef;
+}

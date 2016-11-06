@@ -1,9 +1,11 @@
 <!-- AssignShepherd dispatches to this jsp -->
-<!-- This file displays the shepherd that was just assigned to a book->
+<!-- This file displays the shepherd that was just assigned to a book-->
 <!DOCTYPE HTML>
 <html>
 <head>
 <jsp:useBean id="shared" scope="session" class="sbtsapp.Shared" />
+    <link rel="stylesheet" href="resource/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resource/css/main.css">
      <!-- Insert sbtsapp Logo-->
     <h1 align = "center"><img  align = "center" src= "images/booklogo.png" alt = "Book Logo" style= "width: 270px; height: 150px"></h1>
 </head>
