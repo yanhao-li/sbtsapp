@@ -91,3 +91,7 @@ img{
 .navbar-light{
     background-color: #eceeef;
 }
+
+th{
+    text-align: center;
+}
