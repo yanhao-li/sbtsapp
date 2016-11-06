@@ -5,7 +5,7 @@
 <head>
 <jsp:useBean id="shared" scope="session" class="sbtsapp.Shared" />
      <!-- Insert sbtsapp Logo-->
-    <h1 align = "center"><img  align = "center" src= "images/booklogo.png" alt = "Book Logo" style= "width: 270px; height: 150px"></h1>
+    <h1 align = "center"><img  align = "center" src= "/resource/images/booklogo.png" alt = "Book Logo" style= "width: 270px; height: 150px"></h1>
 </head>
 <p>Hello <jsp:getProperty name="shared" property="empFirstName"/>!</p> <!--Get the firstname of the employee that is logged in and display it-->
 <body bgcolor = "#00BFFF">
