@@ -87,7 +87,9 @@
         else
         {
         %>
-        <p>There are no new contracts available.</p>
+        <div class="alert alert-warning" role="alert" style="clear: both; margin: 80px 0 30px 0;">
+          There are no new contracts available.
+        </div>
         <%
         } //end of else
         %>

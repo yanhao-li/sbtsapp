@@ -202,11 +202,14 @@ public class DBI{
     if(rst.first())
     {
         for (int k = 0; k < records; k++){ //every row
-            for(int i = 0; i < columns; i++){ //every column
-             temp =rst.getString(Task[i]);
-             if(temp==null)
+            for(int i = 0; i < 8; i++){ //every column
+                    temp = rst.getString(Task[i]);
+
+             if(temp == null)
              temp ="";
              result[k][i] = temp; //store details of task
+             result[k][8] = rst.getString(emp[2]);
+             result[k][9] = rst.getString(emp[1]);
             }
             rst.next();
         }
@@ -411,8 +414,7 @@ public class DBI{
     int records = RecordNum(rst);
     String temp;
     String [][] result = new String[records][columns];
-    if(rst.first())
-    {
+    if(rst.first()){
         for (int k = 0; k < records; k++){ //every row
             for(int i = 0; i < 8; i++){ //every column
                     temp = rst.getString(Task[i]);
@@ -420,8 +422,8 @@ public class DBI{
              if(temp == null)
              temp ="";
              result[k][i] = temp; //store details of task
-             result[k][8] = emp[2];
-             result[k][9] = emp[1];
+             result[k][8] = rst.getString(emp[2]);
+             result[k][9] = rst.getString(emp[1]);
 
             }
             rst.next();

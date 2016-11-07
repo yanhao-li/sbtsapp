@@ -9,7 +9,6 @@
 </head>
 <body>
     <div class="container">
-
         <div class="text-xs-center logo">
             <img  align = "center" class = "rounded" src= "resource/images/booklogo.png" alt = "Book Logo" style= "width: 270px; height: 150px">
         </div>
@@ -76,7 +75,9 @@
         else
         {
         %>
-        <p>There are no new shepherds available.</p>
+        <div class="alert alert-warning" role="alert" style="clear: both; margin: 80px 0 30px 0;">
+          There are no shepherds available.
+        </div>
         <%
         }//end of else
         %>

@@ -80,7 +80,10 @@
     else
     {
     %>
-        <p>There are no new books available.</p>
+    <div class="alert alert-warning" role="alert" style="clear: both; margin: 80px 0 30px 0;">
+      There are no new books available.
+    </div>
+
     <%
     } //End of else
     %>
