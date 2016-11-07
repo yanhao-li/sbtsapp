@@ -25,7 +25,7 @@ public class SelectContract extends sbtsapp.Control{
     HttpSession session = request.getSession(true);
     //Gets the bean from session and retrieves shared data
     sbtsapp.Shared bean = (sbtsapp.Shared)session.getAttribute("shared");
-    //Get the list contracts from the bean
+    //Get the list of all contracts which have the contractStatus != complete from the bean
     String [][] SelectedContract = bean.getNewContracts();
     //Retrieve the selected contract ID from View Contracts and set it as the index
     int ContractID = Integer.parseInt(request.getParameter("ContractID"));
