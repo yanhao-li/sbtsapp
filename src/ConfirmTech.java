@@ -21,57 +21,57 @@ import sbtsapp.Shared;
 
 public class ConfirmTech extends sbtsapp.Control{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-    //Get the current HTTP session from Tomcat
-    HttpSession session = request.getSession(true);
-    //Gets the shared bean from session
-    sbtsapp.Shared bean = (sbtsapp.Shared)session.getAttribute("shared");
-     //Get the roles from bean
-     String [][] designers = bean.getDesigners();
-     String [][] editors = bean.getEditors();
-     String [][] admins = bean.getAdmins();
-     //get TechID from request, and pass it to variable tech
-    int tech = Integer.parseInt(request.getParameter("TechID"));
-    //get Task status from bean, and pass to status
-    String status = bean.getChooseTaskStatus();
+        //Get the current HTTP session from Tomcat
+        HttpSession session = request.getSession(true);
+        //Gets the shared bean from session
+        sbtsapp.Shared bean = (sbtsapp.Shared)session.getAttribute("shared");
+         //Get the roles from bean
+         String [][] designers = bean.getDesigners();
+         String [][] editors = bean.getEditors();
+         String [][] admins = bean.getAdmins();
+         //get TechID from request, and pass it to variable tech
+        int tech = Integer.parseInt(request.getParameter("TechID"));
+        //get Task status from bean, and pass to status
+        String status = bean.getChooseTaskStatus();
 
-    //when the status is "Design a cover" or "Design a promotion", do the following
+        //when the status is "Design a cover" or "Design a promotion", do the following
     if(status.equals("Design a Cover") || status.equals("Design a Promotion")){
-    //assign this task to a designer
-    String settechID = designers[tech][0];
-    bean.setTechID(settechID);
-    //Get the bookID and tasktype for this task from the bean
-    String bookID = bean.getBookID();
-    String tasktype = bean.getChooseTaskStatus();
-    String taskstatus = tasktype + " Started";
-    //using AssignTask to link the settech with the task and book
-    AssignTask(bean, bookID, tasktype, taskstatus,settechID);
-    TaskAssigned(bean, bookID);
-    getConfirmTask(bean);
+        //assign this task to a designer
+        String settechID = designers[tech][0];
+        bean.setTechID(settechID);
+        //Get the bookID and tasktype for this task from the bean
+        String bookID = bean.getBookID();
+        String tasktype = bean.getChooseTaskStatus();
+        String taskstatus = tasktype + " Started";
+        //using AssignTask to link the settech with the task and book
+        AssignTask(bean, bookID, tasktype, taskstatus,settechID);
+        TaskAssigned(bean, bookID);
+        getConfirmTask(bean);
     }
 
         //If the status of task is galley
     else if (status.equals("Galley 1") || status.equals("Galley 2") || status.equals("Galley 3")){
-    String settechID = editors[tech][0];
-    bean.setTechID(settechID);
-    String bookID = bean.getBookID();
-    String tasktype = bean.getChooseTaskStatus();
-    String taskstatus = tasktype + " Started";
-    //Assign the task to the settech
-    AssignTask(bean, bookID, tasktype, taskstatus,settechID);
-    TaskAssigned(bean, bookID);
-    getConfirmTask(bean);
+        String settechID = editors[tech][0];
+        bean.setTechID(settechID);
+        String bookID = bean.getBookID();
+        String tasktype = bean.getChooseTaskStatus();
+        String taskstatus = tasktype + " Started";
+        //Assign the task to the settech
+        AssignTask(bean, bookID, tasktype, taskstatus,settechID);
+        TaskAssigned(bean, bookID);
+        getConfirmTask(bean);
     }
 
      //If the task is "Scanning", "ISBN", "Publish"
     else if (status.equals("Scanning") || status.equals("ISBN") || status.equals("Publish")){
-    String settechID = admins[tech][0];
-    bean.setTechID(settechID);
-    String bookID = bean.getBookID();
-    String tasktype = bean.getChooseTaskStatus();
-    String taskstatus = tasktype + " Started";
-    AssignTask(bean, bookID, tasktype, taskstatus,settechID);
-    TaskAssigned(bean, bookID);
-    getConfirmTask(bean);
+        String settechID = admins[tech][0];
+        bean.setTechID(settechID);
+        String bookID = bean.getBookID();
+        String tasktype = bean.getChooseTaskStatus();
+        String taskstatus = tasktype + " Started";
+        AssignTask(bean, bookID, tasktype, taskstatus,settechID);
+        TaskAssigned(bean, bookID);
+        getConfirmTask(bean);
     }
     gotoPage("/ConfirmTech.jsp", request, response); //redirect the page to confirmtech page
 

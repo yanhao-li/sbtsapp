@@ -351,32 +351,49 @@ public class DBI{
 
     //Method to get list of books that belong to this shepherd, and Book Status is not Task Assigned or Published
     public String[][] getShepherdBookList(int empid) throws SQLException{
-    ResultSet rst = this.execQuery("SELECT BookID, Title, StartDate, BookFormat FROM Book WHERE BookStatus != 'Task Assigned' AND BookStatus != 'Published' AND ShepherdID = '" + empid + "'"); // needs more detailed select
-    String temp;
-    int records = RecordNum(rst);
-    int columns = 4;
-    String [][] result = new String[records][columns]; // matrix to hold book list of data
-    if(rst.first())
-    {
-        for (int k = 0; k < records; k++){
-            for (int i = 0; i < columns; i++){
-                temp = rst.getString(book[i]);
-               // get next data field in this row by field name
-                if(temp==null)
-                temp ="";
-                result[k][i] = temp;
+        ResultSet rst = this.execQuery("SELECT BookID, Title, StartDate, BookFormat FROM Book WHERE BookStatus != 'Task Assigned' AND BookStatus != 'Published' AND ShepherdID = '" + empid + "'"); // needs more detailed select
+        String temp;
+        int records = RecordNum(rst);
+        int columns = 4;
+        String [][] result = new String[records][columns]; // matrix to hold book list of data
+        if(rst.first())
+        {
+            for (int k = 0; k < records; k++){
+                for (int i = 0; i < columns; i++){
+                    temp = rst.getString(book[i]);
+                   // get next data field in this row by field name
+                    if(temp==null)
+                    temp ="";
+                    result[k][i] = temp;
+                }
+                    rst.next();// get next record
             }
-                rst.next();// get next record
         }
-    }
         return result;
     }
 
 
-   //Method to get list of tasks that belong to a tech
-   // public String[][] getTechTaskList(int empid) throws SQLException{
-   //
-     //   }
+    // Method to get list of tasks that belong to a tech
+    public String[][] getTechTaskList(int empid) throws SQLException{
+        ResultSet rst = this.execQuery("SELECT b.Title, t.TaskType, t.TaskStatus, t.StartDate FROM Book b, Task t WHERE b.BookID = t.BookID && t.TaskStatus != 'Complete' && t.TaskStatus != 'Task Problem' && t.TechnicianID = '"+empid+"'"); // needs more detailed select
+        String temp;
+        int records = RecordNum(rst);
+        int columns = 4;
+        String [][] result = new String[records][columns]; // matrix to hold book list of data
+        if(rst.first())
+        {
+            for (int k = 0; k < records; k++){
+                result[k][0] = rst.getString(book[1]);
+                result[k][1] = rst.getString(Task[4]);
+                result[k][2] = rst.getString(Task[6]);
+                result[k][3] = rst.getString(Task[1]);
+                rst.next();// get next record
+            }
+        }
+            return result;
+    }
+
+
 
 
     //Method to get a selected task
