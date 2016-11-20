@@ -126,7 +126,7 @@
 -->
 
   <property name="app.name"      value="sbtsapp"/>
-  <property name="app.path"      value="/${app.name}"/>
+  <property name="app.path"      value="/"/>
   <property name="app.version"   value="0.1-dev"/>
   <property name="build.home"    value="${basedir}/build"/>
   <property name="catalina.home"

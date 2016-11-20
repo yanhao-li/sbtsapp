@@ -6,7 +6,7 @@ The purpose of this servlet is to process the selected book from the list
 and generate a list of technicians and their task counts.
 
    + This servlet is invoked by ViewTaskDetails.jsp
-   + This servlet dispatches to SelectTech.jsp
+   + This servlet dispatches to SelectDesTech.jsp or SelectEdiTech.jsp, or SelectAdmTech.jsp or SelectTechParallel.jsp
 
 ******************************************************************************************/
 
@@ -25,45 +25,51 @@ public class SelectTech extends sbtsapp.Control{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
     //Get the current HTTP session from Tomcat
     HttpSession session = request.getSession(true);
-    //Gets the shared bean from session
+    //Gets the bean from session and retrieves shared data
     sbtsapp.Shared bean = (sbtsapp.Shared)session.getAttribute("shared");
-    //get the taskstatus from request and the book ID
+    //Get the status/type from the drop down list in ViewTaskDetails.jsp request
     String taskstatus = request.getParameter("Status");
     String setbookID = bean.getBookID();
 
-    //if there has tasks remained wait to be assigned
+    //If the user selects to assign only 1 task
     if(request.getParameter("AssignTask") != null){
-    //get the roles from bean
+    //Get lists of different types of technicians based on their skill from db, to the bean
     getDesigners(bean);
     getEditors(bean);
     getAdmins(bean);
-    //set taskstatus
+    //Set the task type selected and the ID of the current book
     bean.setChooseTaskStatus(taskstatus);
     bean.setBookID(setbookID);
-    gotoPage("/SelectTech.jsp", request, response); //redirect the page to selectTech page
-    }
-
-    //is the parallelTask value in the request exist
-    else if(request.getParameter("ParallelTask") != null){
+    if(taskstatus.equals("Design a Cover") || taskstatus.equals("Design a Promotion")){
+    	gotoPage("/SelectDesTech.jsp", request, response);} //Dispatch to SelectTech.jsp
+    else if(taskstatus.equals("Galley 1") || taskstatus.equals("Galley 2") || taskstatus.equals("Galley 3")){
+	gotoPage("/SelectEdiTech.jsp", request, response);} //Dispatch to SelectTech.jsp
+    else if(taskstatus.equals("Scanning") || taskstatus.equals("ISBN") || taskstatus.equals("Publish")){
+   	 gotoPage("/SelectAdmTech.jsp", request, response);} //Dispatch to SelectTech.jsp
+    } // end outer inner if
+    //If the user selects to assign a task and then assign another parallel task for same book
+   else if(request.getParameter("ParallelTask") != null){
+    //Get lists of different types of technicians based on their skill from db, to the bean
     getDesigners(bean);
     getEditors(bean);
     getAdmins(bean);
+    //Set the task selected and the ID of the selected book
     bean.setChooseTaskStatus(taskstatus);
     bean.setBookID(setbookID);
-    gotoPage("/SelectTechParallel.jsp", request, response); //redirect the page to select parallel tech page
-    }
+    gotoPage("/SelectTechParallel.jsp", request, response); //Dispatch to SelectTechParallel.jsp
+    } // end outer else
 
-    }
+    }// end main
 
-    //method to get all deisgner from the database
-    private void getDesigners(sbtsapp.Shared bean) throws ServletException, IOException{
+    //Method to get the list of designers from db to the bean
+private void getDesigners(sbtsapp.Shared bean) throws ServletException, IOException{
         String[][] designers;
         sbtsapp.DBI dbi = null;
 try{
     dbi = new sbtsapp.DBI();
-        // Check if there is a database connection to Tomcat
+        //Check if there is a database connection to Tomcat
         if(dbi.connect()){
-        // if connected, get the designers
+        // the dbi will fetch designer Techs and their count of current tasks
         designers= dbi.getDesigners();
         bean.setDesigners(designers);
 
@@ -79,7 +85,7 @@ finally{
 }
 }
 
-//Method to
+//Method to get the list of editors from db to the bean
 private void getEditors(sbtsapp.Shared bean) throws ServletException, IOException{
         String[][] editors;
         sbtsapp.DBI dbi = null;
@@ -87,7 +93,7 @@ try{
     dbi = new sbtsapp.DBI();
         //Check if there is a database connection to Tomcat
         if(dbi.connect()){
-        //if yes, get the editors from database
+         // the dbi will fetch editor Techs and their count of current tasks
         editors= dbi.getEditors();
         bean.setEditors(editors);
 
@@ -103,7 +109,7 @@ finally{
 }
 }
 
-//Method
+//Method to get the list of admins from db to the bean
 private void getAdmins(sbtsapp.Shared bean) throws ServletException, IOException{
         String[][] admins;
         sbtsapp.DBI dbi = null;
@@ -111,7 +117,7 @@ try{
     dbi = new sbtsapp.DBI();
         //Check if there is a database connection to Tomcat
         if(dbi.connect()){
-        //if connected, get the admins from database
+         // the dbi will fetch admin Techs and their count of current tasks
         admins= dbi.getAdmins();
         bean.setAdmins(admins);
 
