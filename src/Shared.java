@@ -42,7 +42,7 @@ public class Shared implements Serializable {
     private String [][] confirmtask;
     private String [][] shepherdcount; //Displays the number of shepherds.
     private String [][] shepherdbooklist; //The list of books a shepherd is in charge of
-     private String [][] techtasklist; //List of tasks that a tech is responsible for
+    private String [][] techtasklist; //List of tasks that a tech is responsible for
     private String [][] taskdetails; //Details of a specific task
     private String ChooseTaskStatus; //Choose the status of a task
     private String ContractID; //Lines 48 - 53 are variables for IDs
@@ -53,6 +53,7 @@ public class Shared implements Serializable {
     private String AuthorID;
     private String authorlastname; //Lines 54 - 55 are variables for an author's last name, and first name
     private String authorfirstname;
+	private String [] SingleTaskInfo;
 
 
 
@@ -67,6 +68,14 @@ public class Shared implements Serializable {
         /** Public Accessor Methods, required get/sets
          * for jsp:getProperty, jsp:setProperty
         */
+
+		public String[] getSingleTaskInfo(){
+			return(this.SingleTaskInfo)
+		}
+
+		public void setSingleTaskInfo(String[] value){
+			this.SingleTaskInfo = value;
+		}
 
         public int getEmpId() {
                 return(this.empid);
@@ -294,7 +303,7 @@ public class Shared implements Serializable {
    {
       return(this.techtasklist);
    }
-   
+
    public void setTechTaskList(String [][] value)
    {
       this.techtasklist = value;
