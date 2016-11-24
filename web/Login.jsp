@@ -54,7 +54,7 @@
                 <jsp:setProperty name="shared" property="message" value=""/><!-- empty error message from the shared bean -->
                 <jsp:setProperty name="shared" property="error" value=""/> <!-- empty error data from the shared bean -->
             </div>
-            <h1 align = "center" style="color: #fff; padding-bottom: 20px;">SBTS</h1>
+            <h1 align = "center" style="color: #fff; padding-bottom: 20px;">Sales and Book Tracking System</h1>
             <!-- Form to retrieve user input and send it to the Login servlet, by set action = "Login" -->
             <form  Method="POST" name = "login" onSubmit= "return ValidateForm(this);" action= "Login" class="login-panel">
                 <div class="form-group">
