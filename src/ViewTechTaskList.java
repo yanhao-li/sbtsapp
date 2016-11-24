@@ -27,9 +27,10 @@ public class ViewTechTaskList extends sbtsapp.Control{
     //Gets the bean from session and retrieves shared data
     sbtsapp.Shared bean = (sbtsapp.Shared)session.getAttribute("shared");
     //Get the id of the employee who is logged in
+    //setEmpId was done in Login.java
     int thistechid = bean.getEmpId();
-   //Call the method that gets the tasks belonging to the tech
-   getTechTaskList(bean, thistechid);
+    //Call the method that gets the tasks belonging to the tech
+    getTechTaskList(bean, thistechid);
     gotoPage("/ViewTechTaskList.jsp", request, response); //Dispatch to ViewTechTaskList.jsp to show the task list
 
     }
@@ -37,7 +38,7 @@ public class ViewTechTaskList extends sbtsapp.Control{
     //Method to get the list of tasks belonging to a tech
 private void getTechTaskList(sbtsapp.Shared bean, int empid) throws ServletException, IOException{
 	// create a DBI shell
-        sbtsapp.DBI dbi = null;
+    sbtsapp.DBI dbi = null;
 	// make a matrix to hold the task list of data
     String[][] techTaskList;
 try{
@@ -48,9 +49,6 @@ try{
         // Get the tasksfrom the DB for this tech and hold them in a matrix
         techTaskList = dbi.getTechTaskList(empid);
         bean.setTechTaskList(techTaskList);
-
-
-
     }
         }
 catch(Exception e){

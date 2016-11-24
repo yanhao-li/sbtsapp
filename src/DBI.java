@@ -27,7 +27,7 @@ public class DBI{
     String [] tech ={"EmpID", "EmpFirstName", "EmpLastName", "count(t.TaskID)"};
     String [] selectedcontract = {"ContractID", "AuthorID", "EmpID", "AuthorFirstName", "AuthorLastName", "EmpFirstName", "EmpLastName", "InitialTitle","PricePublish", "RoyaltyRate", "BookDoctor", "PromotionWeeks", "DateContract", "ContractStatus"};
     String [] contract = {"ContractID", "AuthorID", "AuthorFirstName", "AuthorLastName", "EmpID", "EmpFirstName", "EmpLastName", "InitialTitle", "ContractStatus"};
-    String [] Task = {"TaskID", "StartDate", "EndDate", "BookID","TaskType", "TaskNotes", "TaskStatus", "TechnicianID"};
+    String [] Task = {"TaskID", "StartDate", "EndDate", "BookID","TaskType", "TaskNotes", "TaskStatus", "TechnicianID", "Title"};
     String [] selecttask = {"TaskID","Title", "TaskType", "TaskStatus", "TaskNotes", "StartDate", "FileName"};
     public void DBI() throws NamingException, SQLException{}
 
@@ -375,18 +375,20 @@ public class DBI{
 
     // Method to get list of tasks that belong to a tech
     public String[][] getTechTaskList(int empid) throws SQLException{
-        ResultSet rst = this.execQuery("SELECT b.Title, t.TaskType, t.TaskStatus, t.StartDate FROM Book b, Task t WHERE b.BookID = t.BookID && t.TaskStatus != 'Complete' && t.TaskStatus != 'Task Problem' && t.TechnicianID = '"+empid+"'"); // needs more detailed select
+        ResultSet rst = this.execQuery("SELECT t.TaskID, t.StartDate, t.EndDate, t.BookID, t.TaskType, t.Tasknotes, t.TaskStatus, t.TechnicianID, b.Title FROM Task t, Book b WHERE b.BookID = t.BookID && t.TaskStatus != 'Complete' && t.TaskStatus != 'Task Problem' && t.TechnicianID = '"+empid+"'"); // needs more detailed select
         String temp;
         int records = RecordNum(rst);
-        int columns = 4;
+        int columns = 9;
         String [][] result = new String[records][columns]; // matrix to hold book list of data
         if(rst.first())
         {
             for (int k = 0; k < records; k++){
-                result[k][0] = rst.getString(book[1]);
-                result[k][1] = rst.getString(Task[4]);
-                result[k][2] = rst.getString(Task[6]);
-                result[k][3] = rst.getString(Task[1]);
+                for (int i = 0; i < columns; i++){
+                    temp = rst.getString(Task[i]);
+                    if(temp==null)
+                    temp = "";
+                    result[k][i] = temp;
+                }
                 rst.next();// get next record
             }
         }

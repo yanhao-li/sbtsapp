@@ -62,15 +62,15 @@
             %>
             <tr>
                 <!-- Display data fields from task array that correlates to the columns used in the query -->
-                <td name="Book Title" align="center"><%=task[0]%></td>
-                <td name="Task Type" align="center"><%=task[1]%></td>
-                <td name="Task Status" align="center"><%=task[2]%></td>
-                <td name="Start Date" align="center"><%=task[3]%></td>
+                <td name="Book Title" align="center"><%=task[8]%></td>
+                <td name="Task Type" align="center"><%=task[4]%></td>
+                <td name="Task Status" align="center"><%=task[6]%></td>
+                <td name="Start Date" align="center"><%=task[1]%></td>
                 <td name = "Task ID" align="center">
-        		<form id="selectTask<%=count%>" method="POST" action="SelectTask"> <!-- each task has its own form -->
-            		<input type="submit" name="Submit" value="Select" class="btn btn-outline-primary btn-sm"/> <!-- submit Task selected to ViewTaskDetails servlet-->
-            		<input type="hidden" name="TaskID" value="<%=count%>" /> <!-- send row index of the selected Task -->
-        		</form>
+            		<form id="selectTask<%=count%>" method="POST" action="SelectTask"> <!-- each task has its own form -->
+                		<input type="submit" name="Submit" value="Select" class="btn btn-outline-primary btn-sm"/> <!-- submit Task selected to ViewTaskDetails servlet-->
+                		<input type="hidden" name="RowIndex" value="<%=count%>" /> <!--Use hidden field in each row and check for the submitted value, send row index of the selected Task -->
+            		</form>
                 </td>
             </tr>
             <%

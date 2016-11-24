@@ -213,8 +213,7 @@ public class Shared implements Serializable {
       this.designers = value;
    }
 
-
-                public String [][] getEditors()
+    public String [][] getEditors()
    {
       return(this.editors);
    }
@@ -256,13 +255,13 @@ public class Shared implements Serializable {
    {
       return(this.confirmshepherd);
    }
+
    public void setConfirmShepherd(String [][] value)
    {
       this.confirmshepherd = value;
    }
 
-
-           public String [][] getConfirmTask()
+    public String [][] getConfirmTask()
    {
       return(this.confirmtask);
    }
@@ -291,16 +290,17 @@ public class Shared implements Serializable {
       this.shepherdbooklist = value;
    }
 
-              public String [][] getTechTaskList()
+	public String [][] getTechTaskList()
    {
       return(this.techtasklist);
    }
+   
    public void setTechTaskList(String [][] value)
    {
       this.techtasklist = value;
    }
 
-              public String [][] getTaskDetails()
+    public String [][] getTaskDetails()
    {
       return(this.taskdetails);
    }
