@@ -33,7 +33,7 @@ public class SelectTask extends sbtsapp.Control{
         //Variable SelectedBook is a matrix that holds values from getShepherdBookList method
         String [][] TechTaskList = bean.getTechTaskList();
         int RowIndex = Integer.parseInt(request.getParameter("RowIndex"));
-        String [] SingleTaskInfo = TechTasksList[RowIndex];
+        String [] SingleTaskInfo = TechTaskList[RowIndex];
 
         bean.setSingleTaskInfo(SingleTaskInfo);
         gotoPage("/SelectTask.jsp", request, response);

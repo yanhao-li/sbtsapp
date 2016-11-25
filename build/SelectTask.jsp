@@ -75,12 +75,12 @@
                     <textarea id="edittasknote" name="edittasknote" class="form-control" rows="3"></textarea>
                 </div>
                 <div class="col-xs-2 form-group">
-                    <select id = "Status" name ="Status" class="form-control form-control-sm" style="margin: 30px 0 16px 0">
+                    <select id = "Status" name ="Status" class="form-control form-control-sm">
                         <option value="taskonhold">Task On Hold</option>
                         <option value="taskproblem">Task Problem</option>
                         <option value="complete">Task Complete</option>
                     </select>
-                    <input type="submit" value="Submit" class="btn btn-primary btn-sm" style="width: 100%">
+                    <input type="submit" value="Submit" class="btn btn-primary">
                 </div>
             </form>
         </div>

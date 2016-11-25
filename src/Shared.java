@@ -70,7 +70,7 @@ public class Shared implements Serializable {
         */
 
 		public String[] getSingleTaskInfo(){
-			return(this.SingleTaskInfo)
+			return(this.SingleTaskInfo);
 		}
 
 		public void setSingleTaskInfo(String[] value){
