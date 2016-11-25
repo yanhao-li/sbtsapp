@@ -9,23 +9,23 @@ The purpose of this servlet is to process the list of books that need to be assi
 
 ******************************************************************************************/
 
-package sbtsapp;
+package maxapp;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
 import javax.sql.*;
-import sbtsapp.DBI;
-import sbtsapp.Control;
-import sbtsapp.Shared;
+import maxapp.DBI;
+import maxapp.Control;
+import maxapp.Shared;
 
-public class BookList extends sbtsapp.Control{
+public class BookList extends maxapp.Control{
     protected DBI dbi;
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
     //Get the current HTTP session from Tomcat
     HttpSession session = request.getSession(true);
     //Gets the bean from session and retrieves shared data
-    sbtsapp.Shared bean = (sbtsapp.Shared)session.getAttribute("shared");
+    maxapp.Shared bean = (maxapp.Shared)session.getAttribute("shared");
     //Call the method to get the list of books
     getBooks(bean);
     gotoPage("/BookList.jsp", request, response); //dispatch to BookList.jsp
@@ -33,11 +33,11 @@ public class BookList extends sbtsapp.Control{
     }
 
     //Method to retrieve the list of books that need a shepherd
-private void getBooks(sbtsapp.Shared bean) throws ServletException, IOException{
+private void getBooks(maxapp.Shared bean) throws ServletException, IOException{
         String[][] books;
-        sbtsapp.DBI dbi = null;
+        maxapp.DBI dbi = null;
 try{
-    dbi = new sbtsapp.DBI();
+    dbi = new maxapp.DBI();
         //Check if there is a database connection to Tomcat
         if(dbi.connect()){
         //Call the method from the DBI

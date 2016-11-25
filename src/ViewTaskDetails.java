@@ -9,26 +9,26 @@ The purpose of this servlet is to get the tasks that is assigned to a specific b
 
 ******************************************************************************************/
 
-package sbtsapp;
+package maxapp;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
 import javax.sql.*;
-import sbtsapp.DBI;
-import sbtsapp.Control;
-import sbtsapp.Shared;
+import maxapp.DBI;
+import maxapp.Control;
+import maxapp.Shared;
 
-//ViewTaskDetails inherits methods and classes from sbtsapp.Control
+//ViewTaskDetails inherits methods and classes from maxapp.Control
 
-public class ViewTaskDetails extends sbtsapp.Control{
+public class ViewTaskDetails extends maxapp.Control{
 
 //Enables the client to send data/information to the web server
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
  //Ensures that the current session is still valid.
     HttpSession session = request.getSession(true);
  //Gets the bean from session and retrieves shared data
-    sbtsapp.Shared bean = (sbtsapp.Shared)session.getAttribute("shared");
+    maxapp.Shared bean = (maxapp.Shared)session.getAttribute("shared");
  //Variable SelectedBook is a matrix that holds values from getShepherdBookList method
     String [][] SelectedBook = bean.getShepherdBookList();
 
@@ -43,17 +43,17 @@ public class ViewTaskDetails extends sbtsapp.Control{
 
     }
 
-private void getTaskDetails(sbtsapp.Shared bean, String BookID) throws ServletException, IOException{
+private void getTaskDetails(maxapp.Shared bean, String BookID) throws ServletException, IOException{
 
 //taskdetails is a String matrix.
         String[][] taskdetails;
 
 
-        sbtsapp.DBI dbi = null;
+        maxapp.DBI dbi = null;
 try{
 
     //Checks if there is a database connection.
-    dbi = new sbtsapp.DBI();
+    dbi = new maxapp.DBI();
        //If a database connection is succcessful, display the task details
         // The task details are obtained via getTaskDetails method with the bookID as the parameter.
         //The bean's values are changed then with the current task details.

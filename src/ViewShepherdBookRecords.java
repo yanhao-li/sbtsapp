@@ -9,23 +9,23 @@ The purpose of this servlet is to get the list of books from the database that b
 
 ******************************************************************************************/
 
-package sbtsapp;
+package maxapp;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
 import javax.sql.*;
-import sbtsapp.DBI;
-import sbtsapp.Control;
-import sbtsapp.Shared;
+import maxapp.DBI;
+import maxapp.Control;
+import maxapp.Shared;
 
-public class ViewShepherdBookRecords extends sbtsapp.Control{
+public class ViewShepherdBookRecords extends maxapp.Control{
     protected DBI dbi;
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
     //Get the current HTTP session from Tomcat
     HttpSession session = request.getSession(true);
     //Gets the bean from session and retrieves shared data
-    sbtsapp.Shared bean = (sbtsapp.Shared)session.getAttribute("shared");
+    maxapp.Shared bean = (maxapp.Shared)session.getAttribute("shared");
     //Get the id of the employee who is logged in
     int thisshepherdid = bean.getEmpId();
    //Call the method that gets the lists of the books belonging to the shepherd
@@ -35,14 +35,14 @@ public class ViewShepherdBookRecords extends sbtsapp.Control{
     }
 
     //Method to get the list of books belonging to a shepherd
-private void getShepherdBookList(sbtsapp.Shared bean, int empid) throws ServletException, IOException{
+private void getShepherdBookList(maxapp.Shared bean, int empid) throws ServletException, IOException{
 	// create a DBI shell
-        sbtsapp.DBI dbi = null;
+        maxapp.DBI dbi = null;
 	// make a matrix to hold the book list of data
     String[][] shepherdBookList;
 try{
     // create an instance of the DBI
-    dbi = new sbtsapp.DBI();
+    dbi = new maxapp.DBI();
     //Check if there is a database connection to Tomcat
     if(dbi.connect()){
         shepherdBookList = dbi.getShepherdBookList(empid);

@@ -10,7 +10,7 @@ then the user will be immediately redirected to the login page for your web app.
 
 //Import statements are located on top, which is standard.
 
-package sbtsapp;
+package maxapp;
 
 import java.io.IOException;
 import javax.servlet.Filter;
@@ -25,7 +25,7 @@ import javax.servlet.http.HttpServletResponse;
 public class AppFilter implements Filter
 {
    //The path to access your files on eve
-   public static String contextPath = "sbtsapp";
+   public static String contextPath = "maxapp";
 
 
    /* doFilter() is the main driver of this java program.

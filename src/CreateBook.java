@@ -9,17 +9,17 @@ The purpose of this servlet is to create a new book record and assign it to the 
 
 ******************************************************************************************/
 
-package sbtsapp;
+package maxapp;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
 import javax.sql.*;
-import sbtsapp.DBI;
-import sbtsapp.Control;
-import sbtsapp.Shared;
+import maxapp.DBI;
+import maxapp.Control;
+import maxapp.Shared;
 
-public class CreateBook extends sbtsapp.Control{
+public class CreateBook extends maxapp.Control{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
     //Get the information that was inputted by the user
     String title = request.getParameter("Title");
@@ -28,7 +28,7 @@ public class CreateBook extends sbtsapp.Control{
     //Get the current HTTP session from Tomcat
     HttpSession session = request.getSession(true);
     //Gets the bean from session and retrieves shared data
-    sbtsapp.Shared bean = (sbtsapp.Shared)session.getAttribute("shared");
+    maxapp.Shared bean = (maxapp.Shared)session.getAttribute("shared");
     //Get the selected contract's ID
     String conid = bean.getContractID();
     //Call the methods to create a book record, change the status, and assign it to a contract
@@ -41,12 +41,12 @@ public class CreateBook extends sbtsapp.Control{
     }
 
 //Method to enter the information to create a book record
-private void CreateBook( sbtsapp.Shared bean, String title, String date, String bookformat) throws ServletException, IOException{
-    sbtsapp.DBI dbi = null;
+private void CreateBook( maxapp.Shared bean, String title, String date, String bookformat) throws ServletException, IOException{
+    maxapp.DBI dbi = null;
         //DBI object to access database
 
     try{
-    dbi = new sbtsapp.DBI();
+    dbi = new maxapp.DBI();
         //Check if there is a database connection to Tomcat
         if(dbi.connect()){
             dbi.CreateBook(title, date, bookformat);
@@ -63,12 +63,12 @@ finally{
 }
 
 //Method to insert BookID to the selected contract
-private void InsertBook( sbtsapp.Shared bean, String ConID) throws ServletException, IOException{
-    sbtsapp.DBI dbi = null;
+private void InsertBook( maxapp.Shared bean, String ConID) throws ServletException, IOException{
+    maxapp.DBI dbi = null;
         //DBI object to access database
 
     try{
-    dbi = new sbtsapp.DBI();
+    dbi = new maxapp.DBI();
         //Check if there is a database connection to Tomcat
         if(dbi.connect()){
             dbi.InsertBook(ConID);
@@ -85,12 +85,12 @@ finally{
 }
 
 //Create a new Book-Author record in the database
-private void BookAuthor( sbtsapp.Shared bean, String ConID) throws ServletException, IOException{
-    sbtsapp.DBI dbi = null;
+private void BookAuthor( maxapp.Shared bean, String ConID) throws ServletException, IOException{
+    maxapp.DBI dbi = null;
         //DBI object to access database
 
     try{
-    dbi = new sbtsapp.DBI();
+    dbi = new maxapp.DBI();
         //Check if there is a database connection to Tomcat
         if(dbi.connect()){
             dbi.BookAuthor(ConID);
@@ -107,12 +107,12 @@ finally{
 }
 
 //Change the status of the contract
-private void ChangeContractStatus( sbtsapp.Shared bean, String ConID) throws ServletException, IOException{
-    sbtsapp.DBI dbi = null;
+private void ChangeContractStatus( maxapp.Shared bean, String ConID) throws ServletException, IOException{
+    maxapp.DBI dbi = null;
         //DBI object to access database
 
     try{
-    dbi = new sbtsapp.DBI();
+    dbi = new maxapp.DBI();
         //Check if there is a database connection to Tomcat
         if(dbi.connect()){
             dbi.ChangeContractStatus(ConID);
@@ -129,11 +129,11 @@ finally{
 }
 
 //Get the information of the book that was just created
-private void getConfirmBook(sbtsapp.Shared bean) throws ServletException, IOException{
+private void getConfirmBook(maxapp.Shared bean) throws ServletException, IOException{
         String[][] confirmbook;
-        sbtsapp.DBI dbi = null;
+        maxapp.DBI dbi = null;
 try{
-    dbi = new sbtsapp.DBI();
+    dbi = new maxapp.DBI();
         //Check if there is a database connection to Tomcat
         if(dbi.connect()){
 
