@@ -55,6 +55,7 @@ try{
     //Checks if there is a database connection.
     dbi = new sbtsapp.DBI();
        //If a database connection is succcessful, display the task details
+       //sadas
         // The task details are obtained via getTaskDetails method with the bookID as the parameter.
         //The bean's values are changed then with the current task details.
     // After the method is invoked, it then goes to a new jsp page with the request and the response.
