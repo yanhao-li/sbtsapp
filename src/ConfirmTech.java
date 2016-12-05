@@ -9,22 +9,22 @@ The purpose of this servlet is to show the confirmation page of Task just assign
    + This servlet dispatches to ConfirmTech.jsp
 ******************************************************************************************/
 
-package sbtsapp;
+package maxapp;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
 import javax.sql.*;
-import sbtsapp.DBI;
-import sbtsapp.Control;
-import sbtsapp.Shared;
+import maxapp.DBI;
+import maxapp.Control;
+import maxapp.Shared;
 
-public class ConfirmTech extends sbtsapp.Control{
+public class ConfirmTech extends maxapp.Control{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         //Get the current HTTP session from Tomcat
         HttpSession session = request.getSession(true);
         //Gets the shared bean from session
-        sbtsapp.Shared bean = (sbtsapp.Shared)session.getAttribute("shared");
+        maxapp.Shared bean = (maxapp.Shared)session.getAttribute("shared");
          //Get the roles from bean
          String [][] designers = bean.getDesigners();
          String [][] editors = bean.getEditors();
@@ -78,10 +78,10 @@ public class ConfirmTech extends sbtsapp.Control{
     }
 
    //Method AssignTask
-private void AssignTask(sbtsapp.Shared bean, String BookID, String TaskType, String TaskStatus, String TechID) throws ServletException, IOException{
-        sbtsapp.DBI dbi = null;
+private void AssignTask(maxapp.Shared bean, String BookID, String TaskType, String TaskStatus, String TechID) throws ServletException, IOException{
+        maxapp.DBI dbi = null;
 try{
-    dbi = new sbtsapp.DBI();
+    dbi = new maxapp.DBI();
         //Check if there is a database connection to Tomcat
         if(dbi.connect()){
         //if connection exist, Assign the task to the select tech
@@ -100,10 +100,10 @@ finally{
 }
 
     //Method to change the status of book
-private void TaskAssigned(sbtsapp.Shared bean, String BookID) throws ServletException, IOException{
-        sbtsapp.DBI dbi = null;
+private void TaskAssigned(maxapp.Shared bean, String BookID) throws ServletException, IOException{
+        maxapp.DBI dbi = null;
 try{
-    dbi = new sbtsapp.DBI();
+    dbi = new maxapp.DBI();
         //Check if there is a database connection to Tomcat
         if(dbi.connect()){
 	//if yes, set the book status to "Task Assigned"
@@ -122,11 +122,11 @@ finally{
 }
 
     //Method to get the information of the task that was just created
-private void getConfirmTask(sbtsapp.Shared bean) throws ServletException, IOException{
+private void getConfirmTask(maxapp.Shared bean) throws ServletException, IOException{
         String[][] confirmtask;
-        sbtsapp.DBI dbi = null;
+        maxapp.DBI dbi = null;
 try{
-    dbi = new sbtsapp.DBI();
+    dbi = new maxapp.DBI();
         //Check if there is a database connection to Tomcat
         if(dbi.connect()){
         //if yes, get the array of confirmtask, and pass it to the confirmtask variable

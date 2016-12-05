@@ -9,22 +9,22 @@ The purpose of this servlet is to enable the shepherd to send a book back to the
 
 ******************************************************************************************/
 
-package sbtsapp;
+package maxapp;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
 import javax.sql.*;
-import sbtsapp.DBI;
-import sbtsapp.Control;
-import sbtsapp.Shared;
+import maxapp.DBI;
+import maxapp.Control;
+import maxapp.Shared;
 
-public class SendBookBack extends sbtsapp.Control{
+public class SendBookBack extends maxapp.Control{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
     //Get the current HTTP session from Tomcat
     HttpSession session = request.getSession(true);
     //Gets the bean from session and retrieves shared data
-    sbtsapp.Shared bean = (sbtsapp.Shared)session.getAttribute("shared");
+    maxapp.Shared bean = (maxapp.Shared)session.getAttribute("shared");
     //Get the ID of the book that was selected from the bean
     String bookID = bean.getBookID();
     //Call the methods to change the book status and reset the shepherd ID
@@ -35,10 +35,10 @@ public class SendBookBack extends sbtsapp.Control{
     }
 
    //Method to change the status of the book to 'Escalated'
-private void EscalateBook(sbtsapp.Shared bean, String BookID) throws ServletException, IOException{
-        sbtsapp.DBI dbi = null;
+private void EscalateBook(maxapp.Shared bean, String BookID) throws ServletException, IOException{
+        maxapp.DBI dbi = null;
 try{
-    dbi = new sbtsapp.DBI();
+    dbi = new maxapp.DBI();
         //Check if there is a database connection to Tomcat
         if(dbi.connect()){
         dbi.EscalateBook(BookID);
@@ -56,10 +56,10 @@ finally{
 }
 
 //Method to reset the ShepherdID of the Book selected
-private void SendBookBack(sbtsapp.Shared bean, String BookID) throws ServletException, IOException{
-        sbtsapp.DBI dbi = null;
+private void SendBookBack(maxapp.Shared bean, String BookID) throws ServletException, IOException{
+        maxapp.DBI dbi = null;
 try{
-    dbi = new sbtsapp.DBI();
+    dbi = new maxapp.DBI();
         //Check if there is a database connection to Tomcat
         if(dbi.connect()){
         dbi.SendBookBack(BookID);

@@ -3,10 +3,10 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <jsp:useBean id="shared" scope="session" class="sbtsapp.Shared" />
+    <jsp:useBean id="shared" scope="session" class="maxapp.Shared" />
     <link rel="stylesheet" href="resource/css/bootstrap.min.css">
     <link rel="stylesheet" href="resource/css/main.css">
-     <!-- Insert sbtsapp Logo-->
+     <!-- Insert maxapp Logo-->
 </head>
 <body>
     <div class="container">

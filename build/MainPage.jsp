@@ -3,8 +3,8 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<jsp:useBean id="shared" scope="session" class="sbtsapp.Shared" />
-     <!-- Insert sbtsapp Logo-->
+<jsp:useBean id="shared" scope="session" class="maxapp.Shared" />
+     <!-- Insert maxapp Logo-->
     <link rel="stylesheet" href="resource/css/bootstrap.min.css">
     <link rel="stylesheet" href="resource/css/main.css">
 </head>

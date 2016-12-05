@@ -10,22 +10,22 @@ information of the shepherd to display on the confirmation page.
 
 ******************************************************************************************/
 
-package sbtsapp;
+package maxapp;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
 import javax.sql.*;
-import sbtsapp.DBI;
-import sbtsapp.Control;
-import sbtsapp.Shared;
+import maxapp.DBI;
+import maxapp.Control;
+import maxapp.Shared;
 
-public class ShepherdConfirmation extends sbtsapp.Control{
+public class ShepherdConfirmation extends maxapp.Control{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
     //Get the current HTTP session from Tomcat
     HttpSession session = request.getSession(true);
     //Gets the bean from session and retrieves shared data
-    sbtsapp.Shared bean = (sbtsapp.Shared)session.getAttribute("shared");
+    maxapp.Shared bean = (maxapp.Shared)session.getAttribute("shared");
      String [][] shepherds = bean.getShepherds();
     //Get the ID of the shepherd and book that was selected
     int ShepherdID = Integer.parseInt(request.getParameter("ShepherdID"));
@@ -42,10 +42,10 @@ public class ShepherdConfirmation extends sbtsapp.Control{
     }
 
    //Method to assign a shepherd to the selected book
-private void AssignShepherd(sbtsapp.Shared bean, String ShepherdID, String BookID) throws ServletException, IOException{
-        sbtsapp.DBI dbi = null;
+private void AssignShepherd(maxapp.Shared bean, String ShepherdID, String BookID) throws ServletException, IOException{
+        maxapp.DBI dbi = null;
 try{
-    dbi = new sbtsapp.DBI();
+    dbi = new maxapp.DBI();
         //Check if there is a database connection to Tomcat
         if(dbi.connect()){
         dbi.AssignShepherd(ShepherdID, BookID);
@@ -63,10 +63,10 @@ finally{
 }
 
 //Method to change the status of the book to 'Shepherd Assigned'
-private void ChangeBookStatus(sbtsapp.Shared bean, String BookID) throws ServletException, IOException{
-        sbtsapp.DBI dbi = null;
+private void ChangeBookStatus(maxapp.Shared bean, String BookID) throws ServletException, IOException{
+        maxapp.DBI dbi = null;
 try{
-    dbi = new sbtsapp.DBI();
+    dbi = new maxapp.DBI();
         //Check if there is a database connection to Tomcat
         if(dbi.connect()){
         dbi.ChangeBookStatus(BookID);
@@ -84,11 +84,11 @@ finally{
 }
 
 //Method to get information of the shepherd that was just assigned
-private void getConfirmShepherd(sbtsapp.Shared bean, String shepherdid) throws ServletException, IOException{
+private void getConfirmShepherd(maxapp.Shared bean, String shepherdid) throws ServletException, IOException{
         String[][] confirmshepherd;
-        sbtsapp.DBI dbi = null;
+        maxapp.DBI dbi = null;
 try{
-    dbi = new sbtsapp.DBI();
+    dbi = new maxapp.DBI();
         //Check if there is a database connection to Tomcat
         if(dbi.connect()){
 

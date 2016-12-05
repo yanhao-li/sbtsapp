@@ -8,25 +8,25 @@ The purpose of this is to program is to select a book and get its details throug
 
 ******************************************************************************************/
 
-package sbtsapp;
+package maxapp;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
 import javax.sql.*;
-import sbtsapp.DBI;
-import sbtsapp.Control;
-import sbtsapp.Shared;
+import maxapp.DBI;
+import maxapp.Control;
+import maxapp.Shared;
 
-//because of extends, the SelectBook class inherits the fields and methods of sbtsapp control.
+//because of extends, the SelectBook class inherits the fields and methods of maxapp control.
 
-public class SelectBook extends sbtsapp.Control{
+public class SelectBook extends maxapp.Control{
     //Enables the client to send data/information to the web server
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
     //Get the current HTTP session from Tomcat
     HttpSession session = request.getSession(true);
     //Gets the bean from session and retrieves shared data
-    sbtsapp.Shared bean = (sbtsapp.Shared)session.getAttribute("shared");
+    maxapp.Shared bean = (maxapp.Shared)session.getAttribute("shared");
     String [][] SelectedBook = bean.getShepherdBookList();
     int BookID = Integer.parseInt(request.getParameter("BookID"));
     String setbookID = SelectedBook[BookID][0];
@@ -44,10 +44,10 @@ public class SelectBook extends sbtsapp.Control{
     }
 
   /*
-   private void setContractID(sbtsapp.Shared bean, String id) throws ServletException, IOException{
-    sbtsapp.DBI dbi = new sbtsapp.DBI();
+   private void setContractID(maxapp.Shared bean, String id) throws ServletException, IOException{
+    maxapp.DBI dbi = new maxapp.DBI();
 try{
-    dbi = new sbtsapp.DBI();
+    dbi = new maxapp.DBI();
         //Check if there is a database connection to Tomcat
         if(dbi.connect()){
 
@@ -66,13 +66,13 @@ finally{
 }
 */
 
-private void getSelectedBook(sbtsapp.Shared bean, String BookID) throws ServletException, IOException{
+private void getSelectedBook(maxapp.Shared bean, String BookID) throws ServletException, IOException{
 
     //variable matrix for selected book
         String[][] selectedbook;
-        sbtsapp.DBI dbi = null;
+        maxapp.DBI dbi = null;
 try{
-    dbi = new sbtsapp.DBI();
+    dbi = new maxapp.DBI();
         //Check if there is a database connection to Tomcat
         if(dbi.connect()){
 

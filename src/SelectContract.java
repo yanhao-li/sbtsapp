@@ -9,22 +9,22 @@ The purpose of this servlet is to get the information of the contract that was s
 
 ******************************************************************************************/
 
-package sbtsapp;
+package maxapp;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
 import javax.sql.*;
-import sbtsapp.DBI;
-import sbtsapp.Control;
-import sbtsapp.Shared;
+import maxapp.DBI;
+import maxapp.Control;
+import maxapp.Shared;
 
-public class SelectContract extends sbtsapp.Control{
+public class SelectContract extends maxapp.Control{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
     //Get the current HTTP session from Tomcat
     HttpSession session = request.getSession(true);
     //Gets the bean from session and retrieves shared data
-    sbtsapp.Shared bean = (sbtsapp.Shared)session.getAttribute("shared");
+    maxapp.Shared bean = (maxapp.Shared)session.getAttribute("shared");
     //Get the list of all contracts which have the contractStatus != complete from the bean
     String [][] SelectedContract = bean.getNewContracts();
     //Retrieve the selected contract ID from View Contracts and set it as the index
@@ -39,11 +39,11 @@ public class SelectContract extends sbtsapp.Control{
     }
 
 //Method to get the selected contract
-private void getSelectedContract(sbtsapp.Shared bean, String ContractID) throws ServletException, IOException{
+private void getSelectedContract(maxapp.Shared bean, String ContractID) throws ServletException, IOException{
         String[][] selectedContract;
-        sbtsapp.DBI dbi = null;
+        maxapp.DBI dbi = null;
 try{
-    dbi = new sbtsapp.DBI();
+    dbi = new maxapp.DBI();
         //Check if there is a database connection to Tomcat
         if(dbi.connect()){
         //Call the method from the DBI

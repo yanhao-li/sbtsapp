@@ -7,7 +7,7 @@
  * Resulting data is returned in the return variable, often an array
 */
 
-package sbtsapp;
+package maxapp;
 
 import javax.naming.*;
 import javax.sql.*;

@@ -1,12 +1,12 @@
 /*
-The purpose of this is to enable the functionalities of the shared bean for sbtsapp. It is an important file
-that holds the set, and get methods for the bean. Without it, the functionalities of the sbtsapp
+The purpose of this is to enable the functionalities of the shared bean for maxapp. It is an important file
+that holds the set, and get methods for the bean. Without it, the functionalities of the maxapp
 website would not be available.
 
 */
 
 //local
-package sbtsapp;
+package maxapp;
 
 import java.util.*;
 import java.io.Serializable;
@@ -32,11 +32,11 @@ public class Shared implements Serializable {
     private String [][] selectedContract; //a matrix that holds the selected Contract that is displayed/edited
     private String [][] selectedBook; //A matrix of the selected book and its details
     private String [][] selectedTask; //a matrix of the selected task
-    private String [][] shepherds;  //Employees of sbtsapp from line 28 - 31
+    private String [][] shepherds;  //Employees of maxapp from line 28 - 31
     private String [][] designers;
     private String [][] editors;
     private String [][] admins;
-    private String [][] books; //Books that are currently in sbtsapp
+    private String [][] books; //Books that are currently in maxapp
     private String [][] confirmbook; //Lines 40 - 42 are matrix variables used for confirmation
     private String [][] confirmshepherd;
     private String [][] confirmtask;

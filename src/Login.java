@@ -27,17 +27,17 @@ javax.servlet.http: Provides an abstract class to be subclassed to create an HTT
 
 *****************************************************************************/
 
-package sbtsapp;
+package maxapp;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
 import javax.sql.*;
-import sbtsapp.DBI;
-import sbtsapp.Control;
-import sbtsapp.Shared;
+import maxapp.DBI;
+import maxapp.Control;
+import maxapp.Shared;
 
-public class Login extends sbtsapp.Control{
+public class Login extends maxapp.Control{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
     //Get the email and password that was inputted by the user
     String emailnew = request.getParameter("Email");
@@ -46,7 +46,7 @@ public class Login extends sbtsapp.Control{
     //Get the current HTTP session from Tomcat
     HttpSession session = request.getSession(true);
     //Gets the bean from session and retrieves shared data
-    sbtsapp.Shared bean = (sbtsapp.Shared)session.getAttribute("shared");
+    maxapp.Shared bean = (maxapp.Shared)session.getAttribute("shared");
 
     //Check if the entered information is in the database
     boolean confirm = this.login(email, password, bean);
@@ -65,11 +65,11 @@ public class Login extends sbtsapp.Control{
 }
 
 //Method to enter the information to check for match
-private boolean login(String email, String password, sbtsapp.Shared bean){
+private boolean login(String email, String password, maxapp.Shared bean){
 
     boolean check = false;
         //DBI object to access database
-        sbtsapp.DBI dbi = new sbtsapp.DBI();
+        maxapp.DBI dbi = new maxapp.DBI();
     try{
 
         //Check if there is a database connection to Tomcat
