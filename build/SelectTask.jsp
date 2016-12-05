@@ -3,7 +3,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<jsp:useBean id="shared" scope="session" class="sbtsapp.Shared" />
+<jsp:useBean id="shared" scope="session" class="maxapp.Shared" />
     <link rel="stylesheet" href="resource/css/bootstrap.min.css">
     <link rel="stylesheet" href="resource/css/main.css">
 </head>
@@ -75,12 +75,12 @@
                     <textarea id="edittasknote" name="edittasknote" class="form-control" rows="3"></textarea>
                 </div>
                 <div class="col-xs-2 form-group">
-                    <select id = "Status" name ="Status" class="form-control form-control-sm">
+                    <select id = "Status" name ="Status" class="form-control form-control-sm" style="margin: 30px 0 16px 0">
                         <option value="taskonhold">Task On Hold</option>
                         <option value="taskproblem">Task Problem</option>
                         <option value="complete">Task Complete</option>
                     </select>
-                    <input type="submit" value="Submit" class="btn btn-primary">
+                    <input type="submit" value="Submit" class="btn btn-primary btn-sm" style="width: 100%">
                 </div>
             </form>
         </div>
