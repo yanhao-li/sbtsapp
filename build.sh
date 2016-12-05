@@ -3,6 +3,8 @@ cd build
 chmod 744 *.*
 chmod 755 WEB-INF
 chmod 755 resource
+chmod 755 resource/css
+chmod 755 resource/images
 cd WEB-INF
 chmod 744 *.*
 chmod 755 classes
@@ -19,8 +21,6 @@ pwd
 cd ..
 pwd
 cd resource
-pwd
-chmod 744 *.*
 pwd
 cd css
 chmod 744 *.*
