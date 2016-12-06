@@ -65,41 +65,46 @@
 
         </table>
 
-        <div class="row">
-            <div class="col-xs-5 form-group">
-                <label for="exampleInputEmail1">Previous Task Note</label>
+            <div class="previous-task-note">
+                <h4 align="center" style="color: #9E9E9E; padding-top: 30px; clear: both">Previous Task Note</h4>
                 <table class="table table-hover">
-                    <tr>
-                        <td>exmale</td>
-                        <td>exmale</td>
-                        <td>exmale</td>
-                    </tr>
-                    <tr>
-                        <td>exmale</td>
-                        <td>exmale</td>
-                        <td>exmale</td>
-                    </tr>
-                    <tr>
-                        <td>exmale</td>
-                        <td>exmale</td>
-                        <td>exmale</td>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <td>Date</td>
+                            <td>Note</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>exmale</td>
+                            <td>exmale</td>
+                            <td>exmale</td>
+                        </tr>
+                        <tr>
+                            <td>exmale</td>
+                            <td>exmale</td>
+                            <td>exmale</td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
-            <form class="" action="ConfirmTask" method="post">
-                <div class="col-xs-5 form-group">
-                    <label for="edittasknote">Edit Task</label>
-                    <textarea id="edittasknote" name="edittasknote" class="form-control" rows="3"></textarea>
-                </div>
-                <div class="col-xs-2 form-group">
-                    <select id = "Status" name ="Status" class="form-control form-control-sm" style="margin: 30px 0 16px 0">
-                        <option value="taskonhold">Task On Hold</option>
-                        <option value="taskproblem">Task Problem</option>
-                        <option value="complete">Task Complete</option>
-                    </select>
-                    <input type="submit" value="Submit" class="btn btn-primary btn-sm" style="width: 100%">
-                </div>
-            </form>
+
+            <div class="task-note-edit">
+                <form class="" action="ConfirmTask" method="post">
+                    <div class="col-xs-7 offset-xs-1 form-group">
+                        <label for="edittasknote">Edit Task</label>
+                        <textarea id="edittasknote" name="edittasknote" class="form-control" rows="3"></textarea>
+                    </div>
+                    <div class="col-xs-3 offset-xs-1 form-group">
+                        <select id = "Status" name ="Status" class="form-control form-control-sm" style="margin: 30px 0 16px 0">
+                            <option value="taskonhold">Task On Hold</option>
+                            <option value="taskproblem">Task Problem</option>
+                            <option value="complete">Task Complete</option>
+                        </select>
+                        <input type="submit" value="Submit" class="btn btn-primary btn-sm" style="width: 100%">
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </body>
