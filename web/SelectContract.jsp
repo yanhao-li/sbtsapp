@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="resource/css/bootstrap.min.css">
         <link rel="stylesheet" href="resource/css/main.css">
          <!-- Insert maxapp Logo-->
+        <title>Select Contract</title>
     </head>
     <body>
         <div class="container">

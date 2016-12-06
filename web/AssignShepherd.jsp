@@ -3,9 +3,10 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<jsp:useBean id="shared" scope="session" class="maxapp.Shared" />
+    <jsp:useBean id="shared" scope="session" class="maxapp.Shared" />
     <link rel="stylesheet" href="resource/css/bootstrap.min.css">
     <link rel="stylesheet" href="resource/css/main.css">
+    <title>Assign Book to a Shepherd</title>
 </head>
 <body>
     <div class="container">
