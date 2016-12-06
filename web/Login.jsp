@@ -63,7 +63,7 @@
                 <div class="form-group">
                     <input type="password" id= "Password" name="Password" required="required" class="form-control" placeholder="Password">
                 </div>
-                <input type="submit" value="Submit" name= "Submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">
+                <input type="submit" value="Login" name= "Submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">
             </form>
         </div>
         <div class="footer">
