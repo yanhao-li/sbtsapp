@@ -67,7 +67,23 @@
         <div class="row">
             <div class="col-xs-5 form-group">
                 <label for="exampleInputEmail1">Previous Task Note</label>
-                <textarea id= "previoustasknote" name="previoustasknote" class="form-control" rows="3"></textarea>
+                <table class="table table-hover">
+                    <tr>
+                        <td>exmale</td>
+                        <td>exmale</td>
+                        <td>exmale</td>
+                    </tr>
+                    <tr>
+                        <td>exmale</td>
+                        <td>exmale</td>
+                        <td>exmale</td>
+                    </tr>
+                    <tr>
+                        <td>exmale</td>
+                        <td>exmale</td>
+                        <td>exmale</td>
+                    </tr>
+                </table>
             </div>
             <form class="" action="ConfirmTask" method="post">
                 <div class="col-xs-5 form-group">

@@ -1,11 +1,11 @@
 /******************************************************************************************
 
-SelectTask.java
+EditTask.java
 
 The purpose of this servlet is to get the tasks that is assigned to a specific book.
 
    + This servlet is invoked by ViewTechTaskList.jsp
-   + This servlet dispatches to SelectTask.jsp
+   + This servlet dispatches to EditTask.jsp
 
 ******************************************************************************************/
 package maxapp;
@@ -20,7 +20,7 @@ import maxapp.Shared;
 
 //ViewTaskDetails inherits methods and classes from maxapp.Control
 
-public class SelectTask extends maxapp.Control{
+public class EditTask extends maxapp.Control{
 
 //Enables the client to send data/information to the web server
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
@@ -36,7 +36,7 @@ public class SelectTask extends maxapp.Control{
         String [] SingleTaskInfo = TechTaskList[RowIndex];
 
         bean.setSingleTaskInfo(SingleTaskInfo);
-        gotoPage("/SelectTask.jsp", request, response);
+        gotoPage("/EditTask.jsp", request, response);
 
     }
 

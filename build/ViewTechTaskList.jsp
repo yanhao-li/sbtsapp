@@ -67,7 +67,7 @@
                 <td name="Task Status" align="center"><%=task[6]%></td>
                 <td name="Start Date" align="center"><%=task[1]%></td>
                 <td name = "Task ID" align="center">
-            		<form id="selectTask<%=count%>" method="POST" action="SelectTask"> <!-- each task has its own form -->
+            		<form id="selectTask<%=count%>" method="POST" action="EditTask"> <!-- each task has its own form -->
                 		<input type="submit" name="Submit" value="Select" class="btn btn-outline-primary btn-sm"/> <!-- submit Task selected to ViewTaskDetails servlet-->
                 		<input type="hidden" name="RowIndex" value="<%=count%>" /> <!--Use hidden field in each row and check for the submitted value, send row index of the selected Task -->
             		</form>
