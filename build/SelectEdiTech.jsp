@@ -6,6 +6,7 @@
         <jsp:useBean id="shared" scope="session" class="maxapp.Shared" />
         <link rel="stylesheet" href="resource/css/bootstrap.min.css">
         <link rel="stylesheet" href="resource/css/main.css">
+        <title>Select Tech</title>
     </head>
     <body>
         <div class="container">

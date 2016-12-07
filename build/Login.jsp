@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="resource/css/main.css">
     <!-- The jsp:useBean action tag is used to locate or instantiate a bean class. If bean object of the Bean class is already created, it doesn't create the bean depending on the scope. But if object of bean is not created, it instantiates the bean. -->
     <jsp:useBean id="shared" scope="session" class="maxapp.Shared" />
+    <title>Sales and Book Tracking System</title>
 
 <!-- Javascript form to check for invalid characters-->
 <script>
@@ -63,7 +64,7 @@
                 <div class="form-group">
                     <input type="password" id= "Password" name="Password" required="required" class="form-control" placeholder="Password">
                 </div>
-                <input type="submit" value="Submit" name= "Submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">
+                <input type="submit" value="Login" name= "Submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">
             </form>
         </div>
         <div class="footer">

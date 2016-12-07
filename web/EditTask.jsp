@@ -1,11 +1,12 @@
-<!-- ViewTaskDetails.java dispatches to this jsp -->
+<%-- <!-- ViewTaskDetails.java dispatches to this jsp -->
 <!-- This file ??  -->
 <!DOCTYPE HTML>
 <html>
 <head>
-<jsp:useBean id="shared" scope="session" class="maxapp.Shared" />
+    <jsp:useBean id="shared" scope="session" class="maxapp.Shared" />
     <link rel="stylesheet" href="resource/css/bootstrap.min.css">
     <link rel="stylesheet" href="resource/css/main.css">
+    <title>Edit Task</title>
 </head>
 <body>
     <div class="container">
@@ -64,17 +65,20 @@
 
         </table>
 
-        <div class="row">
-            <div class="col-xs-5 form-group">
-                <label for="exampleInputEmail1">Previous Task Note</label>
-                <textarea id= "previoustasknote" name="previoustasknote" class="form-control" rows="3"></textarea>
+        <h4 align="center" style="color: #9E9E9E; padding-top: 30px; clear: both">Previous Task Note</h4>
+        <div class="previous-task-note" style="background-color: #E0E0E0; margin-bottom: 40px">
+            <div style="display: inline-block; text-align: left">
+                <%=TaskInfo[5]%>
             </div>
+        </div>
+
+        <div class="task-note-edit">
             <form class="" action="ConfirmTask" method="post">
-                <div class="col-xs-5 form-group">
+                <div class="col-xs-8 form-group">
                     <label for="edittasknote">Edit Task</label>
                     <textarea id="edittasknote" name="edittasknote" class="form-control" rows="3"></textarea>
                 </div>
-                <div class="col-xs-2 form-group">
+                <div class="col-xs-3 offset-xs-1 form-group">
                     <select id = "Status" name ="Status" class="form-control form-control-sm" style="margin: 30px 0 16px 0">
                         <option value="taskonhold">Task On Hold</option>
                         <option value="taskproblem">Task Problem</option>
@@ -84,6 +88,7 @@
                 </div>
             </form>
         </div>
+        </div>
     </div>
 </body>
-</html>
+</html> --%>
