@@ -1,11 +1,14 @@
 /******************************************************************************************
 
-ViewTaskDetails.java
+    Actor:
+    Context:
+    Invoked by:
+    Dispatch to:
 
-The purpose of this servlet is to get the tasks that is assigned to a specific book.
-
-   + This servlet is invoked by MainPage.jsp
-   + This servlet dispatches to ViewTaskDetails.jsp
+    Actor: Shepherd
+    Context: Shepherd check the list of book he was assigned, and select one of them to see the detail task of it. This servet accept the rowIndex selected from ViewShepherdBookRecord.jsp and use that index get the bookID of the select book, so that got all the task and details the book has.
+    Invoked by: ViewShepherdBookRecord.jsp
+    Dispatch to: ViewTaskDetails.jsp
 
 ******************************************************************************************/
 

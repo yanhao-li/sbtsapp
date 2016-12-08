@@ -1,5 +1,12 @@
 /******************************************************************************************
 
+
+Actor:
+Context:
+Invoked by:
+Dispatch to:
+
+
 ViewTaskDetailsParallel.java
 
 The purpose of this book is to provide information of the tasks and its details./
