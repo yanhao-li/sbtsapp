@@ -66,7 +66,7 @@
         </table>
 
         <h4 align="center" style="color: #9E9E9E; padding-top: 30px; clear: both">Previous Task Note</h4>
-        <div class="previous-task-note" style="text-align: center; background-color: #E0E0E0">
+        <div class="previous-task-note" style="background-color: #E0E0E0; margin-bottom: 40px">
             <div style="display: inline-block; text-align: left">
                 <%=TaskInfo[5]%>
             </div>

@@ -43,7 +43,8 @@ public class Shared implements Serializable {
     private String [][] shepherdcount; //Displays the number of shepherds.
     private String [][] shepherdbooklist; //The list of books a shepherd is in charge of
     private String [][] techtasklist; //List of tasks that a tech is responsible for
-    private String [][] taskdetails; //Details of a specific task
+    private String [] taskdetail; //Details of a single task
+	private String [][] tasksofbook;
     private String ChooseTaskStatus; //Choose the status of a task
     private String ContractID; //Lines 48 - 53 are variables for IDs
     private String ShepherdID;
@@ -53,7 +54,6 @@ public class Shared implements Serializable {
     private String AuthorID;
     private String authorlastname; //Lines 54 - 55 are variables for an author's last name, and first name
     private String authorfirstname;
-	private String [] SingleTaskInfo;
 
 
 
@@ -97,13 +97,13 @@ public class Shared implements Serializable {
         public void setEmpLastName(String value) {
                 this.EmpLastName = value;
         }
-   	public String getemailAddress() {
+   		public String getemailAddress() {
                return(this.email);
         }
         public void setemailAddress(String value) {
               this.email= value;
         }
-	public String getTitle() {
+		public String getTitle() {
                return(this.title);
         }
         public void setTitle(String value) {
@@ -185,7 +185,7 @@ public class Shared implements Serializable {
       this.selectedContract = value;
    }
 
-          public String [][] getSelectedBook()
+         public String [][] getSelectedBook()
    {
       return(this.selectedBook);
    }
@@ -309,14 +309,24 @@ public class Shared implements Serializable {
       this.techtasklist = value;
    }
 
-    public String [][] getTaskDetails()
+    public String [][] getTasksofBook()
    {
-      return(this.taskdetails);
+      return(this.tasksofbook);
    }
-   public void setTaskDetails(String [][] value)
+   public void setTasksofBook(String [][] value)
    {
-      this.taskdetails = value;
+      this.tasksofbook = value;
    }
+
+	public void getTaskDetail()
+	{
+		return(this.taskdetail)
+	}
+
+	public void setTaskDetail(String [] taskdetail)
+	{
+		this.taskdetail = value;
+	}
 
 
 

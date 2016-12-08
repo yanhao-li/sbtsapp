@@ -71,7 +71,7 @@
                 <td name = "BookID" align="center">
         		<form id="selectBook<%=count%>" method="POST" action="ViewTaskDetails"> <!-- each book has its own form -->
             		<input type="submit" name="Submit" value="Select" class="btn btn-outline-primary btn-sm"/> <!-- submit book selected to ViewTaskDetails servlet-->
-            		<input type="hidden" name="BookID" value="<%=count%>" /> <!-- send row index of the selected book -->
+            		<input type="hidden" name="RowIndex" value="<%=count%>" /> <!-- send row index of the selected book -->
         		</form>
                 </td>
             </tr>

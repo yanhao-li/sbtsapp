@@ -1,9 +1,9 @@
 /******************************************************************************************
 
-    Actor:
-    Context:
-    Invoked by:
-    Dispatch to:
+    Actor: Technician
+    Context: When technican viewing his task list, he could select one task to edit, one he click the select button, the form will post the index of the row he selected to this servlet.
+    Invoked by: ViewTechTaskList.jsp
+    Dispatch to: EditTask.jsp
 
 ******************************************************************************************/
 package maxapp;
@@ -31,11 +31,32 @@ public class EditTask extends maxapp.Control{
         //Variable SelectedBook is a matrix that holds values from getShepherdBookList method
         String [][] TechTaskList = bean.getTechTaskList();
         int RowIndex = Integer.parseInt(request.getParameter("RowIndex"));
-        String [] SingleTaskInfo = TechTaskList[RowIndex];
+        //get the ID of the task selected
+        int TaskID = TechTaskList[RowIndex][0]
+        bean.setTaskID(TaskID);
 
-        bean.setSingleTaskInfo(SingleTaskInfo);
+        getTaskDetail(bean, TaskID);
         gotoPage("/EditTask.jsp", request, response);
 
+    }
+
+    private void getTaskDetail(maxapp.Shared bean, int TaskID) throws ServletException, IOException{
+        String[] taskdetail;
+        maxapp.DBI dbi = null;
+        try{
+            dbi = new maxapp.DBI();
+            if(dbi.connect()){
+                taskdetail = dbi.getTaskDetail(TaskID);
+                bean.setTaskDetail(taskdetail);
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            bean.setError("Servlet Exception error" +e);
+        }
+        finally{
+              dbi.close();// close connection to the databse
+        }
     }
 
 }//End of Class
