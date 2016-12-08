@@ -320,7 +320,7 @@ public class Shared implements Serializable {
 
 	public void getTaskDetail()
 	{
-		return(this.taskdetail)
+		return(this.taskdetail);
 	}
 
 	public void setTaskDetail(String [] taskdetail)

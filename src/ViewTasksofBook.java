@@ -29,7 +29,7 @@ public class ViewTasksofBook extends maxapp.Control{
     String [][] SelectedBook = bean.getShepherdBookList();
 
     int RowIndex = Integer.parseInt(request.getParameter("RowIndex"));
-    String setbookID = SelectedBook[BookID][0];
+    String setbookID = SelectedBook[RowIndex][0];
 
     bean.setBookID(setbookID);
 
