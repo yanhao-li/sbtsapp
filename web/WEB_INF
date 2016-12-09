@@ -6,7 +6,7 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 <filter>
     <filter-name>AppFilter</filter-name>
     <filter-class>
-        SBTS.AppFilter
+        maxapp.AppFilter
     </filter-class>
     <!-- UNUSED...
 	  <init-param>
@@ -21,7 +21,7 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 </filter-mapping>
 <servlet>
         <servlet-name>Control</servlet-name>
-        <servlet-class>SBTS.Control</servlet-class>
+        <servlet-class>maxapp.Control</servlet-class>
 </servlet>
 
 <servlet-mapping>
@@ -31,7 +31,7 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 
 <servlet>
         <servlet-name>Login</servlet-name>
-        <servlet-class>SBTS.Login</servlet-class>
+        <servlet-class>maxapp.Login</servlet-class>
 </servlet>
 
 <servlet-mapping>
@@ -41,7 +41,7 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 
 <servlet>
         <servlet-name>Logout</servlet-name>
-        <servlet-class>SBTS.Logout</servlet-class>
+        <servlet-class>maxapp.Logout</servlet-class>
 </servlet>
 
 <servlet-mapping>
@@ -51,7 +51,7 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 
 <servlet>
         <servlet-name>Shared</servlet-name>
-        <servlet-class>SBTS.Shared</servlet-class>
+        <servlet-class>maxapp.Shared</servlet-class>
 </servlet>
 <servlet-mapping>
         <servlet-name>Shared</servlet-name>
@@ -60,7 +60,7 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 
 <servlet>
         <servlet-name>DBI</servlet-name>
-        <servlet-class>SBTS.DBI</servlet-class>
+        <servlet-class>maxapp.DBI</servlet-class>
 </servlet>
 
 <servlet-mapping>
@@ -70,7 +70,7 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 
 <servlet>
         <servlet-name>ViewContracts</servlet-name>
-        <servlet-class>SBTS.ViewContracts</servlet-class>
+        <servlet-class>maxapp.ViewContracts</servlet-class>
 </servlet>
 
 <servlet-mapping>
@@ -81,7 +81,7 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 
 <servlet>
         <servlet-name>SelectContract</servlet-name>
-        <servlet-class>SBTS.SelectContract</servlet-class>
+        <servlet-class>maxapp.SelectContract</servlet-class>
 </servlet>
 
 <servlet-mapping>
@@ -91,7 +91,7 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 
 <servlet>
         <servlet-name>AssignShepherd</servlet-name>
-        <servlet-class>SBTS.AssignShepherd</servlet-class>
+        <servlet-class>maxapp.AssignShepherd</servlet-class>
 </servlet>
 
 <servlet-mapping>
@@ -101,7 +101,7 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 
 <servlet>
         <servlet-name>CreateBook</servlet-name>
-        <servlet-class>SBTS.CreateBook</servlet-class>
+        <servlet-class>maxapp.CreateBook</servlet-class>
 </servlet>
 
 <servlet-mapping>
@@ -112,7 +112,7 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 
 <servlet>
         <servlet-name>BookList</servlet-name>
-        <servlet-class>SBTS.BookList</servlet-class>
+        <servlet-class>maxapp.BookList</servlet-class>
 </servlet>
 
 <servlet-mapping>
@@ -122,7 +122,7 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 
 <servlet>
         <servlet-name>ShepherdConfirmation</servlet-name>
-        <servlet-class>SBTS.ShepherdConfirmation</servlet-class>
+        <servlet-class>maxapp.ShepherdConfirmation</servlet-class>
 </servlet>
 
 <servlet-mapping>
@@ -133,7 +133,7 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 
 <servlet>
         <servlet-name>ViewShepherdBookRecords</servlet-name>
-        <servlet-class>SBTS.ViewShepherdBookRecords</servlet-class>
+        <servlet-class>maxapp.ViewShepherdBookRecords</servlet-class>
 </servlet>
 
 <servlet-mapping>
@@ -143,7 +143,7 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 
 <servlet>
         <servlet-name>SelectBook</servlet-name>
-        <servlet-class>SBTS.SelectBook</servlet-class>
+        <servlet-class>maxapp.SelectBook</servlet-class>
 </servlet>
 
 <servlet-mapping>
@@ -155,7 +155,7 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 
 <servlet>
         <servlet-name>AssignTask</servlet-name>
-        <servlet-class>SBTS.AssignTask</servlet-class>
+        <servlet-class>maxapp.AssignTask</servlet-class>
 </servlet>
 
 <servlet-mapping>
@@ -166,7 +166,7 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 
 <servlet>
         <servlet-name>SelectTech</servlet-name>
-        <servlet-class>SBTS.SelectTech</servlet-class>
+        <servlet-class>maxapp.SelectTech</servlet-class>
 </servlet>
 
 <servlet-mapping>
@@ -177,7 +177,7 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 
 <servlet>
         <servlet-name>ConfirmTech</servlet-name>
-        <servlet-class>SBTS.ConfirmTech</servlet-class>
+        <servlet-class>maxapp.ConfirmTech</servlet-class>
 </servlet>
 
 <servlet-mapping>
@@ -188,7 +188,7 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 
 <servlet>
         <servlet-name>ViewTaskDetails</servlet-name>
-        <servlet-class>SBTS.ViewTaskDetails</servlet-class>
+        <servlet-class>maxapp.ViewTaskDetails</servlet-class>
 </servlet>
 
 <servlet-mapping>
@@ -199,7 +199,7 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 
 <servlet>
         <servlet-name>SendBookBack</servlet-name>
-        <servlet-class>SBTS.SendBookBack</servlet-class>
+        <servlet-class>maxapp.SendBookBack</servlet-class>
 </servlet>
 
 <servlet-mapping>
@@ -209,7 +209,7 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 
 <servlet>
         <servlet-name>ConfirmTechParallel</servlet-name>
-        <servlet-class>SBTS.ConfirmTechParallel</servlet-class>
+        <servlet-class>maxapp.ConfirmTechParallel</servlet-class>
 </servlet>
 
 <servlet-mapping>
@@ -220,7 +220,7 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 
 <servlet>
         <servlet-name>ViewTaskDetailsParallel</servlet-name>
-        <servlet-class>SBTS.ViewTaskDetailsParallel</servlet-class>
+        <servlet-class>maxapp.ViewTaskDetailsParallel</servlet-class>
 </servlet>
 
 <servlet-mapping>
@@ -231,7 +231,7 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 
 <servlet>
         <servlet-name>ViewTechTaskList</servlet-name>
-        <servlet-class>SBTS.ViewTechTaskList</servlet-class>
+        <servlet-class>maxapp.ViewTechTaskList</servlet-class>
 </servlet>
 
 <servlet-mapping>
@@ -242,7 +242,7 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 
 <servlet>
         <servlet-name>SelectTask</servlet-name>
-        <servlet-class>SBTS.SelectTask</servlet-class>
+        <servlet-class>maxapp.SelectTask</servlet-class>
 </servlet>
 
 <servlet-mapping>
@@ -252,7 +252,7 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 
 <servlet>
         <servlet-name>EditTask</servlet-name>
-        <servlet-class>SBTS.EditTask</servlet-class>
+        <servlet-class>maxapp.EditTask</servlet-class>
 </servlet>
 
 <servlet-mapping>

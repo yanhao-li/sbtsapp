@@ -3,61 +3,86 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<jsp:useBean id="shared" scope="session" class="SBTS.Shared" /> 
-     <!-- Insert SBTS Logo-->
-    <h1 align = "center"><img  align = "center" src= "images/booklogo.png" alt = "Book Logo" style= "width: 270px; height: 150px"></h1> 
+    <jsp:useBean id="shared" scope="session" class="maxapp.Shared" />
+    <link rel="stylesheet" href="resource/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resource/css/main.css">
+    <title>Book Create Confirmation</title>
 </head>
-<body bgcolor = "#00BFFF">
+<body>
+    <div class="container">
+        <div class="text-xs-center logo">
+            <img  align = "center" class = "rounded" src= "resource/images/booklogo.png" alt = "Book Logo" style= "width: 270px; height: 150px">
+        </div>
+        <div class="message-panel">
+            <% if(shared.getMessage() != ""){ %>
+            <div class="alert alert-success" role="alert">
+              <jsp:getProperty name="shared" property="message"/>
+            </div>
+            <%}%>
 
-<p>Hello <jsp:getProperty name="shared" property="empFirstName"/>!</p>  <!--Get the firstname of the employee that is logged in and display it-->
+            <% if(shared.getError() != ""){ %>
+            <div class="alert alert-warning" role="alert">
+              <jsp:getProperty name="shared" property="error"/>
+            </div>
+            <%}%>
 
-<!-- Display options to the user -->
+            <jsp:setProperty name="shared" property="message" value=""/><!-- empty error message from the shared bean -->
+            <jsp:setProperty name="shared" property="error" value=""/> <!-- empty error data from the shared bean -->
+        </div>
 
-<a href="ViewContracts"><button type="button" style="float:right;">Back to List of Contracts</button></a>
-<a href="BookList"><button type="button" style="float:center;">Go to List of Books</button></a>
-<a href="MainPage.jsp"><button type="button" style="float:left;">Main Page</button></a>
+        <p class="lead">Hello <jsp:getProperty name="shared" property="empFirstName"/>!</p> <!--Get the firstname of the employee that is logged in and display it-->
+        <!-- Buttons redirect user to other pages -->
+        <div class="btn-group" role="group" aria-label="Basic example" style="float: right;">
+          <a class="btn btn-secondary btn-sm" href="ViewContracts">Back to List of Contracts</a>
+          <a class="btn btn-secondary btn-sm" href="BookList">Go to List of Books</a>
+          <a class="btn btn-secondary btn-sm" href="MainPage.jsp">Main Page</a>
+        </div>
 
-<p align = "center">Book record has been created!</p>
+        <div class="alert alert-success" role="alert" style="clear: both; margin: 80px 0 30px 0;">
+          Book record has been created!
+        </div>
 
-<%
-//Get the book that was just createrd and set in the bean
-String [][] confirmbook = shared.getConfirmBook();
-if(confirmbook != null && confirmbook.length != 0){
-%>
-<!-- Table used to display the information-->
-<table align = "center" border = "2"  bgcolor="#F0F8FF" >
-<tr>
-<!-- Table headers-->
-     <th>Book ID</th>
-     <th>Title</th>
-	 <th>Start Date</th>
-</tr>
-<%
-int count = 0;
-//Create an array for the book
-for(String[] book : confirmbook){
-%>
-<tr>
-<!-- Display information from array that correlates to the columns used in the query -->
-<td name="bookID" align="center"><%=book[0]%></td>
-<td name="title" align="center"><%=book[1]%></td>
-<td name="startdate" align="center"><%=book[2]%></td>
-</tr>
-<%
-count++;
-}//end of for loop
-%>
-</table>
-<%
-} //End of if
-else
-{
-%>
-<p>There are no new books available.</p>
-<%
-} //End of else
-%>
-</body> 
-
-
+        <%
+        //Get the book that was just createrd and set in the bean
+        String [][] confirmbook = shared.getConfirmBook();
+        if(confirmbook != null && confirmbook.length != 0){
+        %>
+        <!-- Table used to display the information-->
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                     <th>Book ID</th>
+                     <th>Title</th>
+                     <th>Start Date</th>
+                </tr>
+            </thead>
+        <%
+        int count = 0;
+        //Create an array for the book
+        for(String[] book : confirmbook){
+        %>
+        <tr>
+            <!-- Display information from array that correlates to the columns used in the query -->
+            <td name="bookID" align="center"><%=book[0]%></td>
+            <td name="title" align="center"><%=book[1]%></td>
+            <td name="startdate" align="center"><%=book[2]%></td>
+        </tr>
+        <%
+        count++;
+        }//end of for loop
+        %>
+        </table>
+        <%
+        } //End of if
+        else
+        {
+        %>
+        <div class="alert alert-warning" role="alert" style="clear: both; margin: 80px 0 30px 0;">
+          There are no new books available.
+        </div>
+        <%
+        } //End of else
+        %>
+    </div>
+</body>
 </html>

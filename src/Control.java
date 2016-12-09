@@ -1,10 +1,10 @@
 
 /*****************************************************************************************
-java.io       :   This package contains three main groups of classes and interfaces. 
+java.io       :   This package contains three main groups of classes and interfaces.
 	The first group is for building data streams.  A data stream is either an input stream for reading bytes
-	or characters, or an output stream for writing bytes or characters (FILES). 
-	The second group contains classes and interfaces for object serialization. Object Serialitation is the 
-	process of converting an object's state into a byte stream in such way that the byte stream can be 
+	or characters, or an output stream for writing bytes or characters (FILES).
+	The second group contains classes and interfaces for object serialization. Object Serialitation is the
+	process of converting an object's state into a byte stream in such way that the byte stream can be
 	re-converted back into a copy of the object.
 	The last group is for dealing with the file System.
 
@@ -46,42 +46,41 @@ java.util.Vector  :  The Vector class implements a growable array of objects. Li
                          the size of a Vector can grow or shrink as needed to accommodate adding and removing
                          items after the Vector has been created.
                          Each vector tries to optimize storage management by maintaining a capacity and a capacityIncrement.
-                         The capacity is always at least as large as the vector size; it is usually larger because as 
-			components are added to the vector, the vector's storage increases in chunks the size of 
+                         The capacity is always at least as large as the vector size; it is usually larger because as
+			components are added to the vector, the vector's storage increases in chunks the size of
 			capacity Increment.
                          An application can increase the capacity of a vector before inserting a large number of components;
                          this reduces the amount of incremental reallocation.
 
 *****************************************************************************************/
 
-package SBTS;
+package maxapp;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
-import SBTS.DBI;
-import SBTS.Control;
-import SBTS.Shared;
+import maxapp.DBI;
+import maxapp.Shared;
 
 //Method begins the application, every servlet extends this
 public class Control extends HttpServlet{
         protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException{
             //create a new session
-            HttpSession session = request.getSession(true); 
+            HttpSession session = request.getSession(true);
             //create a new bean
-            SBTS.Shared bean = new SBTS.Shared(); 
+            maxapp.Shared bean = new maxapp.Shared();
             bean.setError(""); //Method to clear old errors
             session.setAttribute("shared", bean);//set the Shared servlet as part of Tomcat session
-            gotoPage("/Login.jsp", request, response); //Switch between servlets and send request and response to Login servlet 
+            gotoPage("/Login.jsp", request, response); //Switch between servlets and send request and response to Login servlet
         }
-        
-       //Method is used in every servlet, it sends the request and response to the appropriate page 
+
+       //Method is used in every servlet, it sends the request and response to the appropriate page
    protected void gotoPage(String page, HttpServletRequest request, HttpServletResponse response)
    throws ServletException, IOException{
     //Dispatcher is used to go to the page's address
     RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher(page);
     dispatcher.forward(request,response);
    }
-   
+
 } //End of Class
