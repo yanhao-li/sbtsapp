@@ -45,7 +45,7 @@ public class Shared implements Serializable {
     private String [][] techtasklist; //List of tasks that a tech is responsible for
     private String [] taskdetail; //Details of a single task
 	private String [][] tasksofbook;
-    private String ChooseTaskStatus; //Choose the status of a task
+    private String TaskOption; //Choose the status of a task
     private String ContractID; //Lines 48 - 53 are variables for IDs
     private String ShepherdID;
     private String TechID;
@@ -136,11 +136,11 @@ public class Shared implements Serializable {
 		this.skill = value;
         }
 
-                public String getChooseTaskStatus() {
-          	return(this.ChooseTaskStatus);
+                public String getTaskOption() {
+          	return(this.TaskOption);
         }
-        public void setChooseTaskStatus(String value) {
-          	this.ChooseTaskStatus = value;
+        public void setTaskOption(String value) {
+          	this.TaskOption = value;
         }
 
 		//getError displays the error aquired from setError... (see lines 150 - 152, they relate)
