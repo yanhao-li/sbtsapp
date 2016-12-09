@@ -194,7 +194,8 @@ public class DBI{
 
     //Method to get the details of every task assigned to a book   
     public String[][] getTaskDetails(String bookid) throws SQLException{ 
-    ResultSet rst = this.execQuery("SELECT t.TaskID, t.StartDate, t.EndDate, t.BookID, t.TaskType, t.TaskNotes, t.TaskStatus, t.TechnicianID, e.EmpFirstName, e.EmpLastName From Task t, Employees e WHERE BookID = '"+bookid+"' && t.TechnicianID = e.EmpID");
+    ResultSet rst = this.execQuery("SELECT t.TaskID, t.StartDate, t.EndDate, t.BookID, t.TaskType, t.TaskNotes, t.TaskStatus, t.TechnicianID, 
+        e.EmpFirstName, e.EmpLastName From Task t, Employees e WHERE t.BookID = '"+bookid+"' && t.TechnicianID = e.EmpID");
     int columns = 10;
     int records = RecordNum(rst);
     String temp;
