@@ -217,6 +217,18 @@ public class DBI{
     return result;
    }
 
+   public String[] getTaskDetail(String taskid) throws SQLException{
+       ResultSet rst = this.execQuery("SELECT t.StartDate, t.TaskType, t.TaskNotes, t.TaskStatus, b.Title  From Task t, Book b WHERE t.TaskID = '"+taskid+"' && t.BookID = b.BookID ");
+       String [] result = new String [5];
+       if(rst.first()){
+            result[0] = rst.getString("StartDate");
+            result[1] = rst.getString("TaskType");
+            result[2] = rst.getString("TaskNotes");
+            result[3] = rst.getString("Title");
+            result[4] = rst.getString("TaskStatus");
+        }
+        return result;
+  }
 
     //Method to get the list and book count of the shepherds
     public String[][] getShepherds() throws SQLException{

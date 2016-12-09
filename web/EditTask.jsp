@@ -1,5 +1,4 @@
-<%-- <!-- ViewTasksofBook.java dispatches to this jsp -->
-<!-- This file ??  -->
+<!-- ViewTasksofBook.java dispatches to this jsp -->
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -41,7 +40,7 @@
 
         <%
         // Conditional that checks for taskdetails for a book.
-        String [] TaskInfo = shared.getSingleTaskInfo();
+        String [] TaskDetail = shared.getTaskDetail();
         %>
 
         <!-- A table is created for the task details. -->
@@ -57,10 +56,10 @@
             </thead>
             <tr>
                 <!-- for each records in the database, insert a row into the table  -->
-                <td name="booktitle" align="center"><%=TaskInfo[8]%></td>
-                <td name="tasktype" align="center"><%=TaskInfo[4]%></td>
-                <td name="taskstatus" align="center"><%=TaskInfo[6]%></td>
-                <td name="startdate" align="center"><%=TaskInfo[1]%></td>
+                <td name="booktitle" align="center"><%=TaskDetail[3]%></td>
+                <td name="tasktype" align="center"><%=TaskDetail[1]%></td>
+                <td name="taskstatus" align="center"><%=TaskDetail[4]%></td>
+                <td name="startdate" align="center"><%=TaskDetail[0]%></td>
             </tr>
 
         </table>
@@ -68,7 +67,7 @@
         <h4 align="center" style="color: #9E9E9E; padding-top: 30px; clear: both">Previous Task Note</h4>
         <div class="previous-task-note" style="background-color: #E0E0E0; margin-bottom: 40px">
             <div style="display: inline-block; text-align: left">
-                <%=TaskInfo[5]%>
+                <%=TaskDetail[2]%>
             </div>
         </div>
 
@@ -91,4 +90,4 @@
         </div>
     </div>
 </body>
-</html> --%>
+</html>
