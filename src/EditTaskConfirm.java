@@ -34,11 +34,14 @@ public class EditTaskConfirm extends maxapp.Control{
             TaskNote = request.getParameter("EditTaskNote");
         }
         UpdateTask(bean, TaskNote);
+        gotoPage("/EditTaskConfirm.jsp", request, response);
     }
 
     private void UpdateTask(maxapp.Shared bean, String TaskNote) throws ServletException, IOException{
         String TaskOption = bean.getTaskOption();
         String TaskID = bean.getTaskID();
+        String TaskStatus;
+
         maxapp.DBI dbi = null;
         try{
             dbi = new maxapp.DBI();
