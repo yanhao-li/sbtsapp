@@ -1,4 +1,3 @@
-<!-- This is the jsp file for confirm the tasks which has been assigned to a tech -->
 <!DOCTYPE HTML>
 <html>
 <head>

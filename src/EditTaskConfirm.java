@@ -17,6 +17,9 @@ import javax.sql.*;
 import maxapp.DBI;
 import maxapp.Control;
 import maxapp.Shared;
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 public class EditTaskConfirm extends maxapp.Control{
     protected DBI dbi;
@@ -27,17 +30,20 @@ public class EditTaskConfirm extends maxapp.Control{
         maxapp.Shared bean = (maxapp.Shared)session.getAttribute("shared");
         //Get the status/type from the drop down list in ViewTaskDetails.jsp request
         bean.setTaskOption(request.getParameter("TaskOption"));
-        String TaskNote = "";
+        String NewTaskNote = "";
 
         //get the new task note input
         if(request.getParameter("EditTaskNote") != null){
-            TaskNote = request.getParameter("EditTaskNote");
+            NewTaskNote = request.getParameter("EditTaskNote");
         }
-        UpdateTask(bean, TaskNote);
+        DateFormat dateformat = new SimpleDateFormat("MM/dd/yyyy");
+        Date date = new Date();
+        NewTaskNote = dateformat.format(date) + ": " + NewTaskNote;
+        UpdateTask(bean, NewTaskNote);
         gotoPage("/EditTaskConfirm.jsp", request, response);
     }
 
-    private void UpdateTask(maxapp.Shared bean, String TaskNote) throws ServletException, IOException{
+    private void UpdateTask(maxapp.Shared bean, String NewTaskNote) throws ServletException, IOException{
         String TaskOption = bean.getTaskOption();
         String TaskID = bean.getTaskID();
         String TaskStatus;
@@ -47,7 +53,7 @@ public class EditTaskConfirm extends maxapp.Control{
             dbi = new maxapp.DBI();
                 //Check if there is a database connection to Tomcat
                 if(dbi.connect()){
-                    dbi.EditTask(TaskID, TaskNote);
+                    dbi.EditTask(TaskID, NewTaskNote);
                     dbi.TaskChangeStatus(TaskID, TaskOption);
                 }
         }

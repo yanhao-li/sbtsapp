@@ -259,5 +259,14 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
         <servlet-name>EditTask</servlet-name>
         <url-pattern>/EditTask</url-pattern>
 </servlet-mapping>
-</web-app>
 
+<servlet>
+        <servlet-name>EditTaskConfirm</servlet-name>
+        <servlet-class>maxapp.EditTaskConfirm</servlet-class>
+</servlet>
+
+<servlet-mapping>
+        <servlet-name>EditTaskConfirm</servlet-name>
+        <url-pattern>/EditTaskConfirm</url-pattern>
+</servlet-mapping>
+</web-app>

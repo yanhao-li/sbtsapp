@@ -553,9 +553,9 @@ public class DBI{
    }
 
             //Method to edit the notes of a task
-    public void EditTask(String taskid, String tasknote) throws SQLException{
+    public void EditTask(String taskid, String newtasknote) throws SQLException{
         Statement stmt = conn.createStatement();
-        String rst = "UPDATE Task SET TaskNote = '" + tasknote + "' WHERE TaskID = '" + taskid + "';";
+        String rst = "UPDATE Task SET TaskNotes = CONCAT(TaskNotes,'"+newtasknote+"', '<br/>') WHERE TaskID = '"+taskid+"';";
         stmt.executeUpdate(rst);
    }
 
