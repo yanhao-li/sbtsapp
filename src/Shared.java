@@ -69,14 +69,6 @@ public class Shared implements Serializable {
          * for jsp:getProperty, jsp:setProperty
         */
 
-		public String[] getSingleTaskInfo(){
-			return(this.SingleTaskInfo);
-		}
-
-		public void setSingleTaskInfo(String[] value){
-			this.SingleTaskInfo = value;
-		}
-
         public int getEmpId() {
                 return(this.empid);
         }
@@ -318,12 +310,12 @@ public class Shared implements Serializable {
       this.tasksofbook = value;
    }
 
-	public void getTaskDetail()
+	public String[] getTaskDetail()
 	{
 		return(this.taskdetail);
 	}
 
-	public void setTaskDetail(String [] taskdetail)
+	public void setTaskDetail(String [] value)
 	{
 		this.taskdetail = value;
 	}

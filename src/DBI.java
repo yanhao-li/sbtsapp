@@ -217,6 +217,7 @@ public class DBI{
     return result;
    }
 
+
     //Method to get the list and book count of the shepherds
     public String[][] getShepherds() throws SQLException{
     ResultSet rst = this.execQuery("SELECT e.EmpID, e.EmpFirstName, e.EmpLastName, count(b.ShepherdID) From Employees e Left Join Book b ON b.ShepherdID = e.EmpID Where e.Shepherd = 'Yes' OR b.BookStatus != 'Published' Group by e.EmpID, b.ShepherdID order by e.EmpID asc");
