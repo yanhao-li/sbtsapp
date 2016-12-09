@@ -72,7 +72,7 @@
         </div>
 
         <div class="task-note-edit">
-            <form class="" action="ConfirmTask" method="post">
+            <form class="" action="EditTaskConfirm" method="post">
                 <div class="col-xs-8 form-group">
                     <label for="edittasknote">Edit Task</label>
                     <textarea id="edittasknote" name="edittasknote" class="form-control" rows="3"></textarea>
