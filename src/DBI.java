@@ -546,14 +546,17 @@ public class DBI{
    }
 
           //Method to change the status of a task
-     public void TaskChangeStatus(String taskid, String taskStatus) throws SQLException{
-
+     public void TaskChangeStatus(String taskid, String taskstatus) throws SQLException{
+        Statement stmt = conn.createStatement();
+        String rst = "UPDATE Task SET TaskStatus = '" + taskstatus + "' WHERE TaskID = '"+taskid+"';";
+        stmt.executeUpdate(rst);
    }
 
-
             //Method to edit the notes of a task
-    public void EditTask(String taskid, String tasknotes) throws SQLException{
-
+    public void EditTask(String taskid, String newtasknote) throws SQLException{
+        Statement stmt = conn.createStatement();
+        String rst = "UPDATE Task SET TaskNotes = CONCAT(TaskNotes,'"+newtasknote+"', '<br/>') WHERE TaskID = '"+taskid+"';";
+        stmt.executeUpdate(rst);
    }
 
    //Method gets the number of records from query

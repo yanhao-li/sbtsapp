@@ -1,11 +1,10 @@
-<!-- ViewTasksofBook.java dispatches to this jsp -->
 <!DOCTYPE HTML>
 <html>
 <head>
-    <jsp:useBean id="shared" scope="session" class="maxapp.Shared" />
+<jsp:useBean id="shared" scope="session" class="maxapp.Shared" />
     <link rel="stylesheet" href="resource/css/bootstrap.min.css">
     <link rel="stylesheet" href="resource/css/main.css">
-    <title>Edit Task</title>
+    <title>Task Update Confirm Page</title>
 </head>
 <body>
     <div class="container">
@@ -32,12 +31,12 @@
         <p class="lead">Hello <jsp:getProperty name="shared" property="empFirstName"/>!</p> <!--Get the firstname of the employee that is logged in and display it-->
         <!-- Buttons redirect user to other pages -->
         <div class="btn-group" role="group" aria-label="Basic example" style="float: right;">
-            <a class="btn btn-secondary btn-sm" href="ViewTechTaskList.jsp">Back to task list</a>
+          <a class="btn btn-secondary btn-sm" href="ViewTechTaskList.jsp">Back to Task List</a>
           <a class="btn btn-secondary btn-sm" href="MainPage.jsp">Main Page</a>
         </div>
-
-        <h4 align="center" style="color: #9E9E9E; padding-bottom: 30px; clear: both">Task Information</h4>
-
+        <div class="alert alert-success" role="alert" style="clear: both; margin: 80px 0 30px 0;">
+          Task has been updated!
+        </div>
         <%
         // Conditional that checks for taskdetails for a book.
         String [] TaskDetail = shared.getTaskDetail();
@@ -63,31 +62,6 @@
             </tr>
 
         </table>
-
-        <h4 align="center" style="color: #9E9E9E; padding-top: 30px; clear: both">Previous Task Note</h4>
-        <div class="previous-task-note" style="background-color: #E0E0E0; margin-bottom: 40px">
-            <div style="display: inline-block; text-align: left">
-                <%=TaskDetail[2]%>
-            </div>
-        </div>
-
-        <div class="task-note-edit">
-            <form class="" action="ConfirmTask" method="post">
-                <div class="col-xs-8 form-group">
-                    <label for="edittasknote">Edit Task</label>
-                    <textarea id="edittasknote" name="edittasknote" class="form-control" rows="3"></textarea>
-                </div>
-                <div class="col-xs-3 offset-xs-1 form-group">
-                    <select id = "Status" name ="Status" class="form-control form-control-sm" style="margin: 30px 0 16px 0">
-                        <option value="taskonhold">Task On Hold</option>
-                        <option value="taskproblem">Task Problem</option>
-                        <option value="complete">Task Complete</option>
-                    </select>
-                    <input type="submit" value="Submit" class="btn btn-primary btn-sm" style="width: 100%">
-                </div>
-            </form>
-        </div>
-        </div>
     </div>
 </body>
-</html>
+<html>
