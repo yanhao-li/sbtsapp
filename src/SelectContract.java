@@ -1,5 +1,10 @@
 /******************************************************************************************
 
+Actor:
+Context:
+Invoked by:
+Dispatch to:
+
 SelectContract.java
 
 The purpose of this servlet is to get the information of the contract that was selected by the manager.

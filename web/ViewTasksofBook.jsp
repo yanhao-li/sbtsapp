@@ -1,4 +1,4 @@
-<!-- ViewTaskDetails.java dispatches to this jsp -->
+<!-- ViewTasksofBook.java dispatches to this jsp -->
 <!-- This file ??  -->
 <!DOCTYPE HTML>
 <html>
@@ -6,7 +6,7 @@
 <jsp:useBean id="shared" scope="session" class="maxapp.Shared" />
     <link rel="stylesheet" href="resource/css/bootstrap.min.css">
     <link rel="stylesheet" href="resource/css/main.css">
-    <title>Task Detail</title>
+    <title>Tasks of Book</title>
 </head>
 <body>
     <div class="container">
@@ -37,11 +37,11 @@
               <a class="btn btn-secondary btn-sm" href="MainPage.jsp">Main Page</a>
             </div>
         <%
-        // Conditional that checks for taskdetails for a book.
-        String [][] taskdetails = shared.getTaskDetails();
-        if(taskdetails != null && taskdetails.length != 0){
+        
+        String [][] tasksofbook = shared.getTasksofBook();
+        if(tasksofbook != null && tasksofbook.length != 0){
         %>
-        <!-- A table is created for the task details. -->
+
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -57,18 +57,18 @@
             </thead>
             <%
             int count = 0;
-            // A for loop that will keep on going and won't stop until all details and tasks are displayed.
-            for(String[] details : taskdetails){
+
+            for(String[] task : tasksofbook){
             %>
             <tr>
                 <!-- for each records in the database, insert a row into the table  -->
-                <td name="tasktype" align="center"><%=details[4]%></td>
-                <td name="taskstatus" align="center"><%=details[6]%></td>
-                <td name="startdate" align="center"><%=details[1]%></td>
-                <td name="enddate" align="center"><%=details[2]%></td>
-                <td name="tasknotes" align="center"><%=details[5]%></td>
-                <td name="Techfirstname" align="center"><%=details[8]%></td>
-                <td name="Techlastname" align="center"><%=details[9]%></td>
+                <td name="tasktype" align="center"><%=task[4]%></td>
+                <td name="taskstatus" align="center"><%=task[6]%></td>
+                <td name="startdate" align="center"><%=task[1]%></td>
+                <td name="enddate" align="center"><%=task[2]%></td>
+                <td name="tasknotes" align="center"><%=task[5]%></td>
+                <td name="Techfirstname" align="center"><%=task[8]%></td>
+                <td name="Techlastname" align="center"><%=task[9]%></td>
             </tr>
             <%
             count++;
