@@ -37,8 +37,8 @@ public class EditTaskConfirm extends maxapp.Control{
     }
 
     private void UpdateTask(maxapp.Shared bean, String TaskNote) throws ServletException, IOException{
-        String TaskOption = bean.getTaskOption;
-        String TaskID = bean.getTaskID;
+        String TaskOption = bean.getTaskOption();
+        String TaskID = bean.getTaskID();
         maxapp.DBI dbi = null;
         try{
             dbi = new maxapp.DBI();

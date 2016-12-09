@@ -72,13 +72,13 @@
         </div>
 
         <div class="task-note-edit">
-            <form class="" action="ConfirmTask" method="post">
+            <form class="" action="EditTaskConfirm" method="post">
                 <div class="col-xs-8 form-group">
-                    <label for="edittasknote">Edit Task</label>
-                    <textarea id="edittasknote" name="edittasknote" class="form-control" rows="3"></textarea>
+                    <label for="EditTaskNote">Edit Task</label>
+                    <textarea name="EditTaskNote" class="form-control" rows="3"></textarea>
                 </div>
                 <div class="col-xs-3 offset-xs-1 form-group">
-                    <select id = "Status" name ="Status" class="form-control form-control-sm" style="margin: 30px 0 16px 0">
+                    <select name ="TaskOption" class="form-control form-control-sm" style="margin: 30px 0 16px 0">
                         <option value="taskonhold">Task On Hold</option>
                         <option value="taskproblem">Task Problem</option>
                         <option value="complete">Task Complete</option>
