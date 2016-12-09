@@ -1,4 +1,16 @@
-Assinging a task:
+/*********************************************************************
+
+AssignTask.java
+
+The purpose of this servlet is to allow a Shephard to assign a task to a 
+Tech.
+
+   + This servlet is invoked by BookList.jsp --- JSP file needed.
+   + This servlet dispatches to AssignShepherd.jsp --- JSP file needed
+
+
+********************************************************************/
+
 
 //Import statements
 
