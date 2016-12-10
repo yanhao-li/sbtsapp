@@ -340,6 +340,27 @@ public class DBI{
     return result;
    }
 
+   public String[][] getAuthorBooks(String AuthorEmail) throws SQLException{
+   ResultSet rst = this.execQuery("SELECT b.Title, b.BookStatus, b.StartDate, b.PublishedDate FROM Book b INNER JOIN Book_Author ba ON b.BookID = ba.BookID INNER JOIN Author a ON ba.AuthorID = a.AuthorID WHERE a.emailAddress = '"+ AuthorEmail + "';");
+   int columns = 4;
+   int records = RecordNum(rst);
+   String temp;
+   String [][] result = new String[records][columns];
+   if(rst.first())
+   {
+       for (int k = 0; k < records; k++){ //every row
+           for(int i = 0; i < columns; i++){ //every column
+            temp =rst.getString(book[i]);
+            if(temp==null)
+            temp ="";
+            result[k][i] = temp; //store details of books
+           }
+           rst.next();
+       }
+   }
+   return result;
+  }
+
     //Method to get information of the book that was just created
     public String[][] getConfirmBook() throws SQLException{
     ResultSet rst = this.execQuery("SELECT BookID, Title, StartDate From Book WHERE BookID = (SELECT MAX(LAST_INSERT_ID(BookID)) From Book)");

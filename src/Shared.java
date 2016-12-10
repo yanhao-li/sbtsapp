@@ -37,6 +37,7 @@ public class Shared implements Serializable {
     private String [][] editors;
     private String [][] admins;
     private String [][] books; //Books that are currently in maxapp
+	private String [][] authorbooks;
     private String [][] confirmbook; //Lines 40 - 42 are matrix variables used for confirmation
     private String [][] confirmshepherd;
     private String [][] confirmtask;
@@ -46,7 +47,7 @@ public class Shared implements Serializable {
     private String [] taskdetail; //Details of a single task
 	private String [][] tasksofbook;
     private String TaskOption;
-	private String TaskStatus; 
+	private String TaskStatus;
     private String ContractID; //Lines 48 - 53 are variables for IDs
     private String ShepherdID;
     private String TechID;
@@ -250,8 +251,17 @@ public class Shared implements Serializable {
    {
       this.books = value;
    }
+   	public String[][] getAuthorBooks()
+	{
+		return(this.authorbooks);
+	}
 
-           public String [][] getConfirmBook()
+	public void setAuthorBooks(String[][] value)
+	{
+		this.authorbooks = value;
+	}
+
+	public String [][] getConfirmBook()
    {
       return(this.confirmbook);
    }
