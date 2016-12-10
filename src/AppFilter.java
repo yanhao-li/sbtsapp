@@ -10,6 +10,7 @@ then the user will be immediately redirected to the login page for your web app.
 
 //Import statements are located on top, which is standard.
 
+
 package maxapp;
 
 import java.io.IOException;
@@ -25,7 +26,7 @@ import javax.servlet.http.HttpServletResponse;
 public class AppFilter implements Filter
 {
    //The path to access your files on eve
-   public static String contextPath = "maxapp";
+   public static String contextPath = "MAXAPP"; // ********MAKE SURE TO CHANGE THIS TO MAXAPP, WHICH IS OUR SERVER NAME*******
 
 
    /* doFilter() is the main driver of this java program.
@@ -39,7 +40,12 @@ public class AppFilter implements Filter
       HttpServletResponse response = (HttpServletResponse) res;
       String requestURI = request.getRequestURI();
 
+<<<<<<< HEAD
       if((((HttpServletRequest)request).getSession(false)==null) && ((!requestURI.startsWith("/"+contextPath+"/Login")) || (!requestURI.startsWith("/"+contextPath+"/ViewAuthorBooks"))))
+=======
+      if((((HttpServletRequest)request).getSession(false)==null) && (!requestURI.startsWith("/"+contextPath+"/Login")))
+      
+>>>>>>> max
       {
          // the session has expired (or does not exist) and the user is not on the login page.
          ((HttpServletResponse)response).sendRedirect("/"+contextPath+"/Login");
@@ -50,10 +56,15 @@ public class AppFilter implements Filter
       }
 
    }
+
+   //This method is called by the web container to indicate to a filter that it is being placed into service.
+
    public void init(FilterConfig config) throws ServletException
    {
        // add init code if needed
        // example: String testParam = config.getInitParameter("test-param");
+
+      // an example of this in action: https://www.tutorialspoint.com/servlets/servlets-writing-filters.htm
    }
    public void destroy()
    {
