@@ -66,6 +66,7 @@
                 </div>
                 <input type="submit" value="Login" name= "Submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">
             </form>
+            <a href="ViewAuthorBooks.jsp">Check the status of your books, Click here</a>
         </div>
         <div class="footer">
             <img  align = "center" src= "resource/images/logo.png" alt = "Kean Logo" width="50px" style="float: right; margin-top: 5px;">

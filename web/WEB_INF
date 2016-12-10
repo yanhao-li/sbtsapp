@@ -259,5 +259,14 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
         <servlet-name>EditTask</servlet-name>
         <url-pattern>/EditTask</url-pattern>
 </servlet-mapping>
-</web-app>
 
+<servlet>
+        <servlet-name>ViewAuthorBooks</servlet-name>
+        <servlet-class>maxapp.ViewAuthorBooks</servlet-class>
+</servlet>
+
+<servlet-mapping>
+        <servlet-name>ViewAuthorBooks</servlet-name>
+        <url-pattern>/ViewAuthorBooks</url-pattern>
+</servlet-mapping>
+</web-app>
