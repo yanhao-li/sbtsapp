@@ -29,7 +29,7 @@ public class AppFilter implements Filter
    public static String contextPath = "MAXAPP"; // ********MAKE SURE TO CHANGE THIS TO MAXAPP, WHICH IS OUR SERVER NAME*******
 
 
-   /* doFilter() is the main driver of this java program. 
+   /* doFilter() is the main driver of this java program.
    It examines the request, and its parameters.
    It then checks if the session already exists from where the request is coming from, it constinues doing what it's supposed to do.
    Else, the user is redirected to the login page.
@@ -39,13 +39,9 @@ public class AppFilter implements Filter
       HttpServletRequest request = (HttpServletRequest) req;
       HttpServletResponse response = (HttpServletResponse) res;
       String requestURI = request.getRequestURI();
-<<<<<<< HEAD
-
-      if((((HttpServletRequest)request).getSession(false)==null) && ((!requestURI.startsWith("/"+contextPath+"/Login")) || (!requestURI.startsWith("/"+contextPath+"/ViewAuthorBooks"))))
-=======
 
       if((((HttpServletRequest)request).getSession(false)==null) && (!requestURI.startsWith("/"+contextPath+"/Login")))
->>>>>>> 59f69b2ec2ce1cf1fbe4d00bfd6001fca937d47c
+      
       {
          // the session has expired (or does not exist) and the user is not on the login page.
          ((HttpServletResponse)response).sendRedirect("/"+contextPath+"/Login");
