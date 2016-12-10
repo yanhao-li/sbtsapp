@@ -130,7 +130,7 @@
   <property name="app.version"   value="0.1-dev"/>
   <property name="build.home"    value="${basedir}/build"/>
   <property name="catalina.home"
-value="/usr/local/Cellar/tomcat/8.5.6/libexec"/> <!-- UPDATE THIS! -->
+value="C:/Users/Kyle Aronce/Desktop/DS/apache-tomcat-8.5.9"/> <!-- UPDATE THIS! -->
   <property name="dist.home"     value="${basedir}/dist"/>
   <property name="docs.home"     value="${basedir}/docs"/>
   <property name="manager.url"   value="http://localhost:8080/manager/text"/>

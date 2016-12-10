@@ -63,7 +63,6 @@
         <td name="bookID" align="center"><%=book[0]%></td>
         <td name="title" align="center"><%=book[1]%></td>
         <td name="startdate" align="center"><%=book[2]%></td>
-        <td name="bookformat" align="center"><%=book[3]%></td>
         <td name = "BookID" align="center">
     	<form id="selectBook<%=count%>" method="POST" action="AssignShepherd"> <!-- each book has its own form -->
     	       <input type="submit" name="Submit" value="Select" class="btn btn-outline-primary btn-sm"/> <!-- submit book selected to Assign Shepherd servlet-->

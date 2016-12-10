@@ -279,4 +279,16 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
         <servlet-name>ViewAuthorBooks</servlet-name>
         <url-pattern>/ViewAuthorBooks</url-pattern>
 </servlet-mapping>
+
+
+<servlet>
+        <servlet-name>ViewBooksNotPublished</servlet-name>
+        <servlet-class>maxapp.ViewBooksNotPublished</servlet-class>
+</servlet>
+
+<servlet-mapping>
+        <servlet-name>ViewBooksNotPublished</servlet-name>
+        <url-pattern>/ViewBooksNotPublished</url-pattern>
+</servlet-mapping>
+
 </web-app>
