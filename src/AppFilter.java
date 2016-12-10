@@ -26,7 +26,7 @@ import javax.servlet.http.HttpServletResponse;
 public class AppFilter implements Filter
 {
    //The path to access your files on eve
-   public static String contextPath = "MAXAPP"; // ********MAKE SURE TO CHANGE THIS TO MAXAPP, WHICH IS OUR SERVER NAME*******
+   public static String contextPath = "maxapp"; // ********MAKE SURE TO CHANGE THIS TO MAXAPP, WHICH IS OUR SERVER NAME*******
 
 
    /* doFilter() is the main driver of this java program.
