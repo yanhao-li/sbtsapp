@@ -2,3 +2,6 @@ UI Design
 sbtsapp.graffle
 web/WEB-INF/lib/mysql-connector-java-5.1.40-bin.jar
 build
+build.xml
+build.sh
+build.properties
