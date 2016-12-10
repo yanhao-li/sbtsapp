@@ -40,12 +40,9 @@ public class AppFilter implements Filter
       HttpServletResponse response = (HttpServletResponse) res;
       String requestURI = request.getRequestURI();
 
-<<<<<<< HEAD
-      if((((HttpServletRequest)request).getSession(false)==null) && ((!requestURI.startsWith("/"+contextPath+"/Login")) || (!requestURI.startsWith("/"+contextPath+"/ViewAuthorBooks"))))
-=======
       if((((HttpServletRequest)request).getSession(false)==null) && (!requestURI.startsWith("/"+contextPath+"/Login")))
-      
->>>>>>> max
+
+
       {
          // the session has expired (or does not exist) and the user is not on the login page.
          ((HttpServletResponse)response).sendRedirect("/"+contextPath+"/Login");
