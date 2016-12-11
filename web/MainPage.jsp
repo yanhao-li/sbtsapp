@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="resource/css/main.css">
     <title>Dashboard</title>
 </head>
-<body>
+<body style="overflow: hidden">
     <div class="container">
         <div class="jumbotron" id="mainpage-jumbotron">
           <img src= "resource/images/booklogo.png" alt = "Book Logo" style="float: right; width: 200px;">
