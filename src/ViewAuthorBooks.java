@@ -20,7 +20,7 @@ import maxapp.Shared;
 
 public class ViewAuthorBooks extends maxapp.Control{
     protected DBI dbi;
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         //Get the current HTTP session from Tomcat
         HttpSession session = request.getSession(true);
         //Gets the bean from session and retrieves shared data
@@ -30,8 +30,8 @@ public class ViewAuthorBooks extends maxapp.Control{
         String AuthorEmail = "";
 
         //get the new task note input
-        if(request.getParameter("email") != null){
-            AuthorEmail = request.getParameter("email");
+        if(request.getParameter("authoremail") != null){
+            AuthorEmail = request.getParameter("authoremail");
         }
 
         QueryAuthorBooks(bean, AuthorEmail);

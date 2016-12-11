@@ -353,12 +353,10 @@ public class DBI{
    if(rst.first())
    {
        for (int k = 0; k < records; k++){ //every row
-           for(int i = 0; i < columns; i++){ //every column
-            temp =rst.getString(book[i]);
-            if(temp==null)
-            temp ="";
-            result[k][i] = temp; //store details of books
-           }
+           result[k][0] = rst.getString("Title");
+           result[k][1] = rst.getString("BookStatus");
+           result[k][2] = rst.getString("StartDate");
+           result[k][3] = rst.getString("PublishedDate");
            rst.next();
        }
    }

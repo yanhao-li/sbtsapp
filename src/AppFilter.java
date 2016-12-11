@@ -40,6 +40,7 @@ public class AppFilter implements Filter
       HttpServletResponse response = (HttpServletResponse) res;
       String requestURI = request.getRequestURI();
 
+
       if((((HttpServletRequest)request).getSession(false)==null) && (!requestURI.startsWith("/"+contextPath+"/Login")))
 
 

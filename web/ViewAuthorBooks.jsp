@@ -28,14 +28,15 @@
             <jsp:setProperty name="shared" property="error" value=""/> <!-- empty error data from the shared bean -->
         </div>
 
-        <p class="lead">Hello!</p> <!--Get the firstname of the employee that is logged in and display it-->
+        <p class="lead">Hello Author!</p> <!--Get the firstname of the employee that is logged in and display it-->
         <!-- Buttons redirect user to other pages -->
         <div class="btn-group" role="group" aria-label="Basic example" style="float: right;">
           <a class="btn btn-secondary btn-sm" href="Login.jsp">Home Page</a>
         </div>
 
         <h4 align="center" style="color: #9E9E9E; padding: 30px 0; padding-top: 80px;">Assign a Task to a Book</h4>
-        <form class="form-inline" action="ViewAuthorBooks">
+
+        <form method="get" class="form-inline" action="ViewAuthorBooks">
             <div class="form-group">
                 <label for="email">Your Email</label>
                 <input type="email" class="form-control" id="email" name="authoremail" placeholder="example@kean.edu">
@@ -72,10 +73,12 @@
                 <td name="StartDate" align="center"><%=book[2]%></td>
                 <td name="PublishedDate" align="center"><%=book[3]%></td>
             </tr>
+            <%
+            }
+            %>
         </table>
 
         <%
-        }
             } //end of if
             else // the books list matrix was empty
             {
