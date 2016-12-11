@@ -36,7 +36,7 @@
 
         <h4 align="center" style="color: #9E9E9E; padding: 30px 0; padding-top: 80px;">Assign a Task to a Book</h4>
 
-        <form method="post" class="form-inline" action="ViewAuthorBooks">
+        <form method="get" class="form-inline" action="ViewAuthorBooks">
             <div class="form-group">
                 <label for="email">Your Email</label>
                 <input type="email" class="form-control" id="email" name="authoremail" placeholder="example@kean.edu">
