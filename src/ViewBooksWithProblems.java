@@ -25,7 +25,7 @@ import maxapp.DBI;
 import maxapp.Control;
 import maxapp.Shared;
 
-public class ViewBooksInProgress extends maxapp.Control{
+public class ViewBooksWithProblems extends maxapp.Control{
     protected DBI dbi;
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
     //Get the current HTTP session from Tomcat
@@ -47,7 +47,7 @@ try{
         //Check if there is a database connection to Tomcat
         if(dbi.connect()){
         //Call the method from the DBI
-        books = dbi.getBooksInProgress();
+        books = dbi.getBooksWithProblems();
          //Set the list of Books so that it can be called in the jsp page
         bean.setBooksInProgress(books);
         }

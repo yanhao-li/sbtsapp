@@ -670,6 +670,27 @@ public class DBI{
     return result;
    }
 
+          public String[][] getBooksWithProblems() throws SQLException{
+    ResultSet rst = this.execQuery("SELECT b.Title, e.EmpFirstName, e.EmpLastName, t.TaskStatus,t.TaskType from Book b inner join Task t on b.BookID = t.BookID inner join Employees e on t.TechnicianID = e.EmpID  where TaskStatus = 'Task Problem' order by e.EmpLastName");
+    int records = RecordNum(rst);
+    int columns = 5;
+    String temp;
+    String [][] result = new String[records][columns];
+    if(rst.first())
+    {
+        for (int k = 0; k < records; k++){ //every row
+            for(int i = 0; i < columns; i++){ //every column
+             temp =rst.getString(booksinprogress[i]);
+             if(temp==null)
+             temp ="";
+             result[k][i] = temp; //store details of non published books
+            }
+            rst.next();
+        }
+    }
+    return result;
+   }
+
 
 
    //End of method
