@@ -47,9 +47,9 @@ try{
         //Check if there is a database connection to Tomcat
         if(dbi.connect()){
         //Call the method from the DBI
-        books= dbi.getBooksNotPublished();
+        books = dbi.getBooksNotPublished();
          //Set the list of Books so that it can be called in the jsp page
-        bean.setBooks(books);
+        bean.setBooksNotPublished(books);
         }
 }
 
