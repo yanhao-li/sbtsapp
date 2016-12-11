@@ -30,6 +30,8 @@ public class DBI{
     String [] Task = {"TaskID", "StartDate", "EndDate", "BookID","TaskType", "TaskNotes", "TaskStatus", "TechnicianID", "Title"};
     String [] selecttask = {"TaskID","Title", "TaskType", "TaskStatus", "TaskNotes", "StartDate", "FileName"};
     String [] unpublishedbooks = {"EmpFirstName", "EmpLastName", "Title", "StartDate", "BookStatus"};
+    String [] bookslastquarter = {"ContractID", "InitialTitle", "PricePublish", "RoyaltyRate", "BookDoctor","DateContract", "ContractStatus"};
+    String [] booksinprogress = {"Title","EmpFirstName","EmpLastName","TaskStatus","TaskType"};
 
     public void DBI() throws NamingException, SQLException{}
 
@@ -617,12 +619,56 @@ public class DBI{
    }
 
 
+   //Kyle: A method for getting books in the last 3 months
+   //bookslastquarter[]
+
+
+    public String[][] getBooksLastQuarter() throws SQLException{
+    ResultSet rst = this.execQuery("SELECT c.ContractID, c.InitialTitle, c.PricePublish,  c.RoyaltyRate,c.BookDoctor,c.DateContract, c.ContractStatus FROM Book b inner join Contract c on b.BookID=c.BookID WHERE  StartDate  BETWEEN DATE_SUB(NOW(), INTERVAL 90 DAY)  AND NOW()");
+    int columns = 7;
+    int records = RecordNum(rst);
+    String temp;
+    String [][] result = new String[records][columns];
+    if(rst.first())
+    {
+        for (int k = 0; k < records; k++){ //every row
+            for(int i = 0; i < columns; i++){ //every column
+             temp =rst.getString(bookslastquarter[i]);
+             if(temp==null)
+             temp ="";
+             result[k][i] = temp; //store details of non published books
+            }
+            rst.next();
+        }
+    }
+    return result;
+   }
+
+
+   //Books still not complete
 
 
 
-
-
-
+       public String[][] getBooksInProgress() throws SQLException{
+    ResultSet rst = this.execQuery("SELECT b.Title, e.EmpFirstName, e.EmpLastName, t.TaskStatus,t.TaskType from Book b inner join Task t on b.BookID = t.BookID inner join Employees e on t.TechnicianID = e.EmpID  where TaskStatus != 'Task Complete' order by e.EmpLastName");
+    int records = RecordNum(rst);
+    int columns = 5;
+    String temp;
+    String [][] result = new String[records][columns];
+    if(rst.first())
+    {
+        for (int k = 0; k < records; k++){ //every row
+            for(int i = 0; i < columns; i++){ //every column
+             temp =rst.getString(booksinprogress[i]);
+             if(temp==null)
+             temp ="";
+             result[k][i] = temp; //store details of non published books
+            }
+            rst.next();
+        }
+    }
+    return result;
+   }
 
 
 

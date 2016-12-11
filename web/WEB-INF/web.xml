@@ -291,4 +291,26 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
         <url-pattern>/ViewBooksNotPublished</url-pattern>
 </servlet-mapping>
 
+<servlet>
+        <servlet-name>ViewBooksLastQuarter</servlet-name>
+        <servlet-class>maxapp.ViewBooksLastQuarter</servlet-class>
+</servlet>
+
+<servlet-mapping>
+        <servlet-name>ViewBooksLastQuarter</servlet-name>
+        <url-pattern>/ViewBooksLastQuarter</url-pattern>
+</servlet-mapping>
+
+
+<servlet>
+        <servlet-name>ViewBooksInProgress</servlet-name>
+        <servlet-class>maxapp.ViewBooksInProgress</servlet-class>
+</servlet>
+
+<servlet-mapping>
+        <servlet-name>ViewBooksInProgress</servlet-name>
+        <url-pattern>/ViewBooksInProgress</url-pattern>
+</servlet-mapping>
+
+
 </web-app>

@@ -45,6 +45,8 @@ public class Shared implements Serializable {
     private String [][] shepherdbooklist; //The list of books a shepherd is in charge of
     private String [][] techtasklist; //List of tasks that a tech is responsible for
     private String [][] booksnotpublished; //List of books that are not yet published.
+    private String [][] bookslastquarter; //List of books for last quarter
+        private String [][] booksinprogress; //List of books for last quarter
     private String [] taskdetail; //Details of a single task
 	private String [][] tasksofbook;
     private String TaskOption;
@@ -259,6 +261,29 @@ public class Shared implements Serializable {
    {
       this.booksnotpublished = value;
    }
+
+           public String [][] getBooksLastQuarter()
+   {
+      return(this.bookslastquarter);
+   }
+
+           public void setBooksLastQuarter(String [][] value)
+   {
+      this.bookslastquarter = value;
+   }
+
+   //acquiring books in progress (pending tasks)
+
+              public String [][] getBooksInProgress()
+   {
+      return(this.booksinprogress);
+   }
+
+           public void setBooksInProgress(String [][] value)
+   {
+      this.booksinprogress = value;
+   }
+
 
    public void setBooks(String [][] value)
    {
