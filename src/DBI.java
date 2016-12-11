@@ -29,9 +29,8 @@ public class DBI{
     String [] contract = {"ContractID", "AuthorID", "AuthorFirstName", "AuthorLastName", "EmpID", "EmpFirstName", "EmpLastName", "InitialTitle", "ContractStatus"};
     String [] Task = {"TaskID", "StartDate", "EndDate", "BookID","TaskType", "TaskNotes", "TaskStatus", "TechnicianID", "Title"};
     String [] selecttask = {"TaskID","Title", "TaskType", "TaskStatus", "TaskNotes", "StartDate", "FileName"};
+    String [] unpublishedbooks = {"EmpFirstName", "EmpLastName", "Title", "StartDate", "BookStatus"};
 
-    //books not published
-    String [] booksnotpublished = {"EmpFirstName","EmpLastName", "Title"};
     public void DBI() throws NamingException, SQLException{}
 
     public boolean connect() throws NamingException, SQLException{
@@ -597,8 +596,8 @@ public class DBI{
 
 
        public String[][] getBooksNotPublished() throws SQLException{
-    ResultSet rst = this.execQuery("select e.EmpFirstName,e.EmpLastName, b.Title from Employees e left join Book b on e.EmpID = b.ShepherdID where b.PublishedDate is NULL and Title is NOT NULL order by e.EmpFirstName");
-    int columns = 3;
+    ResultSet rst = this.execQuery("select e.EmpFirstName,e.EmpLastName, b.Title,b.StartDate,b.BookStatus from Employees e left join Book b on e.EmpID = b.ShepherdID where b.PublishedDate is NULL and Title is NOT NULL order by e.EmpFirstName");
+    int columns = 5;
     int records = RecordNum(rst);
     String temp;
     String [][] result = new String[records][columns];
@@ -606,7 +605,7 @@ public class DBI{
     {
         for (int k = 0; k < records; k++){ //every row
             for(int i = 0; i < columns; i++){ //every column
-             temp =rst.getString(booksnotpublished[i]);
+             temp =rst.getString(unpublishedbooks[i]);
              if(temp==null)
              temp ="";
              result[k][i] = temp; //store details of non published books

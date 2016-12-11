@@ -38,7 +38,7 @@
         <h4 align="center" style="color: #9E9E9E; padding: 30px 0; padding-top: 80px;">Select a Book to Assign</h4>
     <%
     //Get the list of books that were set in the bean
-    String [][] books = shared.getBooks();
+    String [][] books = shared.getBooksNotPublished();
     if(books != null && books.length != 0){
     %>
     <!-- Table used to display information-->
@@ -46,11 +46,10 @@
         <thead>
             <tr>
             <!-- Table headers-->
-                 <th>Book ID</th>
+                 <th>Employee Name</th>
                  <th>Title</th>
                  <th>Start Date</th>
-                 <th>Book Format</th>
-                 <th>Select Book</th>
+                 <th>Status</th>
             </tr>
         </thead>
     <%
@@ -60,15 +59,10 @@
     %>
     <tr>
     <!-- Display information from array that correlates to the columns used in the query -->
-        <td name="bookID" align="center"><%=book[0]%></td>
-        <td name="title" align="center"><%=book[1]%></td>
-        <td name="startdate" align="center"><%=book[2]%></td>
-        <td name = "BookID" align="center">
-    	<form id="selectBook<%=count%>" method="POST" action="AssignShepherd"> <!-- each book has its own form -->
-    	       <input type="submit" name="Submit" value="Select" class="btn btn-outline-primary btn-sm"/> <!-- submit book selected to Assign Shepherd servlet-->
-    	       <input type="hidden" name="BookID" value="<%=count%>" /> <!-- send row index of the selected book -->
-    	</form>
-    </td>
+        <td name="Employee Name" align="center"><%=book[0]%> <%=book[1]%></td>
+        <td name="Book Title" align="center"><%=book[2]%></td>
+        <td name="Start Date" align="center"><%=book[3]%></td>
+        <td name="Book Status" align="center"><%=book[4]%></td>
     </tr>
     <%
     count++;
