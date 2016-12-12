@@ -69,7 +69,7 @@
                 <td name="StartDate" align="center"><%=book[2]%></td>
                 <td name="BookFormat" align="center"><%=book[3]%></td>
                 <td name = "BookID" align="center">
-        		<form id="selectBook<%=count%>" method="POST" action="ViewTaskDetails"> <!-- each book has its own form -->
+        		<form id="selectBook<%=count%>" method="POST" action="ViewTasksofBook"> <!-- each book has its own form -->
             		<input type="submit" name="Submit" value="Select" class="btn btn-outline-primary btn-sm"/> <!-- submit book selected to ViewTaskDetails servlet-->
             		<input type="hidden" name="RowIndex" value="<%=count%>" /> <!-- send row index of the selected book -->
         		</form>
