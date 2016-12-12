@@ -322,4 +322,14 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
         <url-pattern>/ViewBooksWithProblems</url-pattern>
 </servlet-mapping>
 
+<servlet>
+        <servlet-name>ViewTasksofBook</servlet-name>
+        <servlet-class>maxapp.ViewTasksofBook</servlet-class>
+</servlet>
+
+<servlet-mapping>
+        <servlet-name>ViewTasksofBook</servlet-name>
+        <url-pattern>/ViewTasksofBook</url-pattern>
+</servlet-mapping>
+
 </web-app>
