@@ -1,0 +1,325 @@
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+    version="2.4">
+<filter>
+    <filter-name>AppFilter</filter-name>
+    <filter-class>
+        maxapp.AppFilter
+    </filter-class>
+    <!-- UNUSED...
+	  <init-param>
+        <param-name>test-param</param-name>
+        <param-value>This parameter is for testing.</param-value>
+    </init-param>
+    -->
+</filter>
+<filter-mapping>
+    <filter-name>AppFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+</filter-mapping>
+<servlet>
+        <servlet-name>Control</servlet-name>
+        <servlet-class>maxapp.Control</servlet-class>
+</servlet>
+
+<servlet-mapping>
+        <servlet-name>Control</servlet-name>
+        <url-pattern>/Control</url-pattern>
+</servlet-mapping>
+
+<servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>maxapp.Login</servlet-class>
+</servlet>
+
+<servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/Login</url-pattern>
+</servlet-mapping>
+
+<servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>maxapp.Logout</servlet-class>
+</servlet>
+
+<servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/Logout</url-pattern>
+</servlet-mapping>
+
+<servlet>
+        <servlet-name>Shared</servlet-name>
+        <servlet-class>maxapp.Shared</servlet-class>
+</servlet>
+<servlet-mapping>
+        <servlet-name>Shared</servlet-name>
+        <url-pattern>/Shared</url-pattern>
+</servlet-mapping>
+
+<servlet>
+        <servlet-name>DBI</servlet-name>
+        <servlet-class>maxapp.DBI</servlet-class>
+</servlet>
+
+<servlet-mapping>
+        <servlet-name>DBI</servlet-name>
+        <url-pattern>/DBI</url-pattern>
+</servlet-mapping>
+
+<servlet>
+        <servlet-name>ViewContracts</servlet-name>
+        <servlet-class>maxapp.ViewContracts</servlet-class>
+</servlet>
+
+<servlet-mapping>
+        <servlet-name>ViewContracts</servlet-name>
+        <url-pattern>/ViewContracts</url-pattern>
+</servlet-mapping>
+
+
+<servlet>
+        <servlet-name>SelectContract</servlet-name>
+        <servlet-class>maxapp.SelectContract</servlet-class>
+</servlet>
+
+<servlet-mapping>
+        <servlet-name>SelectContract</servlet-name>
+        <url-pattern>/SelectContract</url-pattern>
+</servlet-mapping>
+
+<servlet>
+        <servlet-name>AssignShepherd</servlet-name>
+        <servlet-class>maxapp.AssignShepherd</servlet-class>
+</servlet>
+
+<servlet-mapping>
+        <servlet-name>AssignShepherd</servlet-name>
+        <url-pattern>/AssignShepherd</url-pattern>
+</servlet-mapping>
+
+<servlet>
+        <servlet-name>CreateBook</servlet-name>
+        <servlet-class>maxapp.CreateBook</servlet-class>
+</servlet>
+
+<servlet-mapping>
+        <servlet-name>CreateBook</servlet-name>
+        <url-pattern>/CreateBook</url-pattern>
+</servlet-mapping>
+
+
+<servlet>
+        <servlet-name>BookList</servlet-name>
+        <servlet-class>maxapp.BookList</servlet-class>
+</servlet>
+
+<servlet-mapping>
+        <servlet-name>BookList</servlet-name>
+        <url-pattern>/BookList</url-pattern>
+</servlet-mapping>
+
+<servlet>
+        <servlet-name>ShepherdConfirmation</servlet-name>
+        <servlet-class>maxapp.ShepherdConfirmation</servlet-class>
+</servlet>
+
+<servlet-mapping>
+        <servlet-name>ShepherdConfirmation</servlet-name>
+        <url-pattern>/ShepherdConfirmation</url-pattern>
+</servlet-mapping>
+
+
+<servlet>
+        <servlet-name>ViewShepherdBookRecords</servlet-name>
+        <servlet-class>maxapp.ViewShepherdBookRecords</servlet-class>
+</servlet>
+
+<servlet-mapping>
+        <servlet-name>ViewShepherdBookRecords</servlet-name>
+        <url-pattern>/ViewShepherdBookRecords</url-pattern>
+</servlet-mapping>
+
+<servlet>
+        <servlet-name>SelectBook</servlet-name>
+        <servlet-class>maxapp.SelectBook</servlet-class>
+</servlet>
+
+<servlet-mapping>
+        <servlet-name>SelectBook</servlet-name>
+        <url-pattern>/SelectBook</url-pattern>
+</servlet-mapping>
+
+
+
+<servlet>
+        <servlet-name>AssignTask</servlet-name>
+        <servlet-class>maxapp.AssignTask</servlet-class>
+</servlet>
+
+<servlet-mapping>
+        <servlet-name>AssignTask</servlet-name>
+        <url-pattern>/AssignTask</url-pattern>
+</servlet-mapping>
+
+
+<servlet>
+        <servlet-name>SelectTech</servlet-name>
+        <servlet-class>maxapp.SelectTech</servlet-class>
+</servlet>
+
+<servlet-mapping>
+        <servlet-name>SelectTech</servlet-name>
+        <url-pattern>/SelectTech</url-pattern>
+</servlet-mapping>
+
+
+<servlet>
+        <servlet-name>ConfirmTech</servlet-name>
+        <servlet-class>maxapp.ConfirmTech</servlet-class>
+</servlet>
+
+<servlet-mapping>
+        <servlet-name>ConfirmTech</servlet-name>
+        <url-pattern>/ConfirmTech</url-pattern>
+</servlet-mapping>
+
+
+<servlet>
+        <servlet-name>ViewTaskDetails</servlet-name>
+        <servlet-class>maxapp.ViewTaskDetails</servlet-class>
+</servlet>
+
+<servlet-mapping>
+        <servlet-name>ViewTaskDetails</servlet-name>
+        <url-pattern>/ViewTaskDetails</url-pattern>
+</servlet-mapping>
+
+
+<servlet>
+        <servlet-name>SendBookBack</servlet-name>
+        <servlet-class>maxapp.SendBookBack</servlet-class>
+</servlet>
+
+<servlet-mapping>
+        <servlet-name>SendBookBack</servlet-name>
+        <url-pattern>/SendBookBack</url-pattern>
+</servlet-mapping>
+
+<servlet>
+        <servlet-name>ConfirmTechParallel</servlet-name>
+        <servlet-class>maxapp.ConfirmTechParallel</servlet-class>
+</servlet>
+
+<servlet-mapping>
+        <servlet-name>ConfirmTechParallel</servlet-name>
+        <url-pattern>/ConfirmTechParallel</url-pattern>
+</servlet-mapping>
+
+
+<servlet>
+        <servlet-name>ViewTaskDetailsParallel</servlet-name>
+        <servlet-class>maxapp.ViewTaskDetailsParallel</servlet-class>
+</servlet>
+
+<servlet-mapping>
+        <servlet-name>ViewTaskDetailsParallel</servlet-name>
+        <url-pattern>/ViewTaskDetailsParallel</url-pattern>
+</servlet-mapping>
+
+
+<servlet>
+        <servlet-name>ViewTechTaskList</servlet-name>
+        <servlet-class>maxapp.ViewTechTaskList</servlet-class>
+</servlet>
+
+<servlet-mapping>
+        <servlet-name>ViewTechTaskList</servlet-name>
+        <url-pattern>/ViewTechTaskList</url-pattern>
+</servlet-mapping>
+
+
+<servlet>
+        <servlet-name>SelectTask</servlet-name>
+        <servlet-class>maxapp.SelectTask</servlet-class>
+</servlet>
+
+<servlet-mapping>
+        <servlet-name>SelectTask</servlet-name>
+        <url-pattern>/SelectTask</url-pattern>
+</servlet-mapping>
+
+<servlet>
+        <servlet-name>EditTask</servlet-name>
+        <servlet-class>maxapp.EditTask</servlet-class>
+</servlet>
+
+<servlet-mapping>
+        <servlet-name>EditTask</servlet-name>
+        <url-pattern>/EditTask</url-pattern>
+</servlet-mapping>
+
+<servlet>
+        <servlet-name>EditTaskConfirm</servlet-name>
+        <servlet-class>maxapp.EditTaskConfirm</servlet-class>
+</servlet>
+
+<servlet-mapping>
+        <servlet-name>EditTaskConfirm</servlet-name>
+        <url-pattern>/EditTaskConfirm</url-pattern>
+</servlet-mapping>
+
+<servlet>
+        <servlet-name>ViewAuthorBooks</servlet-name>
+        <servlet-class>maxapp.ViewAuthorBooks</servlet-class>
+</servlet>
+
+<servlet-mapping>
+        <servlet-name>ViewAuthorBooks</servlet-name>
+        <url-pattern>/ViewAuthorBooks</url-pattern>
+</servlet-mapping>
+
+
+<servlet>
+        <servlet-name>ViewBooksNotPublished</servlet-name>
+        <servlet-class>maxapp.ViewBooksNotPublished</servlet-class>
+</servlet>
+
+<servlet-mapping>
+        <servlet-name>ViewBooksNotPublished</servlet-name>
+        <url-pattern>/ViewBooksNotPublished</url-pattern>
+</servlet-mapping>
+
+<servlet>
+        <servlet-name>ViewBooksLastQuarter</servlet-name>
+        <servlet-class>maxapp.ViewBooksLastQuarter</servlet-class>
+</servlet>
+
+<servlet-mapping>
+        <servlet-name>ViewBooksLastQuarter</servlet-name>
+        <url-pattern>/ViewBooksLastQuarter</url-pattern>
+</servlet-mapping>
+
+
+<servlet>
+        <servlet-name>ViewBooksInProgress</servlet-name>
+        <servlet-class>maxapp.ViewBooksInProgress</servlet-class>
+</servlet>
+
+<servlet-mapping>
+        <servlet-name>ViewBooksInProgress</servlet-name>
+        <url-pattern>/ViewBooksInProgress</url-pattern>
+</servlet-mapping>
+
+<servlet>
+        <servlet-name>ViewBooksWithProblems</servlet-name>
+        <servlet-class>maxapp.ViewBooksWithProblems</servlet-class>
+</servlet>
+
+<servlet-mapping>
+        <servlet-name>ViewBooksWithProblems</servlet-name>
+        <url-pattern>/ViewBooksWithProblems</url-pattern>
+</servlet-mapping>
+
+</web-app>

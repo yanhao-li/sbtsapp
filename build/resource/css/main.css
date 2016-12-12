@@ -1,0 +1,104 @@
+*{
+    padding: 0;
+    border: none;
+    margin: 0;
+}
+
+html{
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    background-color: #FAFAFA;
+    height: 100%;
+    width: 100%;
+    font-size: 14px;
+    color: black;
+}
+
+.container-fluid{
+    height: 100%;
+    padding: 0;
+}
+
+div{
+    position: relative;
+}
+
+img{
+    text-align: center;
+}
+
+.login-page{
+    background-image: url(../images/login-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login-panel{
+    color: #80CBC4;
+    padding: 30px;
+    height: auto;
+    width: 30%;
+    margin: 0 auto;
+    background-color: rgba(255,255,255,0.7);
+}
+
+.btn-primary{
+    background-color: ##3E9ECF;
+}
+
+.main{
+    padding: 150px;
+    min-height: 50%;
+}
+
+.footer{
+    position: absolute;
+    padding: 10px 20px;
+    width: 100%;
+    height: auto;
+    font-size: 0.7rem;
+    bottom: 0;
+    color: #fff;
+}
+
+.message-panel{
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+#mainpage-jumbotron{
+    margin-top: 150px;
+    padding-bottom: 2rem;
+}
+
+.nav-link{
+    font-size: 1rem;
+    color: rgba(0,0,0,.7) !important;
+}
+
+.nav-link:hover{
+    color: rgba(0,0,0,1) !important;
+}
+
+.nav-item{
+    padding: 0 20px;
+}
+
+.navbar-light{
+    background-color: #eceeef;
+}
+
+th{
+    text-align: center;
+}
+td{
+    text-align: center;
+}
+
+.navbar-nav .nav-item+.nav-item{
+    margin-left: 0;
+}
