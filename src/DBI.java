@@ -411,7 +411,7 @@ public class DBI{
 
     // Method to get list of tasks that belong to a tech
     public String[][] getTechTaskList(int empid) throws SQLException{
-        ResultSet rst = this.execQuery("SELECT t.TaskID, t.StartDate, t.EndDate, t.BookID, t.TaskType, t.Tasknotes, t.TaskStatus, t.TechnicianID, b.Title FROM Task t, Book b WHERE b.BookID = t.BookID && t.TaskStatus != 'Complete' && t.TaskStatus != 'Task Problem' && t.TechnicianID = '"+empid+"'"); // needs more detailed select
+        ResultSet rst = this.execQuery("SELECT t.TaskID, t.StartDate, t.EndDate, t.BookID, t.TaskType, t.Tasknotes, t.TaskStatus, t.TechnicianID, b.Title FROM Task t, Book b WHERE b.BookID = t.BookID && t.TaskStatus != 'Task Complete' && t.TaskStatus != 'Task Problem' && t.TechnicianID = '"+empid+"'"); // needs more detailed select
         String temp;
         int records = RecordNum(rst);
         int columns = 9;
@@ -574,9 +574,9 @@ public class DBI{
         String rst1 = "UPDATE Task SET TaskStatus = '" + taskstatus + "' WHERE TaskID = '"+taskid+"';";
         if(taskstatus == "Task Problem" || taskstatus == "Task Complete"){
             String rst2 = "UPDATE Book b, Task t SET BookStatus = '" + taskstatus + "' WHERE b.BookID = (SELECT t.BookID WHERE t.TaskID = '"+taskid+"');";
+            stmt.executeUpdate(rst2);
         }
         stmt.executeUpdate(rst1);
-        stmt.executeUpdate(rst2s);
    }
 
             //Method to edit the notes of a task
