@@ -571,8 +571,12 @@ public class DBI{
           //Method to change the status of a task
      public void TaskChangeStatus(String taskid, String taskstatus) throws SQLException{
         Statement stmt = conn.createStatement();
-        String rst = "UPDATE Task SET TaskStatus = '" + taskstatus + "' WHERE TaskID = '"+taskid+"';";
-        stmt.executeUpdate(rst);
+        String rst1 = "UPDATE Task SET TaskStatus = '" + taskstatus + "' WHERE TaskID = '"+taskid+"';";
+        if(taskstatus == "Task Problem" || taskstatus == "Task Complete"){
+            String rst2 = "UPDATE Book b, Task t SET BookStatus = '" + taskstatus + "' WHERE b.BookID = (SELECT t.BookID WHERE t.TaskID = '"+taskid+"');";
+        }
+        stmt.executeUpdate(rst1);
+        stmt.executeUpdate(rst2s);
    }
 
             //Method to edit the notes of a task
