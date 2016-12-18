@@ -331,9 +331,4 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
         <servlet-name>ViewTasksofBook</servlet-name>
         <url-pattern>/ViewTasksofBook</url-pattern>
 </servlet-mapping>
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 6069efc6fc19567073ff908ec1924281193573ce
 </web-app>

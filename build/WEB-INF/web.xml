@@ -331,5 +331,4 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
         <servlet-name>ViewTasksofBook</servlet-name>
         <url-pattern>/ViewTasksofBook</url-pattern>
 </servlet-mapping>
-
 </web-app>

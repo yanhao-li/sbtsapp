@@ -412,11 +412,7 @@ public class DBI{
 
     // Method to get list of tasks that belong to a tech
     public String[][] getTechTaskList(int empid) throws SQLException{
-<<<<<<< HEAD
-        ResultSet rst = this.execQuery("SELECT t.TaskID, t.StartDate, t.EndDate, t.BookID, t.TaskType, t.Tasknotes, t.TaskStatus, t.TechnicianID, b.Title FROM Task t, Book b WHERE b.BookID = t.BookID && t.TaskStatus != 'Complete' && t.TechnicianID = '"+empid+"'"); // needs more detailed select
-=======
         ResultSet rst = this.execQuery("SELECT t.TaskID, t.StartDate, t.EndDate, t.BookID, t.TaskType, t.Tasknotes, t.TaskStatus, t.TechnicianID, b.Title FROM Task t, Book b WHERE b.BookID = t.BookID && t.TaskStatus != 'Task Complete' && t.TaskStatus != 'Task Problem' && t.TechnicianID = '"+empid+"'"); // needs more detailed select
->>>>>>> 6069efc6fc19567073ff908ec1924281193573ce
         String temp;
         int records = RecordNum(rst);
         int columns = 9;
