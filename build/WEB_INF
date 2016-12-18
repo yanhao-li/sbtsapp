@@ -261,16 +261,6 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 </servlet-mapping>
 
 <servlet>
-        <servlet-name>EditTaskConfirm</servlet-name>
-        <servlet-class>maxapp.EditTaskConfirm</servlet-class>
-</servlet>
-
-<servlet-mapping>
-        <servlet-name>EditTaskConfirm</servlet-name>
-        <url-pattern>/EditTaskConfirm</url-pattern>
-</servlet-mapping>
-
-<servlet>
         <servlet-name>ViewAuthorBooks</servlet-name>
         <servlet-class>maxapp.ViewAuthorBooks</servlet-class>
 </servlet>
@@ -279,61 +269,4 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
         <servlet-name>ViewAuthorBooks</servlet-name>
         <url-pattern>/ViewAuthorBooks</url-pattern>
 </servlet-mapping>
-
-
-<servlet>
-        <servlet-name>ViewBooksNotPublished</servlet-name>
-        <servlet-class>maxapp.ViewBooksNotPublished</servlet-class>
-</servlet>
-
-<servlet-mapping>
-        <servlet-name>ViewBooksNotPublished</servlet-name>
-        <url-pattern>/ViewBooksNotPublished</url-pattern>
-</servlet-mapping>
-
-<servlet>
-        <servlet-name>ViewBooksLastQuarter</servlet-name>
-        <servlet-class>maxapp.ViewBooksLastQuarter</servlet-class>
-</servlet>
-
-<servlet-mapping>
-        <servlet-name>ViewBooksLastQuarter</servlet-name>
-        <url-pattern>/ViewBooksLastQuarter</url-pattern>
-</servlet-mapping>
-
-
-<servlet>
-        <servlet-name>ViewBooksInProgress</servlet-name>
-        <servlet-class>maxapp.ViewBooksInProgress</servlet-class>
-</servlet>
-
-<servlet-mapping>
-        <servlet-name>ViewBooksInProgress</servlet-name>
-        <url-pattern>/ViewBooksInProgress</url-pattern>
-</servlet-mapping>
-
-<servlet>
-        <servlet-name>ViewBooksWithProblems</servlet-name>
-        <servlet-class>maxapp.ViewBooksWithProblems</servlet-class>
-</servlet>
-
-<servlet-mapping>
-        <servlet-name>ViewBooksWithProblems</servlet-name>
-        <url-pattern>/ViewBooksWithProblems</url-pattern>
-</servlet-mapping>
-
-<servlet>
-        <servlet-name>ViewTasksofBook</servlet-name>
-        <servlet-class>maxapp.ViewTasksofBook</servlet-class>
-</servlet>
-
-<servlet-mapping>
-        <servlet-name>ViewTasksofBook</servlet-name>
-        <url-pattern>/ViewTasksofBook</url-pattern>
-</servlet-mapping>
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 6069efc6fc19567073ff908ec1924281193573ce
 </web-app>

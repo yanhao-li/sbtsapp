@@ -412,7 +412,11 @@ public class DBI{
 
     // Method to get list of tasks that belong to a tech
     public String[][] getTechTaskList(int empid) throws SQLException{
+<<<<<<< HEAD
         ResultSet rst = this.execQuery("SELECT t.TaskID, t.StartDate, t.EndDate, t.BookID, t.TaskType, t.Tasknotes, t.TaskStatus, t.TechnicianID, b.Title FROM Task t, Book b WHERE b.BookID = t.BookID && t.TaskStatus != 'Complete' && t.TechnicianID = '"+empid+"'"); // needs more detailed select
+=======
+        ResultSet rst = this.execQuery("SELECT t.TaskID, t.StartDate, t.EndDate, t.BookID, t.TaskType, t.Tasknotes, t.TaskStatus, t.TechnicianID, b.Title FROM Task t, Book b WHERE b.BookID = t.BookID && t.TaskStatus != 'Task Complete' && t.TaskStatus != 'Task Problem' && t.TechnicianID = '"+empid+"'"); // needs more detailed select
+>>>>>>> 6069efc6fc19567073ff908ec1924281193573ce
         String temp;
         int records = RecordNum(rst);
         int columns = 9;
@@ -580,8 +584,12 @@ public class DBI{
           //Method to change the status of a task
      public void TaskChangeStatus(String taskid, String taskstatus) throws SQLException{
         Statement stmt = conn.createStatement();
-        String rst = "UPDATE Task SET TaskStatus = '" + taskstatus + "' WHERE TaskID = '"+taskid+"';";
-        stmt.executeUpdate(rst);
+        String rst1 = "UPDATE Task SET TaskStatus = '" + taskstatus + "' WHERE TaskID = '"+taskid+"';";
+        if(taskstatus == "Task Problem" || taskstatus == "Task Complete"){
+            String rst2 = "UPDATE Book b, Task t SET BookStatus = '" + taskstatus + "' WHERE b.BookID = (SELECT t.BookID WHERE t.TaskID = '"+taskid+"');";
+            stmt.executeUpdate(rst2);
+        }
+        stmt.executeUpdate(rst1);
    }
 
             //Method to edit the notes of a task
