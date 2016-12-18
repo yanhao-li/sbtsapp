@@ -34,7 +34,9 @@ public class EditTask extends maxapp.Control{
         int RowIndex = Integer.parseInt(request.getParameter("RowIndex"));
         //get the ID of the task selected
         String TaskID = TechTaskList[RowIndex][0];
+        String BookID = TechTaskList[RowIndex][3];
         bean.setTaskID(TaskID);
+        bean.setBookID(BookID);
 
         getTaskDetail(bean, TaskID);
         gotoPage("/EditTask.jsp", request, response);

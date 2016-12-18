@@ -222,14 +222,15 @@ public class DBI{
    }
 
    public String[] getTaskDetail(String taskid) throws SQLException{
-       ResultSet rst = this.execQuery("SELECT t.StartDate, t.TaskType, t.TaskNotes, t.TaskStatus, b.Title  From Task t, Book b WHERE t.TaskID = '"+taskid+"' && t.BookID = b.BookID ");
-       String [] result = new String [5];
+       ResultSet rst = this.execQuery("SELECT t.StartDate, t.TaskType, t.TaskNotes, t.TaskStatus, b.Title,b.BookID  From Task t, Book b WHERE t.TaskID = '"+taskid+"' && t.BookID = b.BookID ");
+       String [] result = new String [6];
        if(rst.first()){
             result[0] = rst.getString("StartDate");
             result[1] = rst.getString("TaskType");
             result[2] = rst.getString("TaskNotes");
             result[3] = rst.getString("Title");
             result[4] = rst.getString("TaskStatus");
+            result[5] = rst.getString("BookID");
         }
         return result;
   }
@@ -411,7 +412,7 @@ public class DBI{
 
     // Method to get list of tasks that belong to a tech
     public String[][] getTechTaskList(int empid) throws SQLException{
-        ResultSet rst = this.execQuery("SELECT t.TaskID, t.StartDate, t.EndDate, t.BookID, t.TaskType, t.Tasknotes, t.TaskStatus, t.TechnicianID, b.Title FROM Task t, Book b WHERE b.BookID = t.BookID && t.TaskStatus != 'Complete' && t.TaskStatus != 'Task Problem' && t.TechnicianID = '"+empid+"'"); // needs more detailed select
+        ResultSet rst = this.execQuery("SELECT t.TaskID, t.StartDate, t.EndDate, t.BookID, t.TaskType, t.Tasknotes, t.TaskStatus, t.TechnicianID, b.Title FROM Task t, Book b WHERE b.BookID = t.BookID && t.TaskStatus != 'Complete' && t.TechnicianID = '"+empid+"'"); // needs more detailed select
         String temp;
         int records = RecordNum(rst);
         int columns = 9;
@@ -558,13 +559,21 @@ public class DBI{
    }
 
        //Method to change the status of a book when a task is complete
-    public void BookTaskComplete(String taskid, String filename) throws SQLException{
+    public void BookTaskComplete(String bookID) throws SQLException{
+
+                 Statement stmt = conn.createStatement();
+    String rst = "UPDATE Book SET BookStatus = 'Task Complete' WHERE BookID = '"+bookID+"';";
+    stmt.executeUpdate(rst);
 
    }
 
 
           //Method to change the status of a book when a task is a problem
-    public void BookTaskProblem(String taskid, String filename) throws SQLException{
+    public void BookTaskProblem(String bookID) throws SQLException{
+
+    Statement stmt = conn.createStatement();
+    String rst = "UPDATE Book SET BookStatus = 'Task Problem' WHERE BookID = '"+bookID+"';";
+    stmt.executeUpdate(rst);
 
    }
 

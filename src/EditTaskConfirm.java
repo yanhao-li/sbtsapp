@@ -46,6 +46,9 @@ public class EditTaskConfirm extends maxapp.Control{
     private void UpdateTask(maxapp.Shared bean, String NewTaskNote) throws ServletException, IOException{
         String TaskOption = bean.getTaskOption();
         String TaskID = bean.getTaskID();
+        String BookID = bean.getBookID();
+        String BookisComplete = "Task Complete";
+        String ProblemswithTask = "Task Problem";
         String TaskStatus;
 
         maxapp.DBI dbi = null;
@@ -53,8 +56,21 @@ public class EditTaskConfirm extends maxapp.Control{
             dbi = new maxapp.DBI();
                 //Check if there is a database connection to Tomcat
                 if(dbi.connect()){
+
+                    if(TaskOption.equals(BookisComplete)){
+                        dbi.BookTaskComplete(BookID);
+                    }
+
+                    else if(TaskOption.equals(ProblemswithTask)){
+                        dbi.BookTaskProblem(BookID);
+                    }
+
+
+
                     dbi.EditTask(TaskID, NewTaskNote);
                     dbi.TaskChangeStatus(TaskID, TaskOption);
+
+
                 }
         }
         catch(Exception e){
