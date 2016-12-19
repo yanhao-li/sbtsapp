@@ -578,12 +578,16 @@ public class DBI{
    }
 
           //Method to change the status of a task
-     public void TaskChangeStatus(String taskid, String taskstatus) throws SQLException{
+     public void TaskChangeStatus(String taskid, String taskstatus, String tasktype) throws SQLException{
         Statement stmt = conn.createStatement();
         String rst1 = "UPDATE Task SET TaskStatus = '" + taskstatus + "' WHERE TaskID = '"+taskid+"';";
         if(taskstatus == "Task Problem" || taskstatus == "Task Complete"){
             String rst2 = "UPDATE Book b, Task t SET BookStatus = '" + taskstatus + "' WHERE b.BookID = (SELECT t.BookID WHERE t.TaskID = '"+taskid+"');";
             stmt.executeUpdate(rst2);
+            if(taskstatus == "Task Complete" || tasktype == "Publish"){
+                String rst3 = "UPDATE Book b, Task t SET BookStatus = 'Published' WHERE b.BookID = (SELECT t.BookID WHERE t.TaskID = '"+taskid+"');";
+                stmt.executeUpdate(rst3);
+            }
         }
         stmt.executeUpdate(rst1);
    }

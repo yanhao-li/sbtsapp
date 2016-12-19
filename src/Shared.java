@@ -59,6 +59,7 @@ public class Shared implements Serializable {
     private String AuthorID;
     private String authorlastname; //Lines 54 - 55 are variables for an author's last name, and first name
     private String authorfirstname;
+	private String tasktype;
 
 
 
@@ -140,6 +141,13 @@ public class Shared implements Serializable {
         public void setSkill(String value) {
 		this.skill = value;
         }
+
+		public String getTaskType() {
+			return(this.tasktype);
+		}
+		public void setTaskType(String value) {
+			this.tasktype = value;
+		}
 
         public String getTaskOption() {
           	return(this.TaskOption);

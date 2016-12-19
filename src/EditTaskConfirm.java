@@ -50,6 +50,7 @@ public class EditTaskConfirm extends maxapp.Control{
         String BookisComplete = "Task Complete";
         String ProblemswithTask = "Task Problem";
         String TaskStatus;
+        String TaskType = bean.getTaskType();
 
         maxapp.DBI dbi = null;
         try{
@@ -68,7 +69,7 @@ public class EditTaskConfirm extends maxapp.Control{
 
 
                     dbi.EditTask(TaskID, NewTaskNote);
-                    dbi.TaskChangeStatus(TaskID, TaskOption);
+                    dbi.TaskChangeStatus(TaskID, TaskOption, TaskType);
 
 
                 }
