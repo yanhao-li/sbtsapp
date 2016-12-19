@@ -33,7 +33,7 @@
         <p class="lead">Hello <jsp:getProperty name="shared" property="empFirstName"/>!</p> <!--Get the firstname of the employee that is logged in and display it-->
         <!-- Buttons redirect user to other pages -->
         <div class="btn-group" role="group" aria-label="Basic example" style="float: right;">
-          <a class="btn btn-secondary btn-sm" href="ViewTasksofBook.jsp">ViewTasksofBook</a>
+          <a class="btn btn-secondary btn-sm" href="ViewTasksofBook">ViewTasksofBook</a>
           <a class="btn btn-secondary btn-sm" href="MainPage.jsp">Main Page</a>
         </div>
         <h4 align="center" style="color: #9E9E9E; padding: 30px 0; padding-top: 80px;">Assign a Task to a Book</h4>
